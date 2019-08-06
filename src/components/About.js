@@ -3,6 +3,23 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Layout from "./AboutLayout"
 
+export default props => {
+	const { paragraphs } = props
+
+	const mappedParagraphs = paragraphs.map((p, i) => (
+		<BioParagraph key={`paragraph-${i}`}>{p}</BioParagraph>
+	))
+
+	return (
+		<Layout>
+			<ImageContainer>
+				<Img fluid={props.image} alt={props.imageAlt} />
+			</ImageContainer>
+			{mappedParagraphs}
+		</Layout>
+	)
+}
+
 const BioParagraph = styled.p`
 	line-height: 1.4;
 	letter-spacing: 1.1px;
@@ -26,20 +43,3 @@ const ImageContainer = styled.div`
 		float: none;
 	}
 `
-
-export default props => {
-	const { paragraphs } = props
-
-	const mappedParagraphs = paragraphs.map((p, i) => (
-		<BioParagraph key={`paragraph-${i}`}>{p}</BioParagraph>
-	))
-
-	return (
-		<Layout>
-			<ImageContainer>
-				<Img fluid={props.image} alt={props.imageAlt} />
-			</ImageContainer>
-			{mappedParagraphs}
-		</Layout>
-	)
-}
