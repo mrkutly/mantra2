@@ -179,8 +179,11 @@ const YearHeader = styled.h1`
 	width: fit-content;
 	margin: 20px 0 0;
 	cursor: pointer;
+	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
 	:hover {
-		text-shadow: 3px 3px lightblue, 6px 6px lightpink;
+		letter-spacing: 4px;
+		text-shadow: 1px 1px white, 4px 4px #ff8aed, 7px 7px #4fffff;
 	}
 `
 

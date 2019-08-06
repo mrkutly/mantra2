@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { borderBottomColorChange } from "./styles/animations"
 
 const Layout = props => {
 	return (
@@ -107,16 +108,19 @@ const Band = styled.span`
 	font-size: 2em;
 	cursor: pointer;
 
-	:hover {
-		border-bottom: 1px solid black;
-	}
 	@media screen and (max-width: 500px) {
 		font-size: 1.7rem;
 		display: block;
 		text-align: center;
 	}
-	a.active {
-		text-shadow: 3px 3px lightblue, 6px 6px lightpink;
+
+	a {
+		display: inline-block;
+	}
+	a.active,
+	a:hover {
+		/* text-shadow: 1px 1px white, 5px 5px #4fffff, 10px 10px lightblue;*/
+		animation: ${borderBottomColorChange} 2.5s linear infinite;
 	}
 `
 
@@ -128,12 +132,15 @@ const BandMember = styled.span`
 	font-size: 1.5em;
 	cursor: pointer;
 
-	:hover {
-		border-bottom: 1px solid black;
+	a {
+		display: inline-block;
 	}
-	a.active {
+
+	a.active,
+	a:hover {
 		font-weight: 550;
-		text-shadow: 3px 3px lightblue, 6px 6px lightpink;
+		/* text-shadow: 1px 1px white, 5px 5px #4fffff, 10px 10px lightblue; */
+		animation: ${borderBottomColorChange} 2.5s linear infinite;
 	}
 `
 

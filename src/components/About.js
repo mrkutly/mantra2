@@ -29,7 +29,7 @@ const ImageContainer = styled.div`
 	float: left;
 	width: 34em;
 	margin: 0 5vh 5vh 0;
-	box-shadow: 5px 5px lightblue, 10px 10px lightpink;
+	box-shadow: 5px 5px lightblue, 10px 10px #4fffff;
 
 	@media (max-width: 710px) {
 		float: none;

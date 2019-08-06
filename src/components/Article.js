@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { colorChange } from "./styles/animations"
 
 const ArticleListItem = styled.li`
 	list-style-type: circle;
@@ -18,46 +19,10 @@ const ArticleLink = styled.a`
 
 	:focus,
 	:hover {
-		animation: colorchange 2.5s linear infinite;
+		animation: ${colorChange} 2.5s linear infinite;
 		text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
 			-1px -1px #65318c;
 		letter-spacing: 4px;
-	}
-
-	@keyframes colorchange {
-		0% {
-			color: #ff8aed;
-		}
-		10% {
-			color: #fff952;
-		}
-		20% {
-			color: #4fffff;
-		}
-		30% {
-			color: #52ff6e;
-		}
-		40% {
-			color: #ff6e66;
-		}
-		50% {
-			color: #ff8aed;
-		}
-		60% {
-			color: #fff952;
-		}
-		70% {
-			color: #4fffff;
-		}
-		80% {
-			color: #52ff6e;
-		}
-		90% {
-			color: #ff6e66;
-		}
-		100% {
-			color: #ff8aed;
-		}
 	}
 `
 
