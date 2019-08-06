@@ -51,7 +51,7 @@ const Navbar = () => {
 				Home
 			</StyledLink>
 			\\
-			<StyledLink activeClassName="active" to="/about">
+			<StyledLink activeClassName="active" to="/about" partiallyActive={true}>
 				About
 			</StyledLink>
 			\\
