@@ -177,7 +177,7 @@ const _shrink = css`
 
 const YearHeader = styled.h1`
 	width: fit-content;
-	margin: 10px 0;
+	margin: 20px 0 0;
 	cursor: pointer;
 	:hover {
 		text-shadow: 3px 3px lightblue, 6px 6px lightpink;

@@ -74,7 +74,7 @@ const Layout = props => {
 
 const Container = styled.div`
 	max-width: 1300px;
-	margin: 100px auto;
+	margin: 70px auto;
 	display: grid;
 	grid-template-rows: 3vh 10vh 5fr;
 
@@ -108,7 +108,7 @@ const Band = styled.span`
 	cursor: pointer;
 
 	:hover {
-		border-bottom: 1px solid lightgreen;
+		border-bottom: 1px solid black;
 	}
 	@media screen and (max-width: 500px) {
 		font-size: 1.7rem;
@@ -129,7 +129,7 @@ const BandMember = styled.span`
 	cursor: pointer;
 
 	:hover {
-		border-bottom: 1px solid lightgreen;
+		border-bottom: 1px solid black;
 	}
 	a.active {
 		font-weight: 550;
