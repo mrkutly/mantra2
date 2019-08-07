@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { css, keyframes } from "styled-components"
 import Concert from "./Concert"
+import colors from "./styles/colors"
 
 class Year extends React.Component {
 	state = {
@@ -138,7 +139,7 @@ const Container = styled.div`
 `
 
 const YearStyles = styled.a`
-	color: black;
+	color: ${colors.black};
 	text-shadow: ${props =>
 		props.active ? "3px 3px lightblue, 6px 6px lightpink" : "none"};
 	text-decoration: none;
@@ -183,7 +184,6 @@ const YearHeader = styled.h1`
 
 	:hover {
 		letter-spacing: 4px;
-		text-shadow: 1px 1px white, 4px 4px #ff8aed, 7px 7px #4fffff;
 	}
 `
 

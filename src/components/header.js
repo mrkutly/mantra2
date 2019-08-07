@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import colors from "./styles/colors"
 
 const Navbar = () => {
 	return (
@@ -48,19 +49,19 @@ const StyledLink = styled(Link)`
 	cursor: pointer;
 	text-decoration: none;
 	font-weight: 600;
-	color: black;
+	color: ${colors.black};
 
 	:hover {
-		border-bottom: solid 1px lightblue;
+		border-bottom: solid 1px ${colors.lightblue};
 	}
 
 	&.active {
-		border-bottom: solid 1px black;
+		border-bottom: solid 1px ${colors.green};
 	}
 `
 
 const StyledNavBar = styled.header`
-	border-bottom: 1px solid lightpink;
+	border-bottom: 1px solid ${colors.black};
 	line-height: 2em;
 	margin-top: 5px;
 	z-index: 2;

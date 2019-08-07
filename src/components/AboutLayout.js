@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { borderBottomColorChange } from "./styles/animations"
+import colors from "./styles/colors"
 
 const Layout = props => {
 	return (
@@ -95,7 +96,7 @@ const NavBar = styled.div`
 	}
 
 	a {
-		color: black;
+		color: ${colors.black};
 	}
 `
 const Content = styled.div`
@@ -119,7 +120,6 @@ const Band = styled.span`
 	}
 	a.active,
 	a:hover {
-		/* text-shadow: 1px 1px white, 5px 5px #4fffff, 10px 10px lightblue;*/
 		animation: ${borderBottomColorChange} 2.5s linear infinite;
 	}
 `
@@ -139,7 +139,6 @@ const BandMember = styled.span`
 	a.active,
 	a:hover {
 		font-weight: 550;
-		/* text-shadow: 1px 1px white, 5px 5px #4fffff, 10px 10px lightblue; */
 		animation: ${borderBottomColorChange} 2.5s linear infinite;
 	}
 `
