@@ -22,11 +22,11 @@ const VideoPlayerStyles = styled.div`
 	animation: 0.8s ${fadeIn} ease-in;
 	position: -webkit-sticky;
 	position: sticky;
+	float: right;
 	top: 25%;
-	grid-column-start: 2;
 
-	@media (max-width: 500px) {
-		top: 0;
-		width: 375px;
+	@media (max-width: 800px) {
+		align-self: start;
+		justify-self: center;
 	}
 `

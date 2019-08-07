@@ -180,10 +180,12 @@ const YearHeader = styled.h1`
 	width: fit-content;
 	margin: 20px 0 0;
 	cursor: pointer;
-	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+		text-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 	:hover {
 		letter-spacing: 4px;
+		color: ${colors.green};
 	}
 `
 
