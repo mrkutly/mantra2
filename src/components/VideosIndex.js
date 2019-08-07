@@ -35,7 +35,6 @@ const VideoIndexStyles = styled.div`
 const TitleContainerStyles = styled.div`
 	grid-column-start: 1;
 	grid-row-start: 1;
-	/* align-self: flex-start; */
 `
 
 const VideoPageStyles = styled.div`

@@ -25,7 +25,7 @@ const BioParagraph = styled.p`
 	letter-spacing: 1.1px;
 `
 
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
 	float: left;
 	width: 34em;
 	margin: 0 5vh 5vh 0;

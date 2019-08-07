@@ -30,7 +30,11 @@ const Navbar = () => {
 				Discography
 			</StyledLink>
 			\\
-			<StyledLink activeClassName="active" to="/mantrayouth">
+			<StyledLink
+				activeClassName="active"
+				to="/mantrayouth"
+				partiallyActive={true}
+			>
 				Mantra Youth Percussion
 			</StyledLink>
 			\\

@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Logo from "../components/Logo"
 
-const IndexPage = () => (
+export default () => (
 	<Layout>
 		<SEO title="Home" />
 		<div style={{ display: "grid", gridTemplateRows: "1fr 1fr 1fr" }}>
@@ -11,5 +11,3 @@ const IndexPage = () => (
 		</div>
 	</Layout>
 )
-
-export default IndexPage
