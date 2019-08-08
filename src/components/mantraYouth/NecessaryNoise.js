@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { Email } from "../Contact"
+import colors from "../styles/colors"
 import { ImageContainer } from "../About"
 
 const NecessaryNoise = props => {
@@ -26,56 +26,57 @@ const NecessaryNoise = props => {
 				Percussion Ensemble, William Paterson University Percussion Ensemble,
 				and Juilliard Pre-College Percussion Ensemble.
 			</p>
-			<p>Past festivals have featured performances and workshops from:</p>
-			<ListContainer>
-				<ul>
-					<li>Stony Brook University</li>
-					<li>Rutgers University</li>
-					<li>NJCU</li>
-					<li>Bard College</li>
-					<li>William Paterson University</li>
-					<li>New York University</li>
-					<li>Juilliard</li>
-					<li>Kean University</li>
-					<li>SUNY Purchase</li>
-					<li>Manhattan School of Music</li>
-				</ul>
-				<ul>
-					<li>Xylopholks</li>
-					<li>The Cadets</li>
-					<li>Anaglyphs</li>
-					<li>Marateck</li>
-					<li>Rahway High School</li>
-					<li>Rahway Academy</li>
-					<li>Rahway Elementary School</li>
-					<li>Rahway Elementary School</li>
-					<li>Verona High School</li>
-					<li>Montville High School</li>
-				</ul>
-				<ul>
-					<li>Lazaar Middle School</li>
-					<li>Ridgewood High School</li>
-					<li>Randolph High School</li>
-					<li>West Essex High School</li>
-					<li>Metuchen High School</li>
-					<li>West Orange High School</li>
-					<li>Rutgers Youth Percussion Ensemble</li>
-					<li>Special Music School</li>
-					<li>Ramsey High School</li>
-				</ul>
-			</ListContainer>
-			<h4>
+			<div style={{ margin: "20vh 0" }}>
+				<p>Past festivals have featured performances and workshops from:</p>
+				<ListContainer>
+					<ul>
+						<li>Stony Brook University</li>
+						<li>Rutgers University</li>
+						<li>NJCU</li>
+						<li>Bard College</li>
+						<li>William Paterson University</li>
+						<li>New York University</li>
+						<li>Juilliard</li>
+						<li>Kean University</li>
+						<li>SUNY Purchase</li>
+						<li>Manhattan School of Music</li>
+					</ul>
+					<ul>
+						<li>Xylopholks</li>
+						<li>The Cadets</li>
+						<li>Anaglyphs</li>
+						<li>Marateck</li>
+						<li>Rahway High School</li>
+						<li>Rahway Academy</li>
+						<li>Rahway Elementary School</li>
+						<li>Rahway Elementary School</li>
+						<li>Verona High School</li>
+						<li>Montville High School</li>
+					</ul>
+					<ul>
+						<li>Lazaar Middle School</li>
+						<li>Ridgewood High School</li>
+						<li>Randolph High School</li>
+						<li>West Essex High School</li>
+						<li>Metuchen High School</li>
+						<li>West Orange High School</li>
+						<li>Rutgers Youth Percussion Ensemble</li>
+						<li>Special Music School</li>
+						<li>Ramsey High School</li>
+					</ul>
+				</ListContainer>
+			</div>
+			<footer>
 				Interested ensembles should contact Festival Director Joe Bergen at{" "}
-				<Email href="mailto:joe@mantrapercussion.org">
-					joe@mantrapercussion.org
-				</Email>{" "}
+				<a href="mailto:joe@mantrapercussion.org">joe@mantrapercussion.org</a>{" "}
 				for more information.
-			</h4>
+			</footer>
 		</Container>
 	)
 }
 
 const Container = styled.div`
+	height: 100vh;
 	p,
 	ul {
 		margin: 20px auto;
@@ -85,6 +86,22 @@ const Container = styled.div`
 
 	ul {
 		list-style: circle;
+	}
+
+	footer {
+		margin: 10vh 0 4vh;
+		font-size: 1.1em;
+		text-align: center;
+		font-weight: 600;
+	}
+
+	a {
+		color: ${colors.pink};
+		font-weight: 700;
+
+		:hover {
+			color: ${colors.green};
+		}
 	}
 `
 

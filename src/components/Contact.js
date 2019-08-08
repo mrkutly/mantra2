@@ -1,36 +1,37 @@
 import React from "react"
 import styled from "styled-components"
+import colors from "./styles/colors"
+import { colorChange } from "./styles/animations"
 
-const Contact = () => {
-	return (
-		<ContactContainer>
-			<h3>
-				For booking, contact Al Cerulo at{" "}
-				<Email href="mailto:al@mantrapercussion.org">
-					al@mantrapercussion.org
-				</Email>
-			</h3>
-			<h3>
-				For any other inquiries, reach out to us at{" "}
-				<Email href="mailto:info@mantrapercussion.org">
-					info@mantrapercussion.org
-				</Email>
-			</h3>
-		</ContactContainer>
-	)
-}
+const Contact = () => (
+	<Container>
+		<h3 style={{ color: colors.black }}>
+			For booking, contact Joe Bergen at{" "}
+			<a href="mailto:joe@mantrapercussion.org">joe@mantrapercussion.org</a>
+		</h3>
 
-const ContactContainer = styled.div`
+		<h3 style={{ color: colors.black }}>
+			For any other inquiries, reach out to us at{" "}
+			<a href="mailto:info@mantrapercussion.org">info@mantrapercussion.org</a>
+		</h3>
+	</Container>
+)
+
+const Container = styled.div`
 	text-align: center;
-	margin: 25vh auto;
-	max-width: 1300px;
-`
+	margin: 20vh auto;
+	max-width: 1200px;
 
-export const Email = styled.a`
-	text-decoration: underline;
+	a {
+		color: ${colors.black};
+		transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-	:hover {
-		color: rgb(8, 189, 104);
+		:hover {
+			animation: ${colorChange} 2.5s linear infinite;
+			text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
+				-1px -1px #65318c;
+			letter-spacing: 2px;
+		}
 	}
 `
 
