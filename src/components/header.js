@@ -53,19 +53,20 @@ const StyledLink = styled(Link)`
 	cursor: pointer;
 	text-decoration: none;
 	font-weight: 600;
-	color: ${colors.black};
+	color: ${colors.grey};
 
 	:hover {
 		border-bottom: solid 1px ${colors.lightblue};
+		color: ${colors.black};
 	}
 
 	&.active {
 		border-bottom: solid 1px ${colors.green};
+		color: ${colors.black};
 	}
 `
 
 const StyledNavBar = styled.header`
-	border-bottom: 1px solid ${colors.black};
 	line-height: 2em;
 	margin-top: 5px;
 	z-index: 2;

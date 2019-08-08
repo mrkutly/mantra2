@@ -6,4 +6,5 @@ export default {
 	green: "#52ff6e",
 	peach: "#ff6e66",
 	black: "#000008",
+	grey: "#34343c",
 }
