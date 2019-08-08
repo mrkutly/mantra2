@@ -26,7 +26,8 @@ const Container = styled.div`
 		color: ${colors.black};
 		transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-		:hover {
+		:hover,
+		:focus {
 			animation: ${colorChange} 2.5s linear infinite;
 			text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
 				-1px -1px #65318c;

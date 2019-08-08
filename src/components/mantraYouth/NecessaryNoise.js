@@ -28,7 +28,7 @@ const NecessaryNoise = props => {
 			</p>
 			<div style={{ margin: "20vh 0" }}>
 				<p>Past festivals have featured performances and workshops from:</p>
-				<ListContainer>
+				<ListContainer tabIndex={0}>
 					<ul>
 						<li>Stony Brook University</li>
 						<li>Rutgers University</li>
