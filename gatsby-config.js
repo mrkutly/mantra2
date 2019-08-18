@@ -31,7 +31,7 @@ module.exports = {
 			{
 				id: 5,
 				name: `Video`,
-				link: `/video`,
+				link: `/videos`,
 				partial: false,
 			},
 			{
