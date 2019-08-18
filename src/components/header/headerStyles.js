@@ -3,13 +3,13 @@ import styled from "styled-components"
 import colors from "../styles/colors"
 import { colorChange } from "../styles/animations"
 
-const DesktopStyles = styled.span`
+export const DesktopStyles = styled.span`
 	@media (max-width: 870px) {
 		display: none;
 	}
 `
 
-const MobileStyles = styled.div`
+export const MobileStyles = styled.div`
 	@media (min-width: 871px) {
 		display: none;
 	}
@@ -58,7 +58,7 @@ const MobileStyles = styled.div`
 	}
 `
 
-const MobileLink = styled(Link)`
+export const MobileLink = styled(Link)`
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
@@ -72,14 +72,14 @@ const MobileLink = styled(Link)`
 	}
 `
 
-const MobileLinksGrid = styled.div`
+export const MobileLinksGrid = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-top: 5rem;
 	text-align: center;
 `
 
-const DeskTopLink = styled(Link)`
+export const DeskTopLink = styled(Link)`
 	display: inline-block;
 	background: white;
 	padding-bottom: 10px;
@@ -100,7 +100,7 @@ const DeskTopLink = styled(Link)`
 	}
 `
 
-const StyledNavBar = styled.header`
+export const StyledNavBar = styled.header`
 	line-height: 2em;
 	margin-top: 20px;
 	z-index: 2;

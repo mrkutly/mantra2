@@ -1,5 +1,13 @@
 import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import {
+	DeskTopLink,
+	MobileLink,
+	StyledNavBar,
+	DesktopStyles,
+	MobileStyles,
+	MobileLinksGrid,
+} from "./headerStyles.js"
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false)
