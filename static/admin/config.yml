@@ -32,6 +32,7 @@ collections:
     folder: "/src/data/calendar/{{concertYear}}/concerts"
     create: true
     format: json
+    widget: "object"
     fields:
       - { name: "concertYear", label: "Year" }
       - { name: "date", label: "Date (Month Day)" }
