@@ -36,4 +36,8 @@ const VideoPlayerStyles = styled.div`
 		align-self: start;
 		justify-self: center;
 	}
+
+	@media (max-width: 500px) {
+		height: 200px;
+	}
 `

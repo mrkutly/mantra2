@@ -40,9 +40,11 @@ const Container = styled.div`
 	display: grid;
 	grid-template-rows: 3vh 10vh 5fr;
 
-	@media (max-width: 450px) {
+	@media (max-width: 900px) {
 		max-width: 1300px;
 		margin: 50px auto;
+		display: flex;
+		flex-direction: column;
 	}
 `
 
@@ -50,9 +52,10 @@ const NavBar = styled.div`
 	line-height: 3em;
 	grid-row-start: 2;
 
-	@media (max-width: 500px) {
+	@media (max-width: 900px) {
 		max-width: 360px;
 		margin: 30px auto;
+		font-size: 0.8em;
 	}
 
 	a {
@@ -69,7 +72,7 @@ const Band = styled.span`
 	font-size: 2em;
 	cursor: pointer;
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 900px) {
 		font-size: 1.7rem;
 		display: block;
 		text-align: center;
@@ -105,6 +108,10 @@ const BandMember = styled.span`
 
 const Divider = styled.span`
 	font-size: 1.5em;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
 `
 
 export default Layout
