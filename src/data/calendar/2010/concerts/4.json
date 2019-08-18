@@ -1,0 +1,17 @@
+{
+	"date": "June 21",
+	"location": {
+		"venue": "Make Music New York",
+		"city": "Brooklyn, NY"
+	},
+	"program": [
+		{
+			"composer": "Aleksei Stevens",
+			"title": "if when without itself"
+		},
+		{
+			"composer": "Iannis Xenakis",
+			"title": "Okho"
+		}
+	]
+}

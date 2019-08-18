@@ -1,0 +1,13 @@
+{
+	"date": "October 3",
+	"location": {
+		"venue": "William Patterson University",
+		"city": "Patterson, NJ"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber (workshop)"
+		}
+	]
+}

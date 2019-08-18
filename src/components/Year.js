@@ -22,9 +22,7 @@ class Year extends React.Component {
 	}
 
 	mappedConcerts(concerts, year) {
-		let i = 0
-		return concerts.map(concert => {
-			i++
+		return concerts.map((concert, i) => {
 			return <Concert concert={concert} key={`${year}-concert-${i}`} />
 		})
 	}
@@ -52,8 +50,8 @@ class Year extends React.Component {
 		const { year, concerts } = this.props.year
 		const currentYear = new Date().getFullYear().toString()
 		const mapped = this.mappedConcerts(concerts, year)
-		const partitioned =
-			year === currentYear ? this.partitionConcerts(mapped, year) : null
+		const [future, past] =
+			year === currentYear ? this.partitionConcerts(mapped, year) : [[], []]
 
 		return (
 			<React.Fragment>
@@ -61,10 +59,12 @@ class Year extends React.Component {
 				// past concerts seperately
 				year === currentYear ? (
 					<React.Fragment>
-						{!!partitioned[0].length && (
+						{!!future.length && (
 							<>
-								<h1>Upcoming</h1>
-								<ConcertList>{partitioned[0]}</ConcertList>
+								<YearStyles active={true}>
+									<h1>Upcoming</h1>
+								</YearStyles>
+								<ConcertList active={true}>{future}</ConcertList>
 							</>
 						)}
 						<div id={year}>
@@ -77,7 +77,7 @@ class Year extends React.Component {
 							</YearStyles>
 							<Container>
 								<ConcertList active={active} initialLoad={initialLoad}>
-									{partitioned[1]}
+									{past}
 								</ConcertList>
 							</Container>
 						</div>
