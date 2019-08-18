@@ -6,7 +6,13 @@ import Logo from "../components/Logo"
 export default () => (
 	<Layout>
 		<SEO title="Home" />
-		<div style={{ display: "grid", gridTemplateRows: "1fr 1fr 1fr" }}>
+		<div
+			style={{
+				display: "grid",
+				gridTemplateRows: "1fr 1fr 1fr",
+				height: "60vh",
+			}}
+		>
 			<Logo />
 		</div>
 	</Layout>

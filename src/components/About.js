@@ -31,15 +31,7 @@ export const ImageContainer = styled.div`
 	margin: 0 5vh 5vh 0;
 	box-shadow: 5px 5px lightblue, 10px 10px #4fffff;
 
-	@media (max-width: 710px) {
-		float: none;
-		margin: 6px auto;
-		display: block;
-	}
-
-	@media (max-width: 450px) {
-		margin: 17px 0 0 0;
+	@media (max-width: 700px) {
 		width: 100%;
-		float: none;
 	}
 `

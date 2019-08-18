@@ -80,9 +80,10 @@ const Container = styled.div`
 	display: grid;
 	grid-template-rows: 3vh 10vh 5fr;
 
-	@media (max-width: 450px) {
-		max-width: 1300px;
-		margin: 50px auto;
+	@media (max-width: 900px) {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
 	}
 `
 
@@ -90,9 +91,10 @@ const NavBar = styled.div`
 	line-height: 3em;
 	grid-row-start: 2;
 
-	@media (max-width: 500px) {
+	@media (max-width: 900px) {
 		max-width: 360px;
 		margin: 30px auto;
+		text-align: center;
 	}
 
 	a {
@@ -145,6 +147,10 @@ const BandMember = styled.span`
 
 const Divider = styled.span`
 	font-size: 1.5em;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
 `
 
 export default Layout
