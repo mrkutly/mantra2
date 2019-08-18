@@ -3,6 +3,56 @@ module.exports = {
 		title: `Mantra Percussion`,
 		description: `Website for NYC-based percussion sextet, Mantra Percussion`,
 		author: `Mark Sauer-Utley`,
+		navbarLinks: [
+			{
+				id: 1,
+				name: `Home`,
+				link: `/`,
+				partial: false,
+			},
+			{
+				id: 2,
+				name: `About`,
+				link: `/about`,
+				partial: true,
+			},
+			{
+				id: 3,
+				name: `Calendar`,
+				link: `/calendar`,
+				partial: false,
+			},
+			{
+				id: 4,
+				name: `Press`,
+				link: `/press`,
+				partial: false,
+			},
+			{
+				id: 5,
+				name: `Video`,
+				link: `/video`,
+				partial: false,
+			},
+			{
+				id: 6,
+				name: `Discography`,
+				link: `/discography`,
+				partial: false,
+			},
+			{
+				id: 7,
+				name: `Mantra Youth Percussion`,
+				link: `/mantrayouth`,
+				partial: true,
+			},
+			{
+				id: 8,
+				name: `Contact`,
+				link: `/contact`,
+				partial: false,
+			},
+		],
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
