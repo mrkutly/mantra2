@@ -27,18 +27,18 @@ const VideoIndexStyles = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 
-	@media (max-width: 800px) {
-		grid-template-columns: 1fr;
+	@media (max-width: 900px) {
+		display: block;
+		/* flex-direction: column; */
 	}
 `
 
 const TitleContainerStyles = styled.div`
-	grid-column-start: 1;
-	grid-row-start: 1;
+	/* grid-column-start: 1;
+	grid-row-start: 1; */
 `
 
 const VideoPageStyles = styled.div`
 	@media (max-width: 800px) {
-		display: grid;
 	}
 `

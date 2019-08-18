@@ -1,18 +1,18 @@
 import styled from "styled-components"
-import { fadeIn } from "./animations"
+import { fadeIn } from "../styles/animations"
 
 const PlayerStyles = styled.div`
 	animation: 0.8s ${fadeIn} ease-in;
 	float: right;
 	margin-right: 20px;
 
-	@media (max-width: 500px) {
-		position: relative;
+	@media (max-width: 700px) {
 		max-height: 400px;
 		width: 375px;
 		overflow: scroll;
-		margin-right: -12.5px;
-		margin-bottom: 10px;
+		display: block;
+		margin: 10vh auto;
+		float: none;
 	}
 `
 
