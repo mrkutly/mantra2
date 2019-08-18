@@ -51,7 +51,7 @@ class Year extends React.Component {
 		const currentYear = new Date().getFullYear().toString()
 		const mapped = this.mappedConcerts(concerts, year)
 		const [future, past] =
-			year === currentYear && this.partitionConcerts(mapped, year)
+			year === currentYear ? this.partitionConcerts(mapped, year) : [[], []]
 
 		return (
 			<React.Fragment>
