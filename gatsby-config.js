@@ -70,6 +70,27 @@ module.exports = {
 				path: `${__dirname}/src/data`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `albums`,
+				path: `${__dirname}/src/data/albums`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `calendar`,
+				path: `${__dirname}/src/data/calendar`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `videos`,
+				path: `${__dirname}/src/data/videos`,
+			},
+		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-styled-components`,
@@ -86,6 +107,7 @@ module.exports = {
 				icon: `src/images/mantra-icon.png`, // This path is relative to the root of the site.
 			},
 		},
+		`gatsby-plugin-netlify-cms`,
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
 		// `gatsby-plugin-offline`,
