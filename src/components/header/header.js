@@ -47,8 +47,8 @@ const Navbar = () => {
 		link => (
 			<MobileLink
 				key={link.id}
-				to={link.link}
 				activeClassName="active"
+				to={link.link}
 				partiallyActive={link.partial}
 			>
 				{link.name}
