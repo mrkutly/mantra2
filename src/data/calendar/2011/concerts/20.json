@@ -1,0 +1,13 @@
+{
+	"date": "November 11",
+	"location": {
+		"venue": "Crane Arts Center",
+		"city": "Philadelphia, PA"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber"
+		}
+	]
+}

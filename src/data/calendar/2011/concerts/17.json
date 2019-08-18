@@ -1,0 +1,13 @@
+{
+	"date": "October 22",
+	"location": {
+		"venue": "X Avant Festival",
+		"city": "Toronto, CA"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber"
+		}
+	]
+}

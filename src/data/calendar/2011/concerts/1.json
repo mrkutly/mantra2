@@ -1,0 +1,13 @@
+{
+	"date": "February 11",
+	"location": {
+		"venue": "Manhattan School of Music",
+		"city": "New York, NY"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber (workshop)"
+		}
+	]
+}
