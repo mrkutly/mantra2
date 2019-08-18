@@ -1,0 +1,13 @@
+{
+	"date": "October 18",
+	"location": {
+		"venue": "The Yellow Barn",
+		"city": "Ann Arbor, MI"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber"
+		}
+	]
+}
