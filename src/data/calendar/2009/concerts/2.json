@@ -1,0 +1,13 @@
+{
+	"date": "June 21",
+	"location": {
+		"venue": "Make Music New York",
+		"city": "New York, NY"
+	},
+	"program": [
+		{
+			"composer": "Aaron Siegel",
+			"title": "Science is Only a Sometimes Friend"
+		}
+	]
+}

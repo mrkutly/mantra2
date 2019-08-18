@@ -1,0 +1,13 @@
+{
+	"date": "March 24",
+	"location": {
+		"venue": "Purchase College",
+		"city": "Purchase, NY"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber (workshop)"
+		}
+	]
+}

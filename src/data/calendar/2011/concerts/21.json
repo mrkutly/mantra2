@@ -1,0 +1,13 @@
+{
+	"date": "November 12",
+	"location": {
+		"venue": "MIT - Kresge Auditorium",
+		"city": "Boston, MA"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber"
+		}
+	]
+}

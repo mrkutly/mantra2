@@ -1,0 +1,13 @@
+{
+	"date": "November 10",
+	"location": {
+		"venue": "Indianapolis Artsgarden",
+		"city": "Indianapolis, IN"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber"
+		}
+	]
+}

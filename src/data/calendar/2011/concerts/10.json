@@ -1,0 +1,13 @@
+{
+	"date": "October 10",
+	"location": {
+		"venue": "Stony Brook University",
+		"city": "Stony Brook, NY"
+	},
+	"program": [
+		{
+			"composer": "Michael Gordon",
+			"title": "Timber (workshop)"
+		}
+	]
+}
