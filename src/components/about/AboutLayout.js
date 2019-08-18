@@ -10,7 +10,7 @@ const Layout = props => {
 			<NavBar>
 				<Band>
 					<Link
-						to="/about"
+						to="/about/"
 						style={{ textDecoration: "none" }}
 						activeClassName={"active"}
 						partiallyActive={false}
