@@ -45,7 +45,7 @@ const Navbar = () => {
 
 	const mobileLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
 		link => (
-			<MobileLink key={link.id} to={link.link}>
+			<MobileLink key={link.id} to={link.link} activeClassName="active">
 				{link.name}
 			</MobileLink>
 		)
