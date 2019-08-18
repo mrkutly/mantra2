@@ -112,6 +112,15 @@ const ListContainer = styled.div`
 		list-style: circle;
 		font-weight: 550;
 	}
+
+	@media (max-width: 500px) {
+		display: flex;
+		flex-direction: column;
+		ul {
+			margin: 0 auto;
+			max-width: 259px;
+		}
+	}
 `
 
 export default NecessaryNoise
