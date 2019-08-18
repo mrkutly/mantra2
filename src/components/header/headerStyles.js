@@ -66,7 +66,8 @@ export const MobileLink = styled(Link)`
 	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&.active {
 		animation: ${colorChange} 2.5s linear infinite;
 		letter-spacing: 2px;
 	}
