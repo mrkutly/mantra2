@@ -17,3 +17,34 @@ collections:
       - { name: "url", label: "EmbedURL" }
       - { name: "host", label: "Host" }
       - { name: "href", label: "href" }
+
+  - name: "video"
+    label: "Video"
+    folder: "/src/data/videos"
+    create: true
+    format: json
+    fields:
+      - { name: "title", label: "Title" }
+      - { name: "url", label: "EmbedURL" }
+
+  - name: "concert"
+    label: "Concert"
+    folder: "/src/data/calendar/{{concertYear}}/concerts"
+    create: true
+    format: json
+    fields:
+      - { name: "concertYear", label: "Year" }
+      - { name: "date", label: "Date (Month Day)" }
+      - name: "location"
+        label: "Location"
+        fields:
+          - { name: "venue", label: "Venue" }
+          - { name: "city", label: "City" }
+          - { name: "support", label: "Support" }
+      - name: "program"
+        label: "Program"
+        widget: "list"
+        fields:
+          - { name: "description", label: "Description" }
+          - { name: "composer", label: "Composer" }
+          - { name: "title", label: "Title" }
