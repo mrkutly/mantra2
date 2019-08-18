@@ -10,7 +10,7 @@ const Layout = props => {
 			<NavBar>
 				<Band>
 					<Link
-						to="/mantrayouth"
+						to="/mantrayouth/"
 						style={{ textDecoration: "none" }}
 						activeClassName={"active"}
 						partiallyActive={false}
@@ -20,7 +20,7 @@ const Layout = props => {
 				</Band>
 				<BandMember>
 					<Link
-						to="/mantrayouth/necessary-noise-festival"
+						to="/mantrayouth/necessary-noise-festival/"
 						style={{ textDecoration: "none" }}
 						activeClassName={"active"}
 					>
