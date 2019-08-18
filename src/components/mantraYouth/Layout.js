@@ -73,7 +73,7 @@ const Band = styled.span`
 	cursor: pointer;
 
 	@media screen and (max-width: 900px) {
-		font-size: 1.7rem;
+		font-size: 1.8em;
 		display: block;
 		text-align: center;
 	}
