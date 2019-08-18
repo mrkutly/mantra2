@@ -13,7 +13,7 @@ export default ({ data }) => (
 
 export const query = graphql`
 	query {
-		allArticlesJson {
+		allArticlesJson(sort: { fields: publication, order: DESC }) {
 			nodes {
 				author
 				publication
