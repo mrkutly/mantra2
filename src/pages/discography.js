@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import AlbumsIndex from "../components/AlbumsIndex"
+import AlbumsIndex from "../components/albums/AlbumsIndex"
 
 export default ({ data }) => (
 	<Layout>

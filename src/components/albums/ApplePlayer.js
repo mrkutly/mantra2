@@ -1,5 +1,5 @@
 import React from "react"
-import AlbumPlayerStyles from "../styles/AlbumPlayerStyles"
+import AlbumPlayerStyles from "./AlbumPlayerStyles"
 
 const ApplePlayer = ({ album }) => {
 	return (

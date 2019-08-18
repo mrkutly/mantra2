@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import colors from "../styles/colors"
-import { ImageContainer } from "../About"
+import { ImageContainer } from "../about/About"
 
 const NecessaryNoise = props => {
 	return (

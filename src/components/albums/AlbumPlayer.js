@@ -1,7 +1,7 @@
 import React from "react"
-import BandcampPlayer from "./iframes/BandcampPlayer"
-import ApplePlayer from "./iframes/ApplePlayer"
-import SpotifyPlayer from "./iframes/SpotifyPlayer"
+import BandcampPlayer from "./BandcampPlayer"
+import ApplePlayer from "./ApplePlayer"
+import SpotifyPlayer from "./SpotifyPlayer"
 
 export default ({ album }) => {
 	switch (album.host) {

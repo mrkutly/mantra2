@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { borderBottomColorChange } from "./styles/animations"
-import colors from "./styles/colors"
+import { borderBottomColorChange } from "../styles/animations"
+import colors from "../styles/colors"
 
 const Layout = props => {
 	return (
