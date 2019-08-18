@@ -38,6 +38,7 @@ collections:
       - { name: "date", label: "Date (Month Day)" }
       - name: "location"
         label: "Location"
+        widget: "object"
         fields:
           - { name: "venue", label: "Venue" }
           - { name: "city", label: "City" }
