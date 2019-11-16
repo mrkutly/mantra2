@@ -5,7 +5,7 @@ import SEO from "../../components/seo"
 import About from "../../components/about/About"
 
 export default ({ data }) => {
-	const { paragraphs } = data.allBiosJson.nodes[0]
+	const { paragraphs } = data.allBiosJson.edges[0].node
 
 	return (
 		<Layout>
@@ -22,8 +22,12 @@ export default ({ data }) => {
 export const query = graphql`
 	query {
 		allBiosJson(filter: { musician: { eq: "band" } }) {
-			nodes {
-				paragraphs
+			edges {
+				node {
+					id
+					musician
+					paragraphs
+				}
 			}
 		}
 

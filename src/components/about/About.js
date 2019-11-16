@@ -3,7 +3,7 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import Layout from "./AboutLayout"
 
-export default props => {
+export default (props) => {
 	const { paragraphs } = props
 
 	const mappedParagraphs = paragraphs.map((p, i) => (
@@ -12,10 +12,12 @@ export default props => {
 
 	return (
 		<Layout>
-			<ImageContainer>
-				<Img fluid={props.image} alt={props.imageAlt} />
-			</ImageContainer>
-			{mappedParagraphs}
+			<div style={{ background: "#030201cc", padding: "10px" }}>
+				<ImageContainer>
+					<Img fluid={props.image} alt={props.imageAlt} />
+				</ImageContainer>
+				{mappedParagraphs}
+			</div>
 		</Layout>
 	)
 }

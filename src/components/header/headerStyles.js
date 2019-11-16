@@ -82,22 +82,25 @@ export const MobileLinksGrid = styled.div`
 
 export const DeskTopLink = styled(Link)`
 	display: inline-block;
-	background: white;
+	background: transparent;
 	padding-bottom: 10px;
 	margin: 5px 0 5px 3vw;
 	cursor: pointer;
 	text-decoration: none;
-	font-weight: 600;
-	color: ${colors.grey};
+	font-weight: 700;
+	color: white;
+	text-shadow: 3px 3px 3px black;
 
-	:hover {
+	&:hover {
 		border-bottom: solid 1px ${colors.lightblue};
-		color: ${colors.black};
+		padding-bottom: 9px;
+		color: ${colors.green};
 	}
 
 	&.active {
 		border-bottom: solid 1px ${colors.green};
-		color: ${colors.black};
+		padding-bottom: 9px;
+		color: ${colors.lightblue};
 	}
 `
 
@@ -117,7 +120,7 @@ export const StyledNavBar = styled.header`
 		position: sticky;
 		-webkit-position: -webkit-sticky;
 		top: 0;
-		background: white;
+		background: transparent;
 	}
 
 	@media screen and (max-width: 500px) {
