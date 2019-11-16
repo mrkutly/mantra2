@@ -6,6 +6,23 @@ const LogoImageStyles = styled.img`
 	animation: 0.8s logo-zoom-in ease-out;
 	grid-row-start: 2;
 	margin: auto;
+	filter: invert(1);
+
+	&.hover {
+		animation: 2s pulse ease-out infinite;
+	}
+
+	@keyframes pulse {
+		from {
+			transform: perspective(60em) translateZ(0px);
+		}
+		50% {
+			transform: perspective(60em) translateZ(-50px);
+		}
+		to {
+			transform: perspective(60em) translateZ(0px);
+		}
+	}
 
 	@keyframes logo-zoom-in {
 		from {

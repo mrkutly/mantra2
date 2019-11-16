@@ -7,8 +7,12 @@ import About from "../../components/about/About"
 export const query = graphql`
 	query {
 		allBiosJson(filter: { musician: { eq: "chris" } }) {
-			nodes {
-				paragraphs
+			edges {
+				node {
+					id
+					musician
+					paragraphs
+				}
 			}
 		}
 		file(relativePath: { eq: "portraits/chris.jpeg" }) {
@@ -21,7 +25,7 @@ export const query = graphql`
 	}
 `
 export default ({ data }) => {
-	const { paragraphs } = data.allBiosJson.nodes[0]
+	const { paragraphs } = data.allBiosJson.edges[0].node
 
 	return (
 		<Layout>

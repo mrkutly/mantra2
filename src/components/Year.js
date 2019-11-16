@@ -9,10 +9,10 @@ class Year extends React.Component {
 		initialLoad: true,
 	}
 
-	handleClick = e => {
+	handleClick = (e) => {
 		e.preventDefault()
 
-		this.setState(prevState => {
+		this.setState((prevState) => {
 			if (prevState.initialLoad) {
 				return { active: !prevState.active, initialLoad: false }
 			} else {
@@ -31,7 +31,7 @@ class Year extends React.Component {
 		const past = []
 		const future = []
 
-		concerts.forEach(concert => {
+		concerts.forEach((concert) => {
 			// get the date from props and format it to compare
 			const { date } = concert.props.concert
 			const concertDate = new Date(`${date}, ${year}`).toLocaleDateString()
@@ -139,9 +139,11 @@ const Container = styled.div`
 `
 
 const YearStyles = styled.a`
-	color: ${colors.black};
-	text-shadow: ${props =>
-		props.active ? "3px 3px lightblue, 6px 6px lightpink" : "none"};
+	color: white;
+	text-shadow: ${(props) =>
+		props.active
+			? "3px 3px black, -1px -1px black, 6px 6px lightpink"
+			: "none"};
 	text-decoration: none;
 	cursor: default;
 	width: -webkit-fit-content;
@@ -152,9 +154,9 @@ const YearStyles = styled.a`
 const ConcertList = styled.ul`
 	display: block;
 	overflow: hidden;
-	max-height: ${props => (props.active ? "10000vh" : "0vh")};
-	margin: ${props => (props.active ? "16px auto" : "0")};
-	${props => {
+	max-height: ${(props) => (props.active ? "10000vh" : "0vh")};
+	margin: ${(props) => (props.active ? "16px auto" : "0")};
+	${(props) => {
 		switch (true) {
 			case props.initialLoad:
 				return null

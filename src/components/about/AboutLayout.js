@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { borderBottomColorChange } from "../styles/animations"
 import colors from "../styles/colors"
 
-const Layout = props => {
+const Layout = (props) => {
 	return (
 		<Container>
 			<NavBar>
@@ -98,7 +98,8 @@ const NavBar = styled.div`
 	}
 
 	a {
-		color: ${colors.black};
+		color: white;
+		text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
 	}
 `
 const Content = styled.div`
@@ -140,7 +141,7 @@ const BandMember = styled.span`
 
 	a.active,
 	a:hover {
-		font-weight: 550;
+		font-weight: 250;
 		animation: ${borderBottomColorChange} 2.5s linear infinite;
 	}
 `
