@@ -1,4 +1,5 @@
 import { Link } from "gatsby"
+import TransitionLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "styled-components"
 import colors from "../styles/colors"
 import { colorChange } from "../styles/animations"
@@ -80,7 +81,7 @@ export const MobileLinksGrid = styled.div`
 	text-align: center;
 `
 
-export const DeskTopLink = styled(Link)`
+export const DeskTopLink = styled(TransitionLink)`
 	display: inline-block;
 	background: transparent;
 	padding-bottom: 10px;
@@ -117,9 +118,6 @@ export const StyledNavBar = styled.header`
 
 	@media screen and (min-width: 768px) {
 		padding-bottom: 24px;
-		position: sticky;
-		-webkit-position: -webkit-sticky;
-		top: 0;
 		background: transparent;
 	}
 

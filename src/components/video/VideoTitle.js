@@ -1,14 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import colors from "../styles/colors"
 
-export default props => {
+export default (props) => {
 	const { video } = props
 
 	return (
 		<VideoTitleContainer
-			onClick={e => props.play(video)}
-			onKeyPress={e => e.which === 13 && props.play(video)}
+			onClick={(e) => props.play(video)}
+			onKeyPress={(e) => e.which === 13 && props.play(video)}
 			tabIndex={0}
 		>
 			<h1>{props.video.title}</h1>
@@ -18,7 +17,8 @@ export default props => {
 
 const VideoTitleContainer = styled.div`
 	cursor: pointer;
-	color: ${colors.black};
+	color: white;
+	text-shadow: 2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black;
 
 	&:nth-of-type(1) {
 		margin-top: 8vh;

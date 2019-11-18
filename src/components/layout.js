@@ -1,18 +1,11 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
 import message from "./message.js"
 import Header from "./header/header"
 import "./layout.css"
+import FourOrgans from "../videos/four-organs.mp4"
 
 const Layout = ({ children }) => {
 	console.log(message)
@@ -24,25 +17,21 @@ const Layout = ({ children }) => {
 					title
 				}
 			}
-			file(relativePath: { eq: "four-organs.jpg" }) {
-				childImageSharp {
-					fluid(maxWidth: 1800, grayscale: true) {
-						...GatsbyImageSharpFluid
-					}
-				}
-			}
 		}
 	`)
-	console.log(data)
 
 	return (
 		<>
-			<ImageContainer>
-				<Image
-					fluid={data.file.childImageSharp.fluid}
-					alt="Mantra playing Drumming by Steve Reich"
+			<BackgroundVideo>
+				<video
+					src={FourOrgans}
+					muted
+					loop
+					autoPlay
+					width="auto"
+					height="100%"
 				/>
-			</ImageContainer>
+			</BackgroundVideo>
 			<Header siteTitle={data.site.siteMetadata.title} />
 			<div
 				style={{
@@ -62,12 +51,24 @@ Layout.propTypes = {
 	children: PropTypes.node.isRequired,
 }
 
-const ImageContainer = styled.div`
+const BackgroundVideo = styled.div`
+	z-index: -100;
+	width: 100vw;
+	height: 100vh;
 	position: fixed;
 	top: 0;
-	min-height: 100vh;
-	width: 100vw;
-	z-index: -1;
+	right: 0;
+	filter: grayscale();
+
+	@media (max-width: 870px) {
+		right: 500px;
+	}
+	@media (max-width: 770px) {
+		right: 570px;
+	}
+	@media (max-width: 500px) {
+		right: 591px;
+	}
 `
 
 export default Layout

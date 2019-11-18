@@ -2,7 +2,29 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { borderBottomColorChange } from "../styles/animations"
-import colors from "../styles/colors"
+
+const bandMemberLinks = [
+	{
+		href: "/bios/al",
+		text: "al",
+	},
+	{
+		href: "/bios/chris",
+		text: "chris",
+	},
+	{
+		href: "/bios/joe",
+		text: "joe",
+	},
+	{
+		href: "/bios/mark",
+		text: "mark",
+	},
+	{
+		href: "/bios/mike",
+		text: "mike",
+	},
+]
 
 const Layout = (props) => {
 	return (
@@ -10,7 +32,7 @@ const Layout = (props) => {
 			<NavBar>
 				<Band>
 					<Link
-						to="/about/"
+						to="/bios/"
 						style={{ textDecoration: "none" }}
 						activeClassName={"active"}
 						partiallyActive={false}
@@ -18,56 +40,20 @@ const Layout = (props) => {
 						| mantra percussion |
 					</Link>
 				</Band>
-				<BandMember>
-					<Link
-						to="/about/al"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-					>
-						al
-					</Link>
-				</BandMember>
-				<Divider>|</Divider>
-				<BandMember>
-					<Link
-						to="/about/chris"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-					>
-						chris
-					</Link>
-				</BandMember>
-				<Divider>|</Divider>
-				<BandMember>
-					<Link
-						to="/about/joe"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-					>
-						joe
-					</Link>
-				</BandMember>
-				<Divider>|</Divider>
-				<BandMember>
-					<Link
-						to="/about/mark"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-					>
-						mark
-					</Link>
-				</BandMember>
-				<Divider>|</Divider>
-				<BandMember>
-					<Link
-						to="/about/mike"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-					>
-						mike
-					</Link>
-				</BandMember>
-				<Divider>|</Divider>
+				{bandMemberLinks.map((member) => (
+					<>
+						<BandMember>
+							<Link
+								to={member.href}
+								style={{ textDecoration: "none" }}
+								activeClassName={"active"}
+							>
+								{member.text}
+							</Link>
+						</BandMember>
+						<Divider>|</Divider>
+					</>
+				))}
 			</NavBar>
 			<Content>{props.children}</Content>
 		</Container>

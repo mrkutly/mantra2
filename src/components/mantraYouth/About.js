@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { ImageContainer } from "../about/About"
 
-const About = props => {
+const About = (props) => {
 	return (
 		<Container>
 			<ImageContainer>
@@ -51,6 +51,9 @@ const About = props => {
 }
 
 const Container = styled.div`
+	background: #030201cc;
+	padding: 10px;
+
 	p {
 		line-height: 1.4;
 		letter-spacing: 1.1px;

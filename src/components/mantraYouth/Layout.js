@@ -2,9 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { borderBottomColorChange } from "../styles/animations"
-import colors from "../styles/colors"
 
-const Layout = props => {
+const Layout = (props) => {
 	return (
 		<Container>
 			<NavBar>
@@ -59,11 +58,13 @@ const NavBar = styled.div`
 	}
 
 	a {
-		color: ${colors.black};
+		color: white;
+		text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
 	}
 `
 const Content = styled.div`
 	grid-row-start: 3;
+	/* background: ; */
 `
 
 const Band = styled.span`

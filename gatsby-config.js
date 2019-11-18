@@ -5,9 +5,15 @@ module.exports = {
 		author: `Mark Sauer-Utley`,
 		navbarLinks: [
 			{
+				id: 1,
+				name: `Home`,
+				link: `/`,
+				partial: false,
+			},
+			{
 				id: 2,
-				name: `About`,
-				link: `/about/`,
+				name: `Bios`,
+				link: `/bios/`,
 				partial: true,
 			},
 			{
@@ -50,6 +56,7 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-transition-link`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {

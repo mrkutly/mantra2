@@ -12,6 +12,8 @@ const ArticleLink = styled.a`
 	text-decoration: none;
 	display: block;
 	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+	text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
+		-1px -1px #65318c;
 
 	h2 {
 		line-height: 2em;
@@ -20,8 +22,6 @@ const ArticleLink = styled.a`
 	:focus,
 	:hover {
 		animation: ${colorChange} 2.5s linear infinite;
-		text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
-			-1px -1px #65318c;
 		letter-spacing: 4px;
 	}
 `

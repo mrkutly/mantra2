@@ -36,9 +36,7 @@ export default ({ data }) => {
 	return (
 		<Layout>
 			<SEO title="Calendar" />
-			<div style={{ background: "#030201cc", padding: "10px" }}>
-				{mappedYears}
-			</div>
+			<div>{mappedYears}</div>
 		</Layout>
 	)
 }

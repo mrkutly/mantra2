@@ -30,13 +30,18 @@ class Year extends React.Component {
 	partitionConcerts(concerts, year) {
 		const past = []
 		const future = []
+		const today = new Date(Date.now())
+		today.setMilliseconds(0)
+		today.setSeconds(0)
+		today.setMinutes(0)
+		today.setHours(0)
 
 		concerts.forEach((concert) => {
 			// get the date from props and format it to compare
 			const { date } = concert.props.concert
-			const concertDate = new Date(`${date}, ${year}`).toLocaleDateString()
+			const concertDate = new Date(`${date}, ${year}`)
 
-			if (concertDate > new Date().toLocaleDateString()) {
+			if (concertDate >= today) {
 				future.push(concert)
 			} else {
 				past.push(concert)
@@ -143,7 +148,7 @@ const YearStyles = styled.a`
 	text-shadow: ${(props) =>
 		props.active
 			? "3px 3px black, -1px -1px black, 6px 6px lightpink"
-			: "none"};
+			: "1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c, -1px -1px #65318c"};
 	text-decoration: none;
 	cursor: default;
 	width: -webkit-fit-content;

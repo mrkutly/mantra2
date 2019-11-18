@@ -31,12 +31,15 @@ const Navbar = () => {
 	`)
 
 	const desktopLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
-		link => (
+		(link) => (
 			<DeskTopLink
 				key={link.id}
 				activeClassName="active"
 				to={link.link}
 				partiallyActive={link.partial}
+				cover
+				direction="up"
+				bg="#0d022d"
 			>
 				{link.name}
 			</DeskTopLink>
@@ -44,7 +47,7 @@ const Navbar = () => {
 	)
 
 	const mobileLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
-		link => (
+		(link) => (
 			<MobileLink
 				key={link.id}
 				activeClassName="active"
@@ -62,7 +65,7 @@ const Navbar = () => {
 			<MobileStyles className={isOpen && "open"}>
 				<div
 					className={isOpen ? "open-button is-open" : "open-button"}
-					onClick={e => setIsOpen(!isOpen)}
+					onClick={(e) => setIsOpen(!isOpen)}
 				>
 					<div className={isOpen ? "bar bar1" : "bar"}></div>
 					<div className={isOpen ? "bar bar2" : "bar"}></div>

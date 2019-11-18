@@ -9,7 +9,7 @@ export default ({ data }) => {
 
 	return (
 		<Layout>
-			<SEO title="About" />
+			<SEO title="Bio" />
 			<About
 				paragraphs={paragraphs}
 				image={data.file.childImageSharp.fluid}
