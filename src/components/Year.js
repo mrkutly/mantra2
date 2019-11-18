@@ -10,8 +10,6 @@ class Year extends React.Component {
 	}
 
 	handleClick = (e) => {
-		e.preventDefault()
-
 		this.setState((prevState) => {
 			if (prevState.initialLoad) {
 				return { active: !prevState.active, initialLoad: false }
@@ -66,7 +64,10 @@ class Year extends React.Component {
 					<React.Fragment>
 						{!!future.length && (
 							<>
-								<YearStyles active={true}>
+								<YearStyles
+									onKeyPress={(e) => e.which === 13 && this.handleClick()}
+									active={true}
+								>
 									<h1>Upcoming</h1>
 								</YearStyles>
 								<ConcertList active={true}>{future}</ConcertList>
@@ -74,7 +75,8 @@ class Year extends React.Component {
 						)}
 						<div id={year}>
 							<YearStyles
-								href={`/${year}`}
+								onKeyPress={(e) => e.which === 13 && this.handleClick()}
+								tabIndex={0}
 								onClick={this.handleClick}
 								active={active}
 							>
@@ -91,7 +93,8 @@ class Year extends React.Component {
 					// else, just show the mapped concerts
 					<div id={year}>
 						<YearStyles
-							href={`/${year}`}
+							onKeyPress={(e) => e.which === 13 && this.handleClick()}
+							tabIndex={0}
 							onClick={this.handleClick}
 							active={active}
 						>
@@ -143,7 +146,7 @@ const Container = styled.div`
 	padding: 0 5vh;
 `
 
-const YearStyles = styled.a`
+const YearStyles = styled.span`
 	color: white;
 	text-shadow: ${(props) =>
 		props.active
