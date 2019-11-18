@@ -78,7 +78,7 @@ const NavBar = styled.div`
 	grid-row-start: 2;
 
 	@media (max-width: 900px) {
-		max-width: 360px;
+		max-width: 400px;
 		margin: 30px auto;
 		text-align: center;
 	}
