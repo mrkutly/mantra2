@@ -68,12 +68,12 @@ class Year extends React.Component {
 									onKeyPress={(e) => e.which === 13 && this.handleClick()}
 									active={true}
 								>
-									<h1>Upcoming</h1>
+									<h1>Upcoming in {currentYear}</h1>
 								</YearStyles>
 								<ConcertList active={true}>{future}</ConcertList>
 							</>
 						)}
-						<div id={year}>
+						{!!past.length && (<div id={year}>
 							<YearStyles
 								onKeyPress={(e) => e.which === 13 && this.handleClick()}
 								tabIndex={0}
@@ -87,7 +87,7 @@ class Year extends React.Component {
 									{past}
 								</ConcertList>
 							</Container>
-						</div>
+						</div>)}
 					</React.Fragment>
 				) : (
 					// else, just show the mapped concerts
@@ -147,16 +147,20 @@ const Container = styled.div`
 `
 
 const YearStyles = styled.span`
-	color: ${colors.lightblue};
-	text-shadow: ${(props) =>
-		props.active
-			? "3px 3px black, -1px -1px black, 6px 6px lightpink"
-			: "1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c, -1px -1px #65318c"};
+	color: black;
+	${(props) => (props.active
+			&& `text-shadow: 3px 3px ${colors.lightblue}, -1px -1px ${colors.lightblue}, 6px 6px ${colors.lightpink};`)
+	}
 	text-decoration: none;
 	cursor: default;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
+
+	:focus {
+		outline: none;
+		color: ${colors.green}
+	}
 `
 
 const ConcertList = styled.ul`

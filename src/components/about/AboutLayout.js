@@ -65,7 +65,6 @@ const Container = styled.div`
 	margin: 10vh auto;
 	display: grid;
 	grid-template-rows: 3vh 10vh 5fr;
-	background: #FFFFFFee;
 
 	@media (max-width: 900px) {
 		margin: 0 auto;

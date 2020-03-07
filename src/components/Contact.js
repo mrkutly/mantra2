@@ -21,7 +21,6 @@ const Container = styled.div`
 	text-align: center;
 	margin: 20vh auto;
 	max-width: 1200px;
-	text-shadow: 3px 3px 3px black;
 
 	a {
 		color: ${colors.peach};
@@ -30,8 +29,7 @@ const Container = styled.div`
 		:hover,
 		:focus {
 			animation: ${colorChange} 2.5s linear infinite;
-			text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
-				-1px -1px #65318c;
+			text-shadow: 1px 1px black;
 			letter-spacing: 2px;
 		}
 	}
