@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Logo from "../components/Logo"
@@ -22,24 +21,3 @@ export default () => {
 		</Layout>
 	)
 }
-
-const ArrowStyles = styled.span`
-	font-size: 5rem;
-	grid-row-start: 3;
-	justify-self: end;
-	align-self: end;
-	margin-bottom: 15vh;
-	animation: pulse 1.5s linear infinite;
-
-	@keyframes pulse {
-		from {
-			transform: scale(1);
-		}
-		50% {
-			transform: scale(1.3);
-		}
-		to {
-			transform: scale(1);
-		}
-	}
-`
