@@ -5,12 +5,6 @@ module.exports = {
 		author: `Mark Sauer-Utley`,
 		navbarLinks: [
 			{
-				id: 1,
-				name: `Home`,
-				link: `/`,
-				partial: false,
-			},
-			{
 				id: 2,
 				name: `Bios`,
 				link: `/bios/`,

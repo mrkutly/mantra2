@@ -16,8 +16,16 @@ const Layout = ({ children, isHomePage }) => {
 					title
 				}
 			}
+			file(relativePath: { eq: "four-organs.jpg" }) {
+				childImageSharp {
+					fluid(maxWidth: 1800, grayscale: true) {
+						...GatsbyImageSharpFluid
+					}
+				}
+			}
 		}
 	`)
+	console.log(data)
 
 	const foreGround = <>
 		<Header siteTitle={data.site.siteMetadata.title} isHomePage={isHomePage}/>
