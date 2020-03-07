@@ -58,13 +58,11 @@ const NavBar = styled.div`
 	}
 
 	a {
-		color: white;
-		text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+		color: black;
 	}
 `
 const Content = styled.div`
 	grid-row-start: 3;
-	/* background: ; */
 `
 
 const Band = styled.span`

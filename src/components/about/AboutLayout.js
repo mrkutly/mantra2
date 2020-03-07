@@ -62,9 +62,10 @@ const Layout = (props) => {
 
 const Container = styled.div`
 	max-width: 1300px;
-	margin: 70px auto;
+	margin: 10vh auto;
 	display: grid;
 	grid-template-rows: 3vh 10vh 5fr;
+	background: #FFFFFFee;
 
 	@media (max-width: 900px) {
 		margin: 0 auto;
@@ -84,11 +85,11 @@ const NavBar = styled.div`
 	}
 
 	a {
-		color: white;
-		text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+		color: black;
 	}
 `
 const Content = styled.div`
+	margin-top: 3vh;
 	grid-row-start: 3;
 `
 

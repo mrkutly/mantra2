@@ -147,7 +147,7 @@ const Container = styled.div`
 `
 
 const YearStyles = styled.span`
-	color: white;
+	color: ${colors.lightblue};
 	text-shadow: ${(props) =>
 		props.active
 			? "3px 3px black, -1px -1px black, 6px 6px lightpink"

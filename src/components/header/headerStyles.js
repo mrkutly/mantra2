@@ -89,8 +89,13 @@ export const DeskTopLink = styled(TransitionLink)`
 	cursor: pointer;
 	text-decoration: none;
 	font-weight: 700;
-	color: white;
-	text-shadow: 3px 3px 3px black;
+	${(props) => props.isHomePage ? 
+		`color: white;
+		text-shadow: 3px 3px 3px black;`
+		:
+		`color: black;`
+	}
+	
 
 	&:hover {
 		border-bottom: solid 1px ${colors.lightblue};
@@ -107,7 +112,7 @@ export const DeskTopLink = styled(TransitionLink)`
 
 export const StyledNavBar = styled.header`
 	line-height: 2em;
-	margin-top: 20px;
+	padding-top: 20px;
 	z-index: 2;
 	min-height: 40px;
 

@@ -51,12 +51,14 @@ const About = (props) => {
 }
 
 const Container = styled.div`
-	background: #030201cc;
 	padding: 10px;
 
 	p {
-		line-height: 1.4;
+		line-height: 1.6;
 		letter-spacing: 1.1px;
+		font-size: 1.3rem;
+		text-shadow: 1px 1px lightblue;
+		font-weight: 300;
 	}
 
 	@media (max-width: 500px) {

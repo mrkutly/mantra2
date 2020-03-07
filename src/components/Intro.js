@@ -18,10 +18,10 @@ export default () => (
 )
 
 const Container = styled.section`
-	color: ${colors.lightblue};
-	font-size: 3rem;
-	font-weight: 200;
-	text-shadow: 1px 1px black, 1px -1px black, -1px 1px black, -1px -1px black;
+	color: white;
+	font-size: 4rem;
+	font-weight: 600;
+	text-shadow: 2px 2px black, 2px -2px black, -2px 2px black, -2px -2px black;
 	margin-top: 40vh;
 
 	p:not(:first-of-type) {

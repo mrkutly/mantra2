@@ -14,31 +14,22 @@ export default props => {
 	))
 
 	return (
-		<VideoPageStyles>
+		<>
 			<VideoPlayer video={activeVideo} />
 			<VideoIndexStyles>
-				<TitleContainerStyles>{mappedVids}</TitleContainerStyles>
+				<div>{mappedVids}</div>
 			</VideoIndexStyles>
-		</VideoPageStyles>
+		</>
 	)
 }
 
 const VideoIndexStyles = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
+	margin-right: 560px;
 
 	@media (max-width: 900px) {
 		display: block;
-		/* flex-direction: column; */
-	}
-`
-
-const TitleContainerStyles = styled.div`
-	/* grid-column-start: 1;
-	grid-row-start: 1; */
-`
-
-const VideoPageStyles = styled.div`
-	@media (max-width: 800px) {
+		margin-right: 0;
 	}
 `

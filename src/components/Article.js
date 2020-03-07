@@ -8,12 +8,11 @@ const ArticleListItem = styled.li`
 `
 
 const ArticleLink = styled.a`
-	color: inherit;
+	color: black;
 	text-decoration: none;
 	display: block;
 	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-	text-shadow: 1px 1px #65318c, 1px -1px #65318c, -1px 1px #65318c,
-		-1px -1px #65318c;
+	
 
 	h2 {
 		line-height: 2em;
@@ -23,6 +22,7 @@ const ArticleLink = styled.a`
 	:hover {
 		animation: ${colorChange} 2.5s linear infinite;
 		letter-spacing: 4px;
+		text-shadow: 1px 1px black;
 	}
 `
 

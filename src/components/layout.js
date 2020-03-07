@@ -7,9 +7,9 @@ import Header from "./header/header"
 import "./layout.css"
 import FourOrgans from "../videos/four-organs.mp4"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHomePage }) => {
 	console.log(message)
-
+	
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
@@ -19,20 +19,24 @@ const Layout = ({ children }) => {
 			}
 		}
 	`)
-
+	
 	return (
 		<>
-			<BackgroundVideo>
-				<video
-					src={FourOrgans}
-					muted
-					loop
-					autoPlay
-					width="auto"
-					height="100%"
-				/>
-			</BackgroundVideo>
-			<Header siteTitle={data.site.siteMetadata.title} />
+			{ isHomePage &&
+					<BackgroundVideo>
+						<video
+							src={FourOrgans}
+							muted
+							loop
+							autoPlay
+							width="auto"
+							height="100%"
+						/>
+					</BackgroundVideo>
+			}
+			
+
+			<Header siteTitle={data.site.siteMetadata.title} isHomePage={isHomePage}/>
 			<div
 				style={{
 					margin: `0 auto`,
@@ -43,6 +47,7 @@ const Layout = ({ children }) => {
 			>
 				<main>{children}</main>
 			</div>
+		
 		</>
 	)
 }
@@ -54,11 +59,11 @@ Layout.propTypes = {
 const BackgroundVideo = styled.div`
 	z-index: -100;
 	width: 100vw;
-	height: 100vh;
+	height: 110vh;
 	position: fixed;
 	top: 0;
 	right: 0;
-	filter: grayscale();
+	filter: grayscale(1) brightness(0.7);
 
 	@media (max-width: 870px) {
 		right: 500px;

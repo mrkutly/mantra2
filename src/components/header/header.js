@@ -9,7 +9,7 @@ import {
 	MobileLinksGrid,
 } from "./headerStyles.js"
 
-const Navbar = () => {
+const Navbar = ({ isHomePage }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const site = useStaticQuery(graphql`
 		query {
@@ -33,13 +33,14 @@ const Navbar = () => {
 	const desktopLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
 		(link) => (
 			<DeskTopLink
+				isHomePage={isHomePage}
 				key={link.id}
 				activeClassName="active"
 				to={link.link}
 				partiallyActive={link.partial}
 				cover
 				direction="up"
-				bg="#0d022d"
+				bg={isHomePage ? "#ffffff" : "#000000"}
 			>
 				{link.name}
 			</DeskTopLink>
@@ -49,6 +50,7 @@ const Navbar = () => {
 	const mobileLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
 		(link) => (
 			<MobileLink
+				isHomePage={isHomePage}
 				key={link.id}
 				activeClassName="active"
 				to={link.link}

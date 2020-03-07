@@ -18,8 +18,6 @@ const AlbumTitleContainer = styled.div`
 	cursor: pointer;
 	max-width: 95vh;
 	text-decoration: none;
-	color: white;
-	text-shadow: 2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black;
 
 	h1 {
 		transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);

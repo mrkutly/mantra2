@@ -20,18 +20,18 @@ export default ({ video }) => {
 
 const VideoPlayerStyles = styled.div`
 	animation: 0.8s ${fadeIn} ease-in;
-	position: -webkit-sticky;
-	position: sticky;
-	float: right;
-	top: 25%;
+	position: fixed;
+	right: 0;
+	top: 30%;
 	width: 560px;
 	height: 315px;
 
 	@media (max-width: 900px) {
+		position: static;
 		max-width: 560px;
 		width: 100%;
-		margin: 0 auto;
-		top: 70px;
+		margin: 20px auto;
+		top: 0;
 		float: none;
 		align-self: start;
 		justify-self: center;

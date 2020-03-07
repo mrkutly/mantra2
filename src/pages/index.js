@@ -1,14 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import colors from "../components/styles/colors"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Intro from "../components/Intro"
 import Logo from "../components/Logo"
+import Intro from "../components/Intro"
 
 export default () => {
 	return (
-		<Layout>
+		<Layout isHomePage={true}>
 			<SEO title="Home" />
 			<div
 				style={{
@@ -18,7 +17,6 @@ export default () => {
 				}}
 			>
 				<Logo />
-				<ArrowStyles>&#8595;</ArrowStyles>
 			</div>
 			<Intro />
 		</Layout>
@@ -31,7 +29,6 @@ const ArrowStyles = styled.span`
 	justify-self: end;
 	align-self: end;
 	margin-bottom: 15vh;
-	color: ${colors.lightblue};
 	animation: pulse 1.5s linear infinite;
 
 	@keyframes pulse {

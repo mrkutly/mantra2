@@ -17,8 +17,6 @@ export default (props) => {
 
 const VideoTitleContainer = styled.div`
 	cursor: pointer;
-	color: white;
-	text-shadow: 2px 2px black, -2px 2px black, 2px -2px black, -2px -2px black;
 
 	&:nth-of-type(1) {
 		margin-top: 8vh;

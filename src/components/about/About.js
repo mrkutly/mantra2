@@ -12,7 +12,7 @@ export default (props) => {
 
 	return (
 		<Layout>
-			<div style={{ background: "#030201cc", padding: "10px" }}>
+			<div style={{ padding: "10px" }}>
 				<ImageContainer>
 					<Img fluid={props.image} alt={props.imageAlt} />
 				</ImageContainer>
@@ -23,8 +23,11 @@ export default (props) => {
 }
 
 const BioParagraph = styled.p`
-	line-height: 1.4;
+	line-height: 1.6;
 	letter-spacing: 1.1px;
+	font-size: 1.3rem;
+	text-shadow: 1px 1px lightblue;
+	font-weight: 300;
 `
 
 export const ImageContainer = styled.div`
