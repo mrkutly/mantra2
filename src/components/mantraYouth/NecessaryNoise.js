@@ -76,7 +76,6 @@ const NecessaryNoise = props => {
 }
 
 const Container = styled.div`
-	height: 100vh;
 	p,
 	ul {
 		line-height: 1.6;
