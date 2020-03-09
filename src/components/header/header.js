@@ -50,7 +50,6 @@ const Navbar = ({ isHomePage }) => {
 	const mobileLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
 		(link) => (
 			<MobileLink
-				isHomePage={isHomePage}
 				key={link.id}
 				activeClassName="active"
 				to={link.link}
