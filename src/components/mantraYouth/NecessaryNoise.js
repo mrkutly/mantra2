@@ -79,9 +79,11 @@ const Container = styled.div`
 	height: 100vh;
 	p,
 	ul {
-		margin: 20px auto;
-		line-height: 1.4;
+		line-height: 1.6;
 		letter-spacing: 1.1px;
+		font-size: 1.3rem;
+		text-shadow: 1px 1px lightblue;
+		font-weight: 300;
 	}
 
 	ul {
