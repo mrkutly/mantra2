@@ -1,77 +1,48 @@
-import { keyframes } from "styled-components"
-import colors from "./colors"
+import { keyframes } from 'styled-components'
+import colors from './colors'
 
-export const colorChange = keyframes`
+const makeColorAnimation = property => keyframes`
    0% {
-      color: ${colors.lightpink};
+     ${property} ${colors.lightpink};
    }
    10% {
-      color: ${colors.yellow};
+      ${property}: ${colors.yellow};
    }
    20% {
-      color: ${colors.lightblue};
+      ${property}: ${colors.lightblue};
    }
    30% {
-      color: ${colors.green};
+      ${property}: ${colors.green};
    }
    40% {
-      color: ${colors.peach};
+      ${property}: ${colors.peach};
    }
    50% {
-      color: ${colors.lightpink};
+      ${property}: ${colors.lightpink};
    }
    60% {
-      color: ${colors.yellow};
+      ${property}: ${colors.yellow};
    }
    70% {
-      color: ${colors.lightblue};
+      ${property}: ${colors.lightblue};
    }
    80% {
-      color: ${colors.green};
+      ${property}: ${colors.green};
    }
    90% {
-      color: ${colors.peach};
+      ${property}: ${colors.peach};
    }
    100% {
-      color: ${colors.lightpink};
+      ${property}: ${colors.lightpink};
    }
 `
 
-export const borderBottomColorChange = keyframes`
-   0% {
-      border-bottom: 2px solid ${colors.lightpink};
-   }
-   10% {
-      border-bottom: 2px solid ${colors.yellow};
-   }
-   20% {
-      border-bottom: 2px solid ${colors.lightblue};
-   }
-   30% {
-      border-bottom: 2px solid ${colors.green};
-   }
-   40% {
-      border-bottom: 2px solid ${colors.peach};
-   }
-   50% {
-      border-bottom: 2px solid ${colors.lightpink};
-   }
-   60% {
-      border-bottom: 2px solid ${colors.yellow};
-   }
-   70% {
-      border-bottom: 2px solid ${colors.lightblue};
-   }
-   80% {
-      border-bottom: 2px solid ${colors.green};
-   }
-   90% {
-      border-bottom: 2px solid ${colors.peach};
-   }
-   100% {
-      border-bottom: 2px solid ${colors.lightpink};
-   }
-`
+export const colorChange = makeColorAnimation('color')
+
+export const backgroundChange = makeColorAnimation('background')
+
+export const borderColorChange = makeColorAnimation('border-color')
+
 export const fadeIn = keyframes`
 	from {
 		opacity: 0.1;

@@ -9,7 +9,11 @@ import {
 	MobileLinksGrid,
 } from "./headerStyles.js"
 
-const Navbar = ({ isHomePage }) => {
+interface NavProps {
+	isHomePage: boolean
+}
+
+const Navbar = ({ isHomePage }: NavProps) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const site = useStaticQuery(graphql`
 		query {
@@ -17,10 +21,10 @@ const Navbar = ({ isHomePage }) => {
 				edges {
 					node {
 						siteMetadata {
-							navbarLinks {
+							navLinks {
 								id
-								link
-								name
+								href
+								display
 								partial
 							}
 						}
@@ -30,8 +34,8 @@ const Navbar = ({ isHomePage }) => {
 		}
 	`)
 
-	const desktopLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
-		(link) => (
+	const desktopLinks = site.allSite.edges[0].node.siteMetadata.navLinks.map(
+		link => (
 			<DeskTopLink
 				isHomePage={isHomePage}
 				key={link.id}
@@ -47,8 +51,8 @@ const Navbar = ({ isHomePage }) => {
 		)
 	)
 
-	const mobileLinks = site.allSite.edges[0].node.siteMetadata.navbarLinks.map(
-		(link) => (
+	const mobileLinks = site.allSite.edges[0].node.siteMetadata.navLinks.map(
+		link => (
 			<MobileLink
 				key={link.id}
 				activeClassName="active"
@@ -66,7 +70,10 @@ const Navbar = ({ isHomePage }) => {
 			<MobileStyles className={isOpen && "open"}>
 				<div
 					className={isOpen ? "open-button is-open" : "open-button"}
-					onClick={(e) => setIsOpen(!isOpen)}
+					onClick={e => setIsOpen(!isOpen)}
+					onKeyPress={e => e.key === "Enter" && setIsOpen(!isOpen)}
+					role="button"
+					tabIndex="0"
 				>
 					<div className={isOpen ? "bar bar1" : "bar"}></div>
 					<div className={isOpen ? "bar bar2" : "bar"}></div>

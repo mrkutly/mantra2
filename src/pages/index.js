@@ -1,25 +1,25 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Image from "gatsby-image"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Logo from "../components/Logo"
-import Intro from "../components/Intro"
+import React from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Logo from '../components/Logo'
+import Intro from '../components/Intro'
+import Next from '../components/Next'
 
-export default () => {
-	return (
-		<Layout isHomePage={true}>
-			<SEO title="Home" />
-			<div
-				style={{
-					display: "grid",
-					gridTemplateRows: "1fr 1fr 3fr",
-					height: "100vh",
-				}}
-			>
-				<Logo />
-			</div>
+const Index = () => (
+	<Layout isHomePage>
+		<SEO title="Home" />
+		<div
+			style={{
+				scrollSnapType: 'y mandatory',
+				height: '100vh',
+				overflow: 'scroll',
+			}}
+		>
+			<Logo />
 			<Intro />
-		</Layout>
-	)
-}
+			<Next />
+		</div>
+	</Layout>
+)
+
+export default Index

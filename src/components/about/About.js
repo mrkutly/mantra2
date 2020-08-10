@@ -1,9 +1,9 @@
-import React from "react"
-import Img from "gatsby-image"
-import styled from "styled-components"
-import Layout from "./AboutLayout"
+import React from 'react'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
+import Layout from './AboutLayout'
 
-export default (props) => {
+export default props => {
 	const { paragraphs } = props
 
 	const mappedParagraphs = paragraphs.map((p, i) => (
@@ -12,7 +12,7 @@ export default (props) => {
 
 	return (
 		<Layout>
-			<div style={{ padding: "10px" }}>
+			<div style={{ padding: '10px' }}>
 				<ImageContainer>
 					<Img fluid={props.image} alt={props.imageAlt} />
 				</ImageContainer>

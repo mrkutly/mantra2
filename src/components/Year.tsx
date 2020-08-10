@@ -9,8 +9,8 @@ class Year extends React.Component {
 		initialLoad: true,
 	}
 
-	handleClick = (e) => {
-		this.setState((prevState) => {
+	handleClick = e => {
+		this.setState(prevState => {
 			if (prevState.initialLoad) {
 				return { active: !prevState.active, initialLoad: false }
 			} else {
@@ -34,7 +34,7 @@ class Year extends React.Component {
 		today.setMinutes(0)
 		today.setHours(0)
 
-		concerts.forEach((concert) => {
+		concerts.forEach(concert => {
 			// get the date from props and format it to compare
 			const { date } = concert.props.concert
 			const concertDate = new Date(`${date}, ${year}`)
@@ -65,7 +65,7 @@ class Year extends React.Component {
 						{!!future.length && (
 							<>
 								<YearStyles
-									onKeyPress={(e) => e.which === 13 && this.handleClick()}
+									onKeyPress={e => e.which === 13 && this.handleClick(e)}
 									active={true}
 								>
 									<h1>Upcoming in {currentYear}</h1>
@@ -73,27 +73,29 @@ class Year extends React.Component {
 								<ConcertList active={true}>{future}</ConcertList>
 							</>
 						)}
-						{!!past.length && (<div id={year}>
-							<YearStyles
-								onKeyPress={(e) => e.which === 13 && this.handleClick()}
-								tabIndex={0}
-								onClick={this.handleClick}
-								active={active}
-							>
-								<YearHeader>{year}</YearHeader>
-							</YearStyles>
-							<Container>
-								<ConcertList active={active} initialLoad={initialLoad}>
-									{past}
-								</ConcertList>
-							</Container>
-						</div>)}
+						{!!past.length && (
+							<div id={year}>
+								<YearStyles
+									onKeyPress={e => e.which === 13 && this.handleClick(e)}
+									tabIndex={0}
+									onClick={this.handleClick}
+									active={active}
+								>
+									<YearHeader>{year}</YearHeader>
+								</YearStyles>
+								<Container>
+									<ConcertList active={active} initialLoad={initialLoad}>
+										{past}
+									</ConcertList>
+								</Container>
+							</div>
+						)}
 					</React.Fragment>
 				) : (
 					// else, just show the mapped concerts
 					<div id={year}>
 						<YearStyles
-							onKeyPress={(e) => e.which === 13 && this.handleClick()}
+							onKeyPress={e => e.which === 13 && this.handleClick()}
 							tabIndex={0}
 							onClick={this.handleClick}
 							active={active}
@@ -148,9 +150,9 @@ const Container = styled.div`
 
 const YearStyles = styled.span`
 	color: black;
-	${(props) => (props.active
-			&& `text-shadow: 3px 3px ${colors.lightblue}, -1px -1px ${colors.lightblue}, 6px 6px ${colors.lightpink};`)
-	}
+	${props =>
+		props.active &&
+		`text-shadow: 3px 3px ${colors.lightblue}, -1px -1px ${colors.lightblue}, 6px 6px ${colors.lightpink};`}
 	text-decoration: none;
 	cursor: default;
 	width: -webkit-fit-content;
@@ -159,16 +161,16 @@ const YearStyles = styled.span`
 
 	:focus {
 		outline: none;
-		color: ${colors.green}
+		color: ${colors.green};
 	}
 `
 
 const ConcertList = styled.ul`
 	display: block;
 	overflow: hidden;
-	max-height: ${(props) => (props.active ? "10000vh" : "0vh")};
-	margin: ${(props) => (props.active ? "16px auto" : "0")};
-	${(props) => {
+	max-height: ${props => (props.active ? "10000vh" : "0vh")};
+	margin: ${props => (props.active ? "16px auto" : "0")};
+	${props => {
 		switch (true) {
 			case props.initialLoad:
 				return null
