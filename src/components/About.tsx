@@ -115,7 +115,7 @@ const About = () => {
 						About{" "}
 						<Expand
 							active={active}
-							colors={{ primary: "#003977e6", background: "white" }}
+							colors={{ primary: "#007aff", background: "black" }}
 							options={data.bios.edges.map(bio => bio.node.musician)}
 							setActive={setActive}
 						/>
