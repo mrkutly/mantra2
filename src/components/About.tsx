@@ -197,7 +197,8 @@ const ExpandStyles = styled.h1`
 
 		&:hover,
 		&:focus {
-			color: var(--green);
+			color: var(--black);
+			background-color: var(--lightpink);
 		}
 	}
 `
