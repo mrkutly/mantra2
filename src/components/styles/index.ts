@@ -102,7 +102,7 @@ export const ImageContainer = styled.div<{ width: string; }>`
 	float: left;
 	width: ${({ width }) => width};
 	margin: 0 5vh 5vh 0;
-	box-shadow: 5px 5px lightblue, 10px 10px #4fffff;
+	box-shadow: var(--blue-shadows);
 
 	@media (max-width: 700px) {
 		width: 100%;

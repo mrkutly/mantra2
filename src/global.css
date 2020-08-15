@@ -86,6 +86,8 @@ html {
 	--peach: #ff6e66;
 	--black: #000008;
 	--grey: #34343c;
+	--blue-shadows: 5px 5px lightblue, 10px 10px #4fffff;
+	scrollbar-color: var(--pink) var(--black);
 }
 body {
 	scroll-behavior: smooth;

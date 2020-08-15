@@ -84,7 +84,7 @@ const Form = styled.form`
 		border-radius: 50px;
 		border: none;
 		outline: none;
-		margin-right: 12px;
+		margin: 0 12px 12px 0;
 
 		&:active,
 		&:focus {
