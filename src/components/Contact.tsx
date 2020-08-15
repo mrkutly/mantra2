@@ -1,20 +1,31 @@
 import React from "react"
 import styled from "styled-components"
+import { FullScreenCard } from "./styles"
+import SectionHeading from "./SectionHeading"
 import colors from "./styles/colors"
 import { colorChange } from "./styles/animations"
 
 const Contact = () => (
-	<Container>
-		<h3>
-			For booking, contact Joe Bergen at{" "}
-			<a href="mailto:joe@mantrapercussion.org">joe@mantrapercussion.org</a>
-		</h3>
+	<section id="contact">
+		<FullScreenCard background="#000000b0" color="white">
+			<SectionHeading>
+				<h1>Contact</h1>
+			</SectionHeading>
+			<Container>
+				<h3>
+					For booking, contact Joe Bergen at{" "}
+					<a href="mailto:joe@mantrapercussion.org">joe@mantrapercussion.org</a>
+				</h3>
 
-		<h3>
-			For any other inquiries, reach out to us at{" "}
-			<a href="mailto:info@mantrapercussion.org">info@mantrapercussion.org</a>
-		</h3>
-	</Container>
+				<h3>
+					For any other inquiries, reach out to us at{" "}
+					<a href="mailto:info@mantrapercussion.org">
+						info@mantrapercussion.org
+					</a>
+				</h3>
+			</Container>
+		</FullScreenCard>
+	</section>
 )
 
 const Container = styled.div`

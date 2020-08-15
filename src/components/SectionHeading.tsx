@@ -14,5 +14,9 @@ const Heading = styled.div`
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-start;
+
+	a {
+		font-weight: 600;
+	}
 `
 export default SectionHeading

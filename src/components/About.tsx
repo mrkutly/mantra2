@@ -146,7 +146,7 @@ const About = () => {
 						</div>
 					</ExpandStyles>
 				</SectionHeading>
-				<BioCard>
+				<div>
 					<ImageContainer width="400px">
 						<Image fluid={activeImage} />
 					</ImageContainer>
@@ -155,13 +155,11 @@ const About = () => {
 							<p key={`${musician}-${idx}`}>{text}</p>
 						))}
 					</div>
-				</BioCard>
+				</div>
 			</FullScreenCard>
 		</section>
 	)
 }
-
-const BioCard = styled.div``
 
 const ExpandStyles = styled.h1`
 	.expand {
