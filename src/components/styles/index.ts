@@ -96,3 +96,15 @@ export const Button = styled.button`
 		box-shadow: 0 0 6px var(--green);
 	}
 `;
+
+
+export const ImageContainer = styled.div<{ width: string; }>`
+	float: left;
+	width: ${({ width }) => width};
+	margin: 0 5vh 5vh 0;
+	box-shadow: 5px 5px lightblue, 10px 10px #4fffff;
+
+	@media (max-width: 700px) {
+		width: 100%;
+	}
+`;

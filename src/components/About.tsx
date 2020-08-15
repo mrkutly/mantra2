@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Image from "gatsby-image"
-import { FullScreenCard, Link } from "./styles"
+import SectionHeading from "./SectionHeading"
+import { ImageContainer, FullScreenCard } from "./styles"
 import { colorChange } from "./styles/animations"
-import { keyOf } from "core-js/fn/dict"
 
 const ABOUT_QUERY = graphql`
 	query {
@@ -76,7 +76,7 @@ interface BioNode {
 	}
 }
 
-interface Image {
+interface ImageResult {
 	childImageSharp: {
 		fluid: object
 	}
@@ -86,12 +86,12 @@ type Bios = {
 	bios: {
 		edges: BioNode[]
 	}
-	al: Image
-	band: Image
-	chris: Image
-	joe: Image
-	mark: Image
-	mike: Image
+	al: ImageResult
+	band: ImageResult
+	chris: ImageResult
+	joe: ImageResult
+	mark: ImageResult
+	mike: ImageResult
 }
 
 const About = () => {
@@ -106,30 +106,50 @@ const About = () => {
 	const imageName = active === "the band" ? "band" : active
 	const activeImage = data[imageName].childImageSharp.fluid
 	const { musician, paragraphs } = activeBio.node
+
+	const handleSelect = musician => {
+		toggleShowMembers()
+		setActive(musician)
+	}
 	return (
 		<section id="about" style={{ fontWeight: 600 }}>
 			<FullScreenCard background="#003977e6" color="white">
-				<div>
-					<Link href="#next">back</Link>
-					<h1>
+				<SectionHeading>
+					<ExpandStyles>
 						About{" "}
-						<Expand onClick={toggleShowMembers} role="button">
-							<span className="active">{musician}</span>
-							{showMembers &&
-								inactiveBios.map(({ node }) => (
-									<span
-										key={node.id}
-										role="button"
-										onClick={() => setActive(node.musician)}
-									>
-										{node.musician}
-									</span>
-								))}
-						</Expand>
-					</h1>
-				</div>
+						<div className="expand">
+							<span
+								className="active"
+								onClick={toggleShowMembers}
+								role="button"
+							>
+								{musician}
+							</span>
+							{showMembers && (
+								<ul>
+									{inactiveBios.map(({ node }) => (
+										<li
+											className="options"
+											key={node.id}
+											onClick={() => handleSelect(node.musician)}
+											onKeyPress={({ key }) =>
+												key === "Enter" && handleSelect(node.musician)
+											}
+											role="button"
+											tabIndex={0}
+										>
+											{node.musician}
+										</li>
+									))}
+								</ul>
+							)}
+						</div>
+					</ExpandStyles>
+				</SectionHeading>
 				<BioCard>
-					<Image fluid={activeImage} />
+					<ImageContainer width="400px">
+						<Image fluid={activeImage} />
+					</ImageContainer>
 					<div>
 						{paragraphs.map((text, idx) => (
 							<p key={`${musician}-${idx}`}>{text}</p>
@@ -143,13 +163,42 @@ const About = () => {
 
 const BioCard = styled.div``
 
-const Expand = styled.span`
+const ExpandStyles = styled.h1`
+	.expand {
+		display: inline;
+		position: relative;
+	}
+
+	ul {
+		list-style: none;
+		position: absolute;
+		z-index: 2;
+		background: #000;
+		width: 191px;
+		padding: 12px 12px 0;
+		text-align: center;
+		margin: 0;
+		color: var(--lightpink);
+	}
+
+	li,
 	span {
 		cursor: pointer;
-		margin-right: 24px;
 	}
+
 	.active {
 		animation: ${colorChange} 3s infinite linear;
+	}
+
+	.options {
+		--rotate: -4deg;
+		--scale: 1;
+		transform: rotate(var(--rotate)) scale(var(--scale));
+
+		&:hover,
+		&:focus {
+			color: var(--green);
+		}
 	}
 `
 
