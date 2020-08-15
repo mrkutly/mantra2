@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components'
-import { Link as GatsbyLink } from 'gatsby'
-import { borderColorChange, colorChange, backgroundChange } from './animations'
+import styled, { css } from 'styled-components';
+import { Link as GatsbyLink } from 'gatsby';
+import { borderColorChange, colorChange, backgroundChange } from './animations';
 
-export const FullScreenCard = styled.div<{ background: string; color?: string}>`
+export const FullScreenCard = styled.div<{ background: string; color?: string; }>`
 	scroll-snap-align: start;
 	padding: 32px;
 	background: ${({ background }) => background};
@@ -39,7 +39,7 @@ export const FullScreenCard = styled.div<{ background: string; color?: string}>`
 			z-index: -1;
 		}
 	}
-`
+`;
 
 const linkStyles = css`
 	color: inherit;
@@ -68,13 +68,13 @@ const linkStyles = css`
 	&:active {
 		background: var(--black);
 	}
-`
+`;
 export const Link = styled.a`
 	${linkStyles}
-`
+`;
 export const PageLink = styled(GatsbyLink)`
 	${linkStyles}
-`
+`;
 
 export const Button = styled.button`
 	padding: 2px 8px;
@@ -95,4 +95,4 @@ export const Button = styled.button`
 	&:focus {
 		box-shadow: 0 0 6px var(--green);
 	}
-`
+`;

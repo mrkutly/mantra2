@@ -41,27 +41,29 @@ const Next = () => {
 	const handleSubmit = e => e.preventDefault()
 
 	return (
-		<FullScreenCard background="#8736ffb0" color="white">
-			<LearnMoreStyles>
-				<h1>Learn more about Mantra Percussion</h1>
-				<ul>
-					{site.siteMetadata.navLinks.map(link => (
-						<li key={link.id}>
-							{link.isHash ? (
-								<Link href={link.href}>{link.display}</Link>
-							) : (
-								<PageLink to={link.href}>{link.display}</PageLink>
-							)}
-						</li>
-					))}
-				</ul>
-			</LearnMoreStyles>
-			<Form method="post" onSubmit={handleSubmit}>
-				<h2>Sign up for our newsletter</h2>
-				<input type="text" placeholder="Email" />
-				<Button type="submit">Submit</Button>
-			</Form>
-		</FullScreenCard>
+		<section id="next">
+			<FullScreenCard background="#8736ffb0" color="white">
+				<LearnMoreStyles>
+					<h1>Learn more about Mantra Percussion</h1>
+					<ul>
+						{site.siteMetadata.navLinks.map(link => (
+							<li key={link.id}>
+								{link.isHash ? (
+									<Link href={link.href}>{link.display}</Link>
+								) : (
+									<PageLink to={link.href}>{link.display}</PageLink>
+								)}
+							</li>
+						))}
+					</ul>
+				</LearnMoreStyles>
+				<Form method="post" onSubmit={handleSubmit}>
+					<h2>Sign up for our newsletter</h2>
+					<input type="text" placeholder="Email" />
+					<Button type="submit">Submit</Button>
+				</Form>
+			</FullScreenCard>
+		</section>
 	)
 }
 
