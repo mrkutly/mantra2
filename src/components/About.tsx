@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import styled from "styled-components"
 import Image from "gatsby-image"
 import SectionHeading from "./SectionHeading"
 import { ImageContainer, FullScreenCard } from "./styles"
-import { colorChange } from "./styles/animations"
+import Expand from "./Expand"
 
 const ABOUT_QUERY = graphql`
 	query {
@@ -100,9 +99,6 @@ const About = () => {
 	const [showMembers, setShowMembers] = useState<boolean>(false)
 	const toggleShowMembers = () => setShowMembers(!showMembers)
 	const activeBio = data.bios.edges.find(bio => bio.node.musician === active)
-	const inactiveBios = data.bios.edges.filter(
-		bio => bio.node.musician !== active
-	)
 	const imageName = active === "the band" ? "band" : active
 	const activeImage = data[imageName].childImageSharp.fluid
 	const { musician, paragraphs } = activeBio.node
@@ -115,36 +111,15 @@ const About = () => {
 		<section id="about" style={{ fontWeight: 600 }}>
 			<FullScreenCard background="#003977e6" color="white">
 				<SectionHeading>
-					<ExpandStyles>
+					<h1>
 						About{" "}
-						<div className="expand">
-							<span
-								className="active"
-								onClick={toggleShowMembers}
-								role="button"
-							>
-								{musician}
-							</span>
-							{showMembers && (
-								<ul>
-									{inactiveBios.map(({ node }) => (
-										<li
-											className="options"
-											key={node.id}
-											onClick={() => handleSelect(node.musician)}
-											onKeyPress={({ key }) =>
-												key === "Enter" && handleSelect(node.musician)
-											}
-											role="button"
-											tabIndex={0}
-										>
-											{node.musician}
-										</li>
-									))}
-								</ul>
-							)}
-						</div>
-					</ExpandStyles>
+						<Expand
+							active={active}
+							colors={{ primary: "#003977e6", background: "white" }}
+							options={data.bios.edges.map(bio => bio.node.musician)}
+							setActive={setActive}
+						/>
+					</h1>
 				</SectionHeading>
 				<div>
 					<ImageContainer width="400px">
@@ -160,45 +135,5 @@ const About = () => {
 		</section>
 	)
 }
-
-const ExpandStyles = styled.h1`
-	.expand {
-		display: inline;
-		position: relative;
-	}
-
-	ul {
-		list-style: none;
-		position: absolute;
-		z-index: 2;
-		background: #000;
-		width: 191px;
-		padding: 12px 12px 0;
-		text-align: center;
-		margin: 0;
-		color: var(--lightpink);
-	}
-
-	li,
-	span {
-		cursor: pointer;
-	}
-
-	.active {
-		animation: ${colorChange} 3s infinite linear;
-	}
-
-	.options {
-		--rotate: -4deg;
-		--scale: 1;
-		transform: rotate(var(--rotate)) scale(var(--scale));
-
-		&:hover,
-		&:focus {
-			color: var(--black);
-			background-color: var(--lightpink);
-		}
-	}
-`
 
 export default About

@@ -22,16 +22,20 @@ function mapProgram(program) {
 	})
 }
 
-const Concert = props => {
+interface ConcertProps {
+	concert: Concert
+}
+
+const Concert = (props: ConcertProps) => {
 	const { date, location, program } = props.concert
 
 	return (
 		<div>
-			<h3>Date: {date}</h3>
-			<h3>
+			<h2>Date: {date}</h2>
+			<h2>
 				Venue: {location.venue} | {location.city}
-			</h3>
-			<h3>Program:</h3>
+			</h2>
+			<h2>Program:</h2>
 			<ul>{mapProgram(program)}</ul>
 			<hr />
 		</div>

@@ -5,6 +5,7 @@ import Logo from "../components/Logo"
 import Intro from "../components/Intro"
 import Next from "../components/Next"
 import About from "../components/About"
+import Calendar from "../components/Calendar"
 import Contact from "../components/Contact"
 
 const Index = () => (
@@ -21,6 +22,7 @@ const Index = () => (
 			<Intro />
 			<Next />
 			<About />
+			<Calendar />
 			<Contact />
 		</div>
 	</Layout>
