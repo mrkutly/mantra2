@@ -57,8 +57,8 @@ function getCalendarObject(shows: { edges: CalendarNode[] }) {
 
 			// sort it by date in descending order
 			const sortedConcerts = updatedConcerts.sort((a, b) => {
-				const dateA = new Date(`${b.date}, ${year}`)
-				const dateB = new Date(`${a.date}, ${year}`)
+				const dateA = new Date(`${a.date}, ${year}`)
+				const dateB = new Date(`${b.date}, ${year}`)
 				return descending(dateA, dateB)
 			})
 
