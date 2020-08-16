@@ -21,9 +21,11 @@ const VideoPlayer = ({ video }: VideoPlayerProps) => (
 )
 
 const VideoPlayerStyles = styled.div`
+	margin-right: auto;
 	animation: 0.8s ${fadeIn} ease-in;
-	box-shadow: var(--blue-shadows);
-	max-width: 560px;
+	box-shadow: var(--pink-shadows);
+	width: 560px;
+	height: 340px;
 `
 
 export default VideoPlayer

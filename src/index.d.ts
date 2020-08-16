@@ -1,18 +1,27 @@
-interface SiteLink {
-	id: number;
+interface Album {
+	title: string;
+	url: string;
 	href: string;
-	display: string;
-	partial: boolean;
-	isHash: boolean;
+	host: string;
+	height: string;
 }
 
-interface Video {
+interface Article {
+	author: string;
+	publication: string;
+	pullQuote: string;
 	title: string;
 	url: string;
 }
 
+interface CalendarNode {
+	node: {
+		concerts: Concert[];
+		year: number;
+	};
+}
+
 interface Concert {
-	id: string;
 	date: string;
 	location: {
 		city: string;
@@ -26,9 +35,15 @@ interface Concert {
 	};
 }
 
-interface CalendarNode {
-	node: {
-		concerts: Concert[];
-		year: number;
-	};
+interface SiteLink {
+	id: number;
+	href: string;
+	display: string;
+	partial: boolean;
+	isHash: boolean;
+}
+
+interface Video {
+	title: string;
+	url: string;
 }

@@ -7,22 +7,22 @@ import { colorChange } from "./styles/animations"
 
 const Contact = () => (
 	<section id="contact">
-		<FullScreenCard background="#000000b0" color="white">
+		<FullScreenCard background="#238e3eb0" color="white">
 			<SectionHeading>
 				<h1>Contact</h1>
 			</SectionHeading>
 			<Container>
-				<h3>
+				<p>
 					For booking, contact Joe Bergen at{" "}
 					<a href="mailto:joe@mantrapercussion.org">joe@mantrapercussion.org</a>
-				</h3>
+				</p>
 
-				<h3>
+				<p>
 					For any other inquiries, reach out to us at{" "}
 					<a href="mailto:info@mantrapercussion.org">
 						info@mantrapercussion.org
 					</a>
-				</h3>
+				</p>
 			</Container>
 		</FullScreenCard>
 	</section>
@@ -32,6 +32,11 @@ const Container = styled.div`
 	text-align: center;
 	margin: 20vh auto;
 	max-width: 1200px;
+
+	p {
+		font-size: 2rem;
+		font-weight: 600;
+	}
 
 	a {
 		color: ${colors.peach};

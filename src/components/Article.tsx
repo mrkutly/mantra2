@@ -8,11 +8,10 @@ const ArticleListItem = styled.li`
 `
 
 const ArticleLink = styled.a`
-	color: black;
+	color: white;
 	text-decoration: none;
 	display: block;
 	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-	
 
 	h2 {
 		line-height: 2em;
@@ -34,8 +33,8 @@ const Article = ({
 			<ArticleListItem>
 				<h1>{publication}</h1>
 				<h2>{title}</h2>
-				<h3>"{pullQuote}"</h3>
-				<h3>{author}</h3>
+				<p>"{pullQuote}"</p>
+				<p>{author}</p>
 			</ArticleListItem>
 			<hr />
 		</ArticleLink>
