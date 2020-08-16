@@ -101,7 +101,7 @@ export const Button = styled.button`
 export const ImageContainer = styled.div<{ width: string; }>`
 	float: left;
 	width: ${({ width }) => width};
-	margin: 0 5vh 5vh 0;
+	margin: 0 50px 50px 0;
 	box-shadow: var(--blue-shadows);
 
 	@media (max-width: 700px) {

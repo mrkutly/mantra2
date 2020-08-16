@@ -96,17 +96,11 @@ type Bios = {
 const About = () => {
 	const data = useStaticQuery<Bios>(ABOUT_QUERY)
 	const [active, setActive] = useState<string>("the band")
-	const [showMembers, setShowMembers] = useState<boolean>(false)
-	const toggleShowMembers = () => setShowMembers(!showMembers)
 	const activeBio = data.bios.edges.find(bio => bio.node.musician === active)
 	const imageName = active === "the band" ? "band" : active
 	const activeImage = data[imageName].childImageSharp.fluid
 	const { musician, paragraphs } = activeBio.node
 
-	const handleSelect = musician => {
-		toggleShowMembers()
-		setActive(musician)
-	}
 	return (
 		<section id="about" style={{ fontWeight: 600 }}>
 			<FullScreenCard background="#003977e6" color="white">

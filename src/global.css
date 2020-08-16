@@ -86,8 +86,8 @@ html {
 	--peach: #ff6e66;
 	--black: #000008;
 	--grey: #34343c;
-	--blue-shadows: 5px 5px lightblue, 10px 10px #4fffff;
-	--pink-shadows: 5px 5px var(--peach), 10px 10px var(--pink);
+	--blue-shadows: 15px 15px lightblue, 30px 30px #4fffff;
+	--pink-shadows: 15px 15px var(--peach), 30px 30px var(--pink);
 	scrollbar-color: var(--pink) var(--black);
 }
 body {
