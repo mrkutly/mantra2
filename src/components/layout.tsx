@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import BackgroundImage from "./BackgroundImage"
-import message from "./message.js"
+import message from "./message"
 
 const Layout = ({ children }) => {
 	useEffect(() => console.log(message), [])

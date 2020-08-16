@@ -11,7 +11,7 @@ import Contact from "../components/Contact"
 import Press from "../components/Press"
 
 const Index = () => (
-	<Layout isHomePage>
+	<Layout>
 		<SEO />
 		<main
 			style={{
