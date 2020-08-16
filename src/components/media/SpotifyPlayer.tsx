@@ -5,6 +5,7 @@ import { PlayerProps } from "./mediaTypes"
 const SpotifyPlayer = ({ album }: PlayerProps) => (
 	<AlbumPlayerStyles className="spotify">
 		<iframe
+			loading="lazy"
 			title={`${album.title}`}
 			src={`${album.url}`}
 			frameBorder="0"

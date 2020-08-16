@@ -2,15 +2,14 @@ import React from "react"
 import { AlbumPlayerStyles } from "../styles"
 import { PlayerProps } from "./mediaTypes"
 
-const BandcampPlayer = ({ album }: PlayerProps) => {
+const WNYCPlayer = ({ album }: PlayerProps) => {
 	return (
-		<AlbumPlayerStyles className="bandcamp">
+		<AlbumPlayerStyles className="wnyc">
 			<iframe
 				loading="lazy"
 				title={`${album.title}`}
-				style={{ border: "0" }}
+				scrolling="no"
 				src={`${album.url}`}
-				seamless
 			>
 				<a href={`${album.href}`}>{album.title}</a>
 			</iframe>
@@ -18,4 +17,4 @@ const BandcampPlayer = ({ album }: PlayerProps) => {
 	)
 }
 
-export default BandcampPlayer
+export default WNYCPlayer

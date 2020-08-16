@@ -6,11 +6,11 @@ import { PlayerProps } from "./mediaTypes"
 const VideoPlayer = ({ video }: PlayerProps) => (
 	<VideoPlayerStyles>
 		<iframe
+			loading="lazy"
 			title={video.title}
 			width="100%"
 			height="100%"
 			src={`${video.url}`}
-			style={{ background: "black" }}
 			frameBorder="0"
 			allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 			allowFullScreen
@@ -31,8 +31,6 @@ const VideoPlayerStyles = styled.div`
 	}
 
 	@media screen and (min-width: 700px) {
-		margin-right: auto;
-		margin-left: 0;
 		width: 560px;
 		height: 340px;
 	}

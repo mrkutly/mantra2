@@ -105,6 +105,10 @@ body {
 	}
 }
 
+iframe {
+	background: black;
+}
+
 article,
 aside,
 details,

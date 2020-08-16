@@ -36,8 +36,8 @@ export interface Concert {
 }
 
 export enum MediaTypes {
-	ALBUMS = "ALBUMS",
-	VIDEOS = "VIDEOS",
+	ALBUMS = "AUDIO",
+	VIDEOS = "VIDEO",
 }
 
 export interface SiteLink {

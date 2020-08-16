@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import styled from "styled-components"
-import Title from "./Title"
 import AlbumPlayer from "./AlbumPlayer"
 import VideoPlayer from "./VideoPlayer"
 import { Album, MediaTypes, Video } from "../../types"
@@ -12,33 +11,23 @@ interface MediaProps {
 }
 
 const MediaIndex = ({ albums, videos, type }: MediaProps) => {
-	let defaultMedia
-
-	if (type === MediaTypes.VIDEOS) {
-		defaultMedia = videos.find(vid => vid.title.includes("Squarepusher"))
-	} else {
-		defaultMedia = albums.find(vid => vid.title.includes("Great Many"))
-	}
-
-	const [active, setActive] = useState<Video | Album>(defaultMedia)
-	const mapped = (type === MediaTypes.VIDEOS
-		? videos
-		: albums
-	).map((entity, i) => (
-		<Title play={setActive} media={entity} key={`${entity.title}-${i}`} />
+	const mappedVideos = videos.map((video, i) => (
+		<div className="card">
+			<VideoPlayer key={`${video}-${i}`} video={video} />
+			<p>{video.title}</p>
+		</div>
 	))
-
-	useEffect(() => {
-		if (active !== defaultMedia) {
-			setActive(defaultMedia)
-		}
-	}, [type])
+	const mappedAlbums = albums.map((album, i) => (
+		<div className="card">
+			<AlbumPlayer key={`${album}-${i}`} album={album} />
+			<p>{album.title}</p>
+		</div>
+	))
 
 	return (
 		<Index type={type}>
-			{type === MediaTypes.ALBUMS && <AlbumPlayer album={active as Album} />}
-			{type === MediaTypes.VIDEOS && <VideoPlayer video={active as Video} />}
-			<div className="media-index">{mapped}</div>
+			{type === MediaTypes.ALBUMS && mappedAlbums}
+			{type === MediaTypes.VIDEOS && mappedVideos}
 		</Index>
 	)
 }
@@ -47,23 +36,24 @@ const Index = styled.div<{ type: MediaTypes }>`
 	height: 75vh;
 	overflow: scroll;
 	display: grid;
-	grid-template-columns: ${({ type }) =>
-			type === MediaTypes.ALBUMS ? "400px" : "600px"} 1fr;
-	grid-gap: 10px;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 80px;
 
-	.media-index {
-		overflow: scroll;
-		height: 100%;
+	.card {
+		p {
+			text-align: center;
+			color: rgb(97, 0, 253);
+			font-weight: 600;
+			font-size: 2rem;
+			font-family: "Bebas Neue";
+			margin-top: 60px;
+		}
 	}
 
 	@media screen and (max-width: 1000px) {
-		display: block;
-
-		.media-index {
-			margin-top: 60px;
-			overflow: initial;
-			height: auto;
-		}
+		grid-template-columns: 1fr;
 	}
 `
 

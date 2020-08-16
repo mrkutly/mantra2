@@ -4,9 +4,9 @@ import { borderColorChange, colorChange, backgroundChange, fadeIn } from './anim
 
 
 export const AlbumPlayerStyles = styled.div`
-	margin-right: auto;
 	animation: 0.8s ${fadeIn} ease-in;
 	box-shadow: var(--pink-shadows);
+	margin: 0 auto;
 	
 	&.apple, &.apple iframe {
 		height: 450px;
@@ -21,6 +21,11 @@ export const AlbumPlayerStyles = styled.div`
 	&.spotify, &.spotify iframe {
 		width: 300px;
 		height: 380px;
+	}
+	
+	&.wnyc, &.wnyc iframe {
+		height: 130px;
+		width: 100%;
 	}
 	
 	@media screen and (min-width: 500px) { 
@@ -140,20 +145,9 @@ export const ImageContainer = styled.div<{ width: string; }>`
 	}
 `;
 
-export const MediaTitle = styled.div`
-	cursor: pointer;
+export const MediaTitle = styled.p`
 	font-weight: 600;
 	font-size: 1.4rem;
 	margin-top: 20px;
-	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-	&:hover,
-	&:focus {
-		letter-spacing: 4px;
-		color: rgb(135, 86, 214);
-	}
-
-	@media screen and (min-width: 1000px) {
-		font-size: 2rem;
-	}
+	color: rgb(135, 86, 214);
 `;
