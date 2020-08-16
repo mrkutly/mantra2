@@ -24,8 +24,11 @@ export const AlbumPlayerStyles = styled.div`
 	}
 	
 	@media screen and (min-width: 500px) { 
-		max-height: 70vh;
-		overflow: scroll;
+		&.apple, &.spotify {
+			max-height: 70vh;
+			overflow: scroll;
+		}
+
 
 		&.bandcamp, &.bandcamp iframe {
 			width: 350px;
