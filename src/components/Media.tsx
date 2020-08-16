@@ -3,7 +3,8 @@ import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { FullScreenCard } from "./styles"
 import SectionHeading from "./SectionHeading"
-import VideosIndex from "./video/VideosIndex"
+import MediaIndex from "./media/MediaIndex"
+import { Album, MediaTypes, Video } from "../types"
 
 export const MEDIA_QUERY = graphql`
 	query {
@@ -13,7 +14,6 @@ export const MEDIA_QUERY = graphql`
 				url
 				href
 				host
-				height
 			}
 		}
 
@@ -35,16 +35,11 @@ interface MediaResult {
 	}
 }
 
-const ALBUMS = "ALBUMS"
-const VIDEOS = "VIDEOS"
-
-enum Active {
-	ALBUMS = "ALBUMS",
-	VIDEOS = "VIDEOS",
-}
+const ALBUMS = MediaTypes.ALBUMS
+const VIDEOS = MediaTypes.VIDEOS
 
 const Media = () => {
-	const [active, setActive] = useState<Active>(Active.VIDEOS)
+	const [active, setActive] = useState<MediaTypes>(MediaTypes.VIDEOS)
 	const { albums, videos } = useStaticQuery<MediaResult>(MEDIA_QUERY)
 
 	return (
@@ -52,7 +47,7 @@ const Media = () => {
 			<FullScreenCard background="#f3ff9de6">
 				<SectionHeading>
 					<div>
-						{[Active.VIDEOS, Active.ALBUMS].map(opt => (
+						{[MediaTypes.VIDEOS, MediaTypes.ALBUMS].map(opt => (
 							<MediaOption
 								className={active === opt ? "active" : null}
 								key={opt}
@@ -66,10 +61,7 @@ const Media = () => {
 						))}
 					</div>
 				</SectionHeading>
-				{active === Active.VIDEOS && <VideosIndex videos={videos.nodes} />}
-				{active === Active.ALBUMS && (
-					<pre>{JSON.stringify(albums, null, 2)}</pre>
-				)}
+				<MediaIndex videos={videos.nodes} albums={albums.nodes} type={active} />
 			</FullScreenCard>
 		</section>
 	)

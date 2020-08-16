@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { FullScreenCard } from "./styles"
 import SectionHeading from "./SectionHeading"
-import colors from "./styles/colors"
 import { colorChange } from "./styles/animations"
 
 const Contact = () => (
@@ -39,7 +38,7 @@ const Container = styled.div`
 	}
 
 	a {
-		color: ${colors.peach};
+		color: var(--peach);
 		transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 		:hover,

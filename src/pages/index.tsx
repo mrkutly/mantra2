@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Logo from "../components/Logo"
 import Intro from "../components/Intro"
-import Next from "../components/Next"
+import Menu from "../components/Menu"
 import About from "../components/About"
 import Media from "../components/Media"
 import Calendar from "../components/Calendar"
@@ -12,8 +12,8 @@ import Press from "../components/Press"
 
 const Index = () => (
 	<Layout isHomePage>
-		<SEO title="Home" />
-		<div
+		<SEO />
+		<main
 			style={{
 				scrollSnapType: "y mandatory",
 				height: "100vh",
@@ -22,13 +22,13 @@ const Index = () => (
 		>
 			<Logo />
 			<Intro />
-			<Next />
+			<Menu />
 			<About />
 			<Media />
 			<Calendar />
 			<Press />
 			<Contact />
-		</div>
+		</main>
 	</Layout>
 )
 

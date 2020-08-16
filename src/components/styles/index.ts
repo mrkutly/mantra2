@@ -1,6 +1,38 @@
 import styled, { css } from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
-import { borderColorChange, colorChange, backgroundChange } from './animations';
+import { borderColorChange, colorChange, backgroundChange, fadeIn } from './animations';
+
+
+export const AlbumPlayerStyles = styled.div`
+	margin-right: auto;
+	animation: 0.8s ${fadeIn} ease-in;
+	box-shadow: var(--pink-shadows);
+	
+	&.apple, &.apple iframe {
+		height: 450px;
+		width: 320px;
+	}
+
+	&.bandcamp, &.bandcamp iframe {
+		width: 290px;
+		height: 290px;
+	}
+	
+	&.spotify, &.spotify iframe {
+		width: 300px;
+		height: 380px;
+	}
+	
+	@media screen and (min-width: 500px) { 
+		max-height: 70vh;
+		overflow: scroll;
+
+		&.bandcamp, &.bandcamp iframe {
+			width: 350px;
+			height: 350px;
+		}
+	}
+`;
 
 export const FullScreenCard = styled.div<{ background: string; color?: string; }>`
 	scroll-snap-align: start;
@@ -47,12 +79,8 @@ const linkStyles = css`
 	text-decoration: none;
 	transition: all 0.2s ease;
 	border-bottom: 4px solid transparent;
+	font-weight: 600;
 
-	&:hover,
-	&:focus,
-	&:active {
-		font-weight: 600;
-	}
 
 	&:hover {
 		animation: ${borderColorChange} 2.5s linear infinite,
@@ -106,5 +134,23 @@ export const ImageContainer = styled.div<{ width: string; }>`
 
 	@media (max-width: 700px) {
 		width: 100%;
+	}
+`;
+
+export const MediaTitle = styled.div`
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 1.4rem;
+	margin-top: 20px;
+	transition: letter-spacing 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	&:hover,
+	&:focus {
+		letter-spacing: 4px;
+		color: rgb(135, 86, 214);
+	}
+
+	@media screen and (min-width: 1000px) {
+		font-size: 2rem;
 	}
 `;

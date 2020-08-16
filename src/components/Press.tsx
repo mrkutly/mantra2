@@ -4,11 +4,13 @@ import { graphql, useStaticQuery } from "gatsby"
 import { FullScreenCard } from "./styles"
 import SectionHeading from "./SectionHeading"
 import Article from "./Article"
+import { Article as ArticleType } from "../types"
 
 const PRESS_QUERY = graphql`
 	query {
 		articles: allArticlesJson(sort: { fields: publication, order: DESC }) {
 			nodes {
+				id
 				author
 				publication
 				pullQuote
@@ -21,14 +23,14 @@ const PRESS_QUERY = graphql`
 
 interface PressResult {
 	articles: {
-		nodes: Article[]
+		nodes: ArticleType[]
 	}
 }
 
 const Press = () => {
 	const { articles } = useStaticQuery<PressResult>(PRESS_QUERY)
 	const mappedArticles = articles.nodes.map(article => (
-		<Article article={article} key={article._id} />
+		<Article article={article} key={article.id} />
 	))
 
 	return (

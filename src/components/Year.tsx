@@ -148,11 +148,16 @@ const Container = styled.div`
 	padding: 0 5vh;
 `
 
-const YearStyles = styled.span`
+interface StyledProps {
+	active: boolean
+	initialLoad?: boolean
+}
+
+const YearStyles = styled.span<StyledProps>`
 	color: black;
 	${props =>
 		props.active &&
-		`text-shadow: 3px 3px ${colors.lightblue}, -1px -1px ${colors.lightblue}, 6px 6px ${colors.lightpink};`}
+		`text-shadow: 3px 3px var(--lightblue), -1px -1px var(--lightblue), 6px 6px var(--lightpink);`}
 	text-decoration: none;
 	cursor: default;
 	width: -webkit-fit-content;
@@ -161,11 +166,11 @@ const YearStyles = styled.span`
 
 	:focus {
 		outline: none;
-		color: ${colors.green};
+		color: var(--green);
 	}
 `
 
-const ConcertList = styled.ul`
+const ConcertList = styled.ul<StyledProps>`
 	display: block;
 	overflow: hidden;
 	max-height: ${props => (props.active ? "10000vh" : "0vh")};
@@ -201,7 +206,7 @@ const YearHeader = styled.h1`
 
 	:hover {
 		letter-spacing: 4px;
-		color: ${colors.green};
+		color: var(--green);
 	}
 `
 

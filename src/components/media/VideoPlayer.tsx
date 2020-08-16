@@ -1,12 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { fadeIn } from "../styles/animations"
+import { PlayerProps } from "./mediaTypes"
 
-interface VideoPlayerProps {
-	video: Video
-}
-
-const VideoPlayer = ({ video }: VideoPlayerProps) => (
+const VideoPlayer = ({ video }: PlayerProps) => (
 	<VideoPlayerStyles>
 		<iframe
 			title={video.title}
@@ -21,11 +18,23 @@ const VideoPlayer = ({ video }: VideoPlayerProps) => (
 )
 
 const VideoPlayerStyles = styled.div`
-	margin-right: auto;
 	animation: 0.8s ${fadeIn} ease-in;
 	box-shadow: var(--pink-shadows);
-	width: 560px;
-	height: 340px;
+	margin: 0 auto;
+	width: 277px;
+	height: 177px;
+
+	@media screen and (min-width: 580px) {
+		width: 450px;
+		height: 310px;
+	}
+
+	@media screen and (min-width: 700px) {
+		margin-right: auto;
+		margin-left: 0;
+		width: 560px;
+		height: 340px;
+	}
 `
 
 export default VideoPlayer

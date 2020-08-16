@@ -35,13 +35,13 @@ interface Site {
 	}
 }
 
-const Next = () => {
+const Menu = () => {
 	const { site } = useStaticQuery<Site>(SITE_QUERY)
 
 	const handleSubmit = e => e.preventDefault()
 
 	return (
-		<section id="next">
+		<section id="menu">
 			<FullScreenCard background="#8736ffb0" color="white">
 				<LearnMoreStyles>
 					<h1>Learn more about Mantra Percussion</h1>
@@ -93,4 +93,4 @@ const Form = styled.form`
 	}
 `
 
-export default Next
+export default Menu

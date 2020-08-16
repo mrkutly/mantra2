@@ -2,8 +2,9 @@ import React from "react"
 import BandcampPlayer from "./BandcampPlayer"
 import ApplePlayer from "./ApplePlayer"
 import SpotifyPlayer from "./SpotifyPlayer"
+import { PlayerProps } from "./mediaTypes"
 
-export default ({ album }) => {
+const AlbumPlayer = ({ album }: PlayerProps) => {
 	switch (album.host) {
 		case "apple":
 			return <ApplePlayer album={album} />
@@ -15,3 +16,5 @@ export default ({ album }) => {
 			return <BandcampPlayer album={album} />
 	}
 }
+
+export default AlbumPlayer

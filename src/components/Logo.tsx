@@ -1,6 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import logo from '../images/mantra-logo.png'
+import React from "react"
+import styled from "styled-components"
+// @ts-ignore
+import logo from "../images/mantra-logo.png"
 
 const LogoImage = () => (
 	<LogoImageStyles>

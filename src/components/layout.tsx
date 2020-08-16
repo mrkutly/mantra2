@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import BackgroundImage from './BackgroundImage'
-import message from './message.js'
+import React, { useEffect } from "react"
+import PropTypes from "prop-types"
+import BackgroundImage from "./BackgroundImage"
+import message from "./message.js"
 
 const Layout = ({ children, isHomePage }) => {
 	useEffect(() => console.log(message), [])
 
 	const foreGround = (
-		<main
+		<div
 			style={{
 				margin: `0 auto`,
 				paddingTop: 0,
 			}}
 		>
 			{children}
-		</main>
+		</div>
 	)
 
 	const withBackgroundImage = <BackgroundImage>{foreGround}</BackgroundImage>

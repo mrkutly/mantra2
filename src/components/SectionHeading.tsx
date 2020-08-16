@@ -5,7 +5,7 @@ import { Link } from "./styles"
 const SectionHeading = ({ children }) => (
 	<Heading>
 		{children}
-		<Link href="#next">back</Link>
+		<Link href="#menu">menu</Link>
 	</Heading>
 )
 

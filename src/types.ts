@@ -1,12 +1,12 @@
-interface Album {
+export interface Album {
 	title: string;
 	url: string;
 	href: string;
 	host: string;
-	height: string;
 }
 
-interface Article {
+export interface Article {
+	id: string;
 	author: string;
 	publication: string;
 	pullQuote: string;
@@ -14,14 +14,14 @@ interface Article {
 	url: string;
 }
 
-interface CalendarNode {
+export interface CalendarNode {
 	node: {
 		concerts: Concert[];
 		year: number;
 	};
 }
 
-interface Concert {
+export interface Concert {
 	date: string;
 	location: {
 		city: string;
@@ -35,7 +35,12 @@ interface Concert {
 	};
 }
 
-interface SiteLink {
+export enum MediaTypes {
+	ALBUMS = "ALBUMS",
+	VIDEOS = "VIDEOS",
+}
+
+export interface SiteLink {
 	id: number;
 	href: string;
 	display: string;
@@ -43,7 +48,7 @@ interface SiteLink {
 	isHash: boolean;
 }
 
-interface Video {
+export interface Video {
 	title: string;
 	url: string;
 }

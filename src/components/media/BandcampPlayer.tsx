@@ -1,12 +1,13 @@
 import React from "react"
-import AlbumPlayerStyles from "./AlbumPlayerStyles"
+import { AlbumPlayerStyles } from "../styles"
+import { PlayerProps } from "./mediaTypes"
 
-const BandcampPlayer = ({ album }) => {
+const BandcampPlayer = ({ album }: PlayerProps) => {
 	return (
-		<AlbumPlayerStyles>
+		<AlbumPlayerStyles className="bandcamp">
 			<iframe
 				title={`${album.title}`}
-				style={{ border: "0", width: "350px", height: album.height }}
+				style={{ border: "0" }}
 				src={`${album.url}`}
 				seamless
 			>
