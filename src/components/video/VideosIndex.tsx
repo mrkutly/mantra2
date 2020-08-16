@@ -28,10 +28,21 @@ const VideoIndexStyles = styled.div`
 	overflow: scroll;
 	display: grid;
 	grid-template-columns: 600px 1fr;
+	grid-gap: 10px;
 
 	.media-index {
 		overflow: scroll;
 		height: 100%;
+	}
+
+	@media screen and (max-width: 1000px) {
+		display: block;
+
+		.media-index {
+			margin-top: 60px;
+			overflow: initial;
+			height: auto;
+		}
 	}
 `
 
