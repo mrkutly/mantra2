@@ -1,11 +1,11 @@
 import React from "react"
 import { AlbumPlayerStyles } from "../styles"
 import { PlayerProps } from "./mediaTypes"
+import LazyIFrame from "./LazyIFrame"
 
 const ApplePlayer = ({ album }: PlayerProps) => (
 	<AlbumPlayerStyles className="apple">
-		<iframe
-			loading="lazy"
+		<LazyIFrame
 			title={`${album.title}`}
 			allow="autoplay *; encrypted-media *;"
 			frameBorder="0"

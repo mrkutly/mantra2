@@ -2,11 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { fadeIn } from "../styles/animations"
 import { PlayerProps } from "./mediaTypes"
+import LazyIFrame from "./LazyIFrame"
 
 const VideoPlayer = ({ video }: PlayerProps) => (
 	<VideoPlayerStyles>
-		<iframe
-			loading="lazy"
+		<LazyIFrame
 			title={video.title}
 			width="100%"
 			height="100%"

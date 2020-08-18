@@ -1,11 +1,11 @@
 import React from "react"
 import { AlbumPlayerStyles } from "../styles"
 import { PlayerProps } from "./mediaTypes"
+import LazyIFrame from "./LazyIFrame"
 
 const SpotifyPlayer = ({ album }: PlayerProps) => (
 	<AlbumPlayerStyles className="spotify">
-		<iframe
-			loading="lazy"
+		<LazyIFrame
 			title={`${album.title}`}
 			src={`${album.url}`}
 			frameBorder="0"

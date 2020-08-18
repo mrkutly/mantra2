@@ -23,7 +23,8 @@
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
 		"react-helmet": "^5.2.1",
-		"styled-components": "^4.3.2"
+		"styled-components": "^4.3.2",
+		"vanilla-lazyload": "^17.1.0"
 	},
 	"devDependencies": {
 		"@types/styled-components": "^5.1.2",
