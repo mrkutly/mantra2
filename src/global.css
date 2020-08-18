@@ -92,7 +92,7 @@ html {
 }
 body {
 	scroll-behavior: smooth;
-	background: #ffffff;
+	background: #000000;
 	font-size: 18px;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
