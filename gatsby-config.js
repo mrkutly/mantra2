@@ -40,13 +40,13 @@ module.exports = {
 				partial: false,
 				isHash: true,
 			},
-			{
-				id: 7,
-				display: `Mantra Youth Percussion`,
-				href: `/mantrayouth/`,
-				partial: true,
-				isHash: false,
-			},
+			// {
+			// 	id: 7,
+			// 	display: `Mantra Youth Percussion`,
+			// 	href: `/mantrayouth/`,
+			// 	partial: true,
+			// 	isHash: false,
+			// },
 		],
 	},
 	plugins: [
