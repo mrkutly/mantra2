@@ -6,10 +6,26 @@ import React, {
 	useState,
 } from 'react'
 import { useLocation } from '@reach/router'
-import { useStaticQuery } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { linkStyles, Link, PageLink } from './styles'
-import { Site, SITE_QUERY } from './Menu'
+import { Site } from './Menu'
+
+const SITE_QUERY = graphql`
+	query {
+		site {
+			siteMetadata {
+				navLinks {
+					id
+					href
+					display
+					partial
+					isHash
+				}
+			}
+		}
+	}
+`
 
 const HeaderMenu = () => {
 	const { pathname } = useLocation()

@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { FullScreenCard, Link, PageLink } from './styles'
 
-export const SITE_QUERY = graphql`
+const SITE_QUERY = graphql`
 	query {
 		site {
 			siteMetadata {
