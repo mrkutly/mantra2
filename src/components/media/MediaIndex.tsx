@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import AlbumPlayer from "./AlbumPlayer"
-import VideoPlayer from "./VideoPlayer"
-import { Album, MediaTypes, Video } from "../../types"
+import React from 'react'
+import styled from 'styled-components'
+import AlbumPlayer from './AlbumPlayer'
+import VideoPlayer from './VideoPlayer'
+import { Album, MediaTypes, Video } from '../../types'
 
 interface MediaProps {
 	videos: Video[]
@@ -33,26 +33,23 @@ const MediaIndex = ({ albums, videos, type }: MediaProps) => {
 }
 
 const Index = styled.div<{ type: MediaTypes }>`
-	height: 75vh;
-	overflow: scroll;
+	margin: 48px;
 	display: grid;
 	align-items: center;
 	justify-content: center;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 80px;
 
-	.card {
-		p {
-			text-align: center;
-			color: rgb(97, 0, 253);
-			font-weight: 600;
-			font-size: 2rem;
-			font-family: "Bebas Neue";
-			margin-top: 60px;
-		}
+	.card p {
+		text-align: center;
+		color: rgb(97, 0, 253);
+		font-weight: 600;
+		font-size: 2rem;
+		font-family: 'Bebas Neue';
+		margin-top: 60px;
 	}
 
-	@media screen and (max-width: 1000px) {
+	@media screen and (max-width: 1300px) {
 		grid-template-columns: 1fr;
 	}
 `

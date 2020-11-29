@@ -1,6 +1,6 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { colorChange } from "./styles/animations"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { colorChange } from './styles/animations'
 
 interface ColorsProps {
 	primary: string
@@ -10,7 +10,7 @@ interface ColorsProps {
 interface ExpandProps {
 	active: string
 	options: string[]
-	setActive: (val: string) => void
+	setActive: (_: string) => void
 	colors: ColorsProps
 }
 
@@ -25,7 +25,13 @@ const Expand = ({ active, colors, options, setActive }: ExpandProps) => {
 
 	return (
 		<ExpandStyles colors={colors}>
-			<span className="active" onClick={toggleShowOptions} role="button">
+			<span
+				className="active"
+				onClick={toggleShowOptions}
+				role="button"
+				tabIndex={0}
+				onKeyDown={e => ['Enter', ' '].includes(e.key) && toggleShowOptions()}
+			>
 				{active}
 			</span>
 			{showOptions && (
@@ -33,15 +39,17 @@ const Expand = ({ active, colors, options, setActive }: ExpandProps) => {
 					{options
 						.filter(opt => opt !== active)
 						.map((opt, idx) => (
-							<li
-								className="options"
-								key={`${opt}-${idx}`}
-								onClick={() => handleSelect(opt)}
-								onKeyPress={({ key }) => key === "Enter" && handleSelect(opt)}
-								role="button"
-								tabIndex={0}
-							>
-								{opt}
+							<li className="options" key={`${opt}-${idx}`}>
+								<span
+									onClick={() => handleSelect(opt)}
+									onKeyPress={e =>
+										['Enter', ' '].includes(e.key) && handleSelect(opt)
+									}
+									role="button"
+									tabIndex={0}
+								>
+									{opt}
+								</span>
 							</li>
 						))}
 				</ul>

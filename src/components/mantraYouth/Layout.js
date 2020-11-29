@@ -1,37 +1,35 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
-import { borderBottomColorChange } from "../styles/animations"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
+import { borderBottomColorChange } from '../styles/animations'
 
-const Layout = (props) => {
-	return (
-		<Container>
-			<NavBar>
-				<Band>
-					<Link
-						to="/mantrayouth/"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-						partiallyActive={false}
-					>
-						| mantra youth percussion |
-					</Link>
-				</Band>
-				<BandMember>
-					<Link
-						to="/mantrayouth/necessary-noise-festival/"
-						style={{ textDecoration: "none" }}
-						activeClassName={"active"}
-					>
-						necessary noise festival
-					</Link>
-				</BandMember>
-				<Divider>|</Divider>
-			</NavBar>
-			<Content>{props.children}</Content>
-		</Container>
-	)
-}
+const Layout = props => (
+	<Container>
+		<NavBar>
+			<Band>
+				<Link
+					to="/mantrayouth/"
+					style={{ textDecoration: 'none' }}
+					activeClassName="active"
+					partiallyActive={false}
+				>
+					| mantra youth percussion |
+				</Link>
+			</Band>
+			<BandMember>
+				<Link
+					to="/mantrayouth/necessary-noise-festival/"
+					style={{ textDecoration: 'none' }}
+					activeClassName="active"
+				>
+					necessary noise festival
+				</Link>
+			</BandMember>
+			<Divider>|</Divider>
+		</NavBar>
+		<Content>{props.children}</Content>
+	</Container>
+)
 
 const Container = styled.div`
 	max-width: 1300px;

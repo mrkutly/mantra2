@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "./styles"
+import React from 'react'
+import styled from 'styled-components'
+import HeaderMenu from './HeaderMenu'
 
 const SectionHeading = ({ children }) => (
 	<Heading>
 		{children}
-		<Link href="#menu">menu</Link>
+		<HeaderMenu />
 	</Heading>
 )
 

@@ -1,10 +1,10 @@
-import React from "react"
-import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-import { FullScreenCard } from "./styles"
-import SectionHeading from "./SectionHeading"
-import Article from "./Article"
-import { Article as ArticleType } from "../types"
+import React from 'react'
+import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
+import { FullScreenCard } from './styles'
+import SectionHeading from './SectionHeading'
+import Article from './Article'
+import { Article as ArticleType } from '../types'
 
 const PRESS_QUERY = graphql`
 	query {
@@ -48,8 +48,6 @@ const Press = () => {
 const PressList = styled.ul`
 	margin-top: 4%;
 	margin-left: 1%;
-	height: 75vh;
-	overflow: scroll;
 `
 
 export default Press

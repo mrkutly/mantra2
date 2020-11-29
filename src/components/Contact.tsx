@@ -1,8 +1,8 @@
-import React from "react"
-import styled from "styled-components"
-import { FullScreenCard } from "./styles"
-import SectionHeading from "./SectionHeading"
-import { colorChange } from "./styles/animations"
+import React from 'react'
+import styled from 'styled-components'
+import { FullScreenCard } from './styles'
+import SectionHeading from './SectionHeading'
+import { colorChange } from './styles/animations'
 
 const Contact = () => (
 	<section id="contact">
@@ -12,12 +12,12 @@ const Contact = () => (
 			</SectionHeading>
 			<Container>
 				<p>
-					For booking, contact Joe Bergen at{" "}
+					For booking, contact Joe Bergen at{' '}
 					<a href="mailto:joe@mantrapercussion.org">joe@mantrapercussion.org</a>
 				</p>
 
 				<p>
-					For any other inquiries, reach out to us at{" "}
+					For any other inquiries, reach out to us at{' '}
 					<a href="mailto:info@mantrapercussion.org">
 						info@mantrapercussion.org
 					</a>

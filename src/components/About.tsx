@@ -1,9 +1,9 @@
-import React, { useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
-import SectionHeading from "./SectionHeading"
-import { ImageContainer, FullScreenCard } from "./styles"
-import Expand from "./Expand"
+import React, { useState } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import Image from 'gatsby-image'
+import SectionHeading from './SectionHeading'
+import { ImageContainer, FullScreenCard } from './styles'
+import Expand from './Expand'
 
 const ABOUT_QUERY = graphql`
 	query {
@@ -95,9 +95,9 @@ type Bios = {
 
 const About = () => {
 	const data = useStaticQuery<Bios>(ABOUT_QUERY)
-	const [active, setActive] = useState<string>("the band")
+	const [active, setActive] = useState<string>('the band')
 	const activeBio = data.bios.edges.find(bio => bio.node.musician === active)
-	const imageName = active === "the band" ? "band" : active
+	const imageName = active === 'the band' ? 'band' : active
 	const activeImage = data[imageName].childImageSharp.fluid
 	const { musician, paragraphs } = activeBio.node
 
@@ -106,10 +106,10 @@ const About = () => {
 			<FullScreenCard background="#003977e6" color="white">
 				<SectionHeading>
 					<h1>
-						About{" "}
+						About{' '}
 						<Expand
 							active={active}
-							colors={{ primary: "#007aff", background: "black" }}
+							colors={{ primary: '#007aff', background: 'black' }}
 							options={data.bios.edges.map(bio => bio.node.musician)}
 							setActive={setActive}
 						/>

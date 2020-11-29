@@ -1,94 +1,106 @@
-import styled, { css } from 'styled-components';
-import { Link as GatsbyLink } from 'gatsby';
-import { borderColorChange, colorChange, backgroundChange, fadeIn } from './animations';
-
+import styled, { css } from 'styled-components'
+import { Link as GatsbyLink } from 'gatsby'
+import {
+	borderColorChange,
+	colorChange,
+	backgroundChange,
+	fadeIn,
+} from './animations'
 
 export const AlbumPlayerStyles = styled.div`
 	animation: 0.8s ${fadeIn} ease-in;
 	box-shadow: var(--pink-shadows);
 	margin: 0 auto;
-	
-	&.apple, &.apple iframe {
+
+	&.apple,
+	&.apple iframe {
 		height: 450px;
 		width: 320px;
 	}
 
-	&.bandcamp, &.bandcamp iframe {
+	&.bandcamp,
+	&.bandcamp iframe {
 		width: 290px;
 		height: 290px;
 	}
-	
-	&.spotify, &.spotify iframe {
+
+	&.spotify,
+	&.spotify iframe {
 		width: 300px;
 		height: 380px;
 	}
-	
-	&.wnyc, &.wnyc iframe {
+
+	&.wnyc,
+	&.wnyc iframe {
 		height: 130px;
 		width: 100%;
 	}
-	
-	@media screen and (min-width: 500px) { 
-		&.apple, &.spotify {
+
+	@media screen and (min-width: 500px) {
+		&.apple,
+		&.spotify {
 			max-height: 70vh;
 			overflow: scroll;
 		}
 
-
-		&.bandcamp, &.bandcamp iframe {
+		&.bandcamp,
+		&.bandcamp iframe {
 			width: 350px;
 			height: 350px;
 		}
 	}
-`;
+`
 
-export const FullScreenCard = styled.div<{ background: string; color?: string; }>`
-	scroll-snap-align: start;
+export const FullScreenCard = styled.div<{
+	background: string
+	color?: string
+}>`
 	padding: 32px;
 	background: ${({ background }) => background};
 	color: ${({ color }) => color ?? 'black'};
-	display: grid;
 	min-height: 100vh;
-	margin-top: 100vh;
-	position: relative;
 
-	p.split {
-		margin: auto;
+	&.split {
+		display: grid;
+		position: relative;
 
-		&:after {
-			content: '';
-			display: block;
-			width: 50vw;
-			background: #0065ff4f;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			right: 0;
-			z-index: -1;
-		}
+		p {
+			margin: auto;
 
-		&:before {
-			content: '';
-			display: block;
-			width: 50vw;
-			background: #f200004f;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: -1;
+			&:after {
+				content: '';
+				display: block;
+				width: 50vw;
+				background: #0065ff4f;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				right: 0;
+				z-index: -1;
+			}
+
+			&:before {
+				content: '';
+				display: block;
+				width: 50vw;
+				background: #f200004f;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+			}
 		}
 	}
-`;
+`
 
-const linkStyles = css`
+export const linkStyles = css`
 	color: inherit;
 	cursor: pointer;
 	text-decoration: none;
 	transition: all 0.2s ease;
 	border-bottom: 4px solid transparent;
 	font-weight: 600;
-
 
 	&:hover {
 		animation: ${borderColorChange} 2.5s linear infinite,
@@ -104,13 +116,19 @@ const linkStyles = css`
 	&:active {
 		background: var(--black);
 	}
-`;
+
+	&.active {
+		background: var(--black);
+		animation: ${borderColorChange} 2.5s linear infinite,
+			${colorChange} 2.5s linear infinite;
+	}
+`
 export const Link = styled.a`
 	${linkStyles}
-`;
+`
 export const PageLink = styled(GatsbyLink)`
 	${linkStyles}
-`;
+`
 
 export const Button = styled.button`
 	padding: 2px 8px;
@@ -131,10 +149,9 @@ export const Button = styled.button`
 	&:focus {
 		box-shadow: 0 0 6px var(--green);
 	}
-`;
+`
 
-
-export const ImageContainer = styled.div<{ width: string; }>`
+export const ImageContainer = styled.div<{ width: string }>`
 	float: left;
 	width: ${({ width }) => width};
 	margin: 0 50px 50px 0;
@@ -143,11 +160,11 @@ export const ImageContainer = styled.div<{ width: string; }>`
 	@media (max-width: 700px) {
 		width: 100%;
 	}
-`;
+`
 
 export const MediaTitle = styled.p`
 	font-weight: 600;
 	font-size: 1.4rem;
 	margin-top: 20px;
 	color: rgb(135, 86, 214);
-`;
+`

@@ -1,9 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
-import { Button, FullScreenCard, Link, PageLink } from "./styles"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import { FullScreenCard, Link, PageLink } from './styles'
 
-const SITE_QUERY = graphql`
+export const SITE_QUERY = graphql`
 	query {
 		site {
 			siteMetadata {
@@ -19,7 +19,7 @@ const SITE_QUERY = graphql`
 	}
 `
 
-interface Link {
+interface ILink {
 	id: number
 	href: string
 	display: string
@@ -27,10 +27,10 @@ interface Link {
 	isHash: boolean
 }
 
-interface Site {
+export interface Site {
 	site: {
 		siteMetadata: {
-			navLinks: Link[]
+			navLinks: ILink[]
 		}
 	}
 }
@@ -38,7 +38,7 @@ interface Site {
 const Menu = () => {
 	const { site } = useStaticQuery<Site>(SITE_QUERY)
 
-	const handleSubmit = e => e.preventDefault()
+	// const handleSubmit = e => e.preventDefault()
 
 	return (
 		<section id="menu">
@@ -57,11 +57,11 @@ const Menu = () => {
 						))}
 					</ul>
 				</LearnMoreStyles>
-				<Form method="post" onSubmit={handleSubmit}>
+				{/* <Form method="post" onSubmit={handleSubmit}>
 					<h2>Sign up for our newsletter</h2>
 					<input type="text" placeholder="Email" />
 					<Button type="submit">Submit</Button>
-				</Form>
+				</Form> */}
 			</FullScreenCard>
 		</section>
 	)
@@ -74,23 +74,23 @@ const LearnMoreStyles = styled.div`
 	}
 `
 
-const Form = styled.form`
-	@media only screen and (min-width: 1000px) {
-		grid-column-start: 2;
-	}
+// const Form = styled.form`
+// 	@media only screen and (min-width: 1000px) {
+// 		grid-column-start: 2;
+// 	}
 
-	input {
-		padding: 4px 8px;
-		border-radius: 50px;
-		border: none;
-		outline: none;
-		margin: 0 12px 12px 0;
+// 	input {
+// 		padding: 4px 8px;
+// 		border-radius: 50px;
+// 		border: none;
+// 		outline: none;
+// 		margin: 0 12px 12px 0;
 
-		&:active,
-		&:focus {
-			box-shadow: 0 0 12px var(--green);
-		}
-	}
-`
+// 		&:active,
+// 		&:focus {
+// 			box-shadow: 0 0 12px var(--green);
+// 		}
+// 	}
+// `
 
 export default Menu

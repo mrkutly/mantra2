@@ -88,10 +88,9 @@ html {
 	--grey: #34343c;
 	--blue-shadows: 15px 15px lightblue, 30px 30px #4fffff;
 	--pink-shadows: 15px 15px var(--peach), 30px 30px var(--pink);
-	scrollbar-color: var(--pink) var(--black);
 }
+
 body {
-	scroll-behavior: smooth;
 	background: #000000;
 	font-size: 18px;
 	margin: 0;
@@ -99,10 +98,14 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion) {
-	body {
-		scroll-behavior: auto;
-	}
+body::-webkit-scrollbar {
+	width: 8px;
+}
+body::-webkit-scrollbar-track {
+	background-color: var(--black);
+}
+body::-webkit-scrollbar-thumb {
+	background-color: var(--peach);
 }
 
 iframe {

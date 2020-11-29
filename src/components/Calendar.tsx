@@ -1,11 +1,12 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-import { FullScreenCard } from "./styles"
-import { colorChange } from "./styles/animations"
-import SectionHeading from "./SectionHeading"
-import Concert from "./Concert"
-import Expand from "./Expand"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
+import { FullScreenCard } from './styles'
+import { colorChange } from './styles/animations'
+import SectionHeading from './SectionHeading'
+import Concert from './Concert'
+import Expand from './Expand'
+import { CalendarNode } from '../types'
 
 export const CALENDAR_QUERY = graphql`
 	query {
@@ -44,7 +45,7 @@ function getCalendarObject(shows: { edges: CalendarNode[] }) {
 	const obj = {}
 
 	shows.edges.forEach(edge => {
-		const year = edge.node.year
+		const { year } = edge.node
 		edge.node.concerts.forEach(concert => {
 			const { location, program, date } = concert
 
@@ -81,12 +82,12 @@ const Calendar = () => {
 			<FullScreenCard background="#4fffffb0">
 				<SectionHeading>
 					<h1>
-						Calendar{" "}
+						Calendar{' '}
 						<Expand
 							active={active}
 							setActive={setActive}
 							options={Object.keys(years).sort(descending)}
-							colors={{ primary: "var(--lightblue)", background: "black" }}
+							colors={{ primary: 'var(--lightblue)', background: 'black' }}
 						/>
 					</h1>
 				</SectionHeading>
@@ -103,9 +104,6 @@ const Calendar = () => {
 
 const SectionStyles = styled.section`
 	.shows {
-		height: 80vh;
-		overflow: scroll;
-		scrollbar-color: var(--green) var(--black);
 		padding: 20px;
 	}
 `
