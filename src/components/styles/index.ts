@@ -70,7 +70,7 @@ export const FullScreenCard = styled.div<{
 			&:after {
 				content: '';
 				display: block;
-				width: 50vw;
+				width: calc(50vw - 4px);
 				background: #0065ff4f;
 				height: 100%;
 				position: absolute;
@@ -82,7 +82,7 @@ export const FullScreenCard = styled.div<{
 			&:before {
 				content: '';
 				display: block;
-				width: 50vw;
+				width: calc(50vw - 4px);
 				background: #f200004f;
 				height: 100%;
 				position: absolute;
