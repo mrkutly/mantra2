@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Image from 'gatsby-image'
+import Image, { FluidObject } from 'gatsby-image'
 import SectionHeading from './SectionHeading'
 import { ImageContainer, FullScreenCard } from './styles'
 import Expand from './Expand'
@@ -75,9 +75,9 @@ interface BioNode {
 	}
 }
 
-interface ImageResult {
+export interface ImageResult {
 	childImageSharp: {
-		fluid: object
+		fluid: FluidObject
 	}
 }
 

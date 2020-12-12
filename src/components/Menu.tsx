@@ -51,7 +51,13 @@ const Menu = () => {
 								{link.isHash ? (
 									<Link href={link.href}>{link.display}</Link>
 								) : (
-									<PageLink to={link.href}>{link.display}</PageLink>
+									<PageLink
+										to={link.href}
+										style={{ background: 'transparent' }}
+										className={link.href === '/' ? 'active' : ''}
+									>
+										{link.display}
+									</PageLink>
 								)}
 							</li>
 						))}

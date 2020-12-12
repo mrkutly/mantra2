@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
 // @ts-ignore
-import logo from "../images/mantra-logo.png"
+import logo from '../images/mantra-logo.png'
 
 const LogoImage = () => (
 	<LogoImageStyles>
@@ -11,7 +11,7 @@ const LogoImage = () => (
 
 const LogoImageStyles = styled.div`
 	display: grid;
-	height: 100vh;
+	height: 70vh;
 	scroll-snap-align: start;
 
 	img {

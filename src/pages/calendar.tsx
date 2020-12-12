@@ -1,15 +1,15 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Calendar from "../components/Calendar"
+import React from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Calendar from '../components/Calendar'
 
-const Index = () => (
+const CalendarPage = () => (
 	<Layout>
-		<SEO />
+		<SEO title="calendar" />
 		<main>
 			<Calendar />
 		</main>
 	</Layout>
 )
 
-export default Index
+export default CalendarPage

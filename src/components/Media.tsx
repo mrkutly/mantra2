@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { graphql, useStaticQuery } from "gatsby"
-import { FullScreenCard } from "./styles"
-import SectionHeading from "./SectionHeading"
-import MediaIndex from "./media/MediaIndex"
-import { Album, MediaTypes, Video } from "../types"
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import { graphql, useStaticQuery } from 'gatsby'
+import { FullScreenCard } from './styles'
+import SectionHeading from './SectionHeading'
+import MediaIndex from './media/MediaIndex'
+import { Album, MediaTypes, Video } from '../types'
 
 export const MEDIA_QUERY = graphql`
 	query {
@@ -35,8 +35,8 @@ interface MediaResult {
 	}
 }
 
-const ALBUMS = MediaTypes.ALBUMS
-const VIDEOS = MediaTypes.VIDEOS
+const { ALBUMS } = MediaTypes
+const { VIDEOS } = MediaTypes
 
 const Media = () => {
 	const [active, setActive] = useState<MediaTypes>(MediaTypes.VIDEOS)
@@ -45,14 +45,14 @@ const Media = () => {
 	return (
 		<section id="media">
 			<FullScreenCard background="#f3ff9de6">
-				<SectionHeading>
+				<SectionHeading color="black">
 					<div>
 						{[MediaTypes.VIDEOS, MediaTypes.ALBUMS].map(opt => (
 							<MediaOption
-								className={active === opt ? "active" : null}
+								className={active === opt ? 'active' : null}
 								key={opt}
 								onClick={() => setActive(opt)}
-								onKeyPress={({ key }) => key === "Enter" && setActive(opt)}
+								onKeyPress={({ key }) => key === 'Enter' && setActive(opt)}
 								role="button"
 								tabIndex={0}
 							>
@@ -75,7 +75,7 @@ const MediaOption = styled.span`
 	color: black;
 	cursor: pointer;
 	margin-right: 20px;
-	font-family: "Bebas Neue", Arial, Helvetica, sans-serif;
+	font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
 	text-rendering: optimizeLegibility;
 	text-align: center;
 	font-size: 3rem;

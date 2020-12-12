@@ -27,7 +27,11 @@ const SITE_QUERY = graphql`
 	}
 `
 
-const HeaderMenu = () => {
+interface HeaderMenuProps {
+	color?: string
+}
+
+const HeaderMenu = ({ color }: HeaderMenuProps) => {
 	const { pathname } = useLocation()
 	const { navLinks } = useStaticQuery<Site>(SITE_QUERY).site.siteMetadata
 	const [open, setOpen] = useState(false)
@@ -63,7 +67,7 @@ const HeaderMenu = () => {
 	}
 
 	return (
-		<HeaderMenuStyles className={open ? 'open' : ''}>
+		<HeaderMenuStyles className={open ? 'open' : ''} color={color}>
 			<div
 				className="bars"
 				onClick={toggleOpen}
@@ -98,6 +102,7 @@ const HeaderMenu = () => {
 									role="menuitem"
 									to={link.href}
 									tabIndex={active === idx ? 0 : -1}
+									style={{ background: 'transparent' }}
 								>
 									{link.display}
 								</PageLink>
@@ -112,65 +117,98 @@ const HeaderMenu = () => {
 
 const HeaderMenuStyles = styled.div`
 	.bars {
-		position: absolute;
-		right: 40px;
-		top: 32px;
-		height: 32px;
-		width: 40px;
-		display: grid;
-		align-items: center;
-		z-index: 10;
-
-		div {
-			height: 4px;
-			width: 40px;
-			background: white;
-			transition: transform 0.1s ease;
-		}
-	}
-
-	ul {
-		list-style: none;
-		font-weight: 600;
-		padding-left: none;
-	}
-
-	span[role='button'] {
-		${linkStyles}
-		font-weight: normal;
+		display: none;
 	}
 
 	#navbar {
-		display: none;
-		text-align: center;
-		padding-top: 20vh;
-		background: black;
-		color: white;
-		z-index: 10;
+		ul {
+			display: flex;
+			color: white;
+			list-style: none;
+			
+			justify-content: flex-end;
+
+			li {
+				margin-left: 20px;
+
+				a {
+					color ${({ color }) => color ?? 'white'};
+				}
+			}
+		}
 	}
 
-	&.open {
-		z-index: 102;
-		height: 100vh;
-		width: 100vw;
-		position: fixed;
-		top: 0;
-		left: 0;
-		background: var(--black);
+	@media screen and (max-width: 900px) {
+		.bars {
+			position: absolute;
+			right: 40px;
+			top: 32px;
+			height: 32px;
+			width: 40px;
+			display: grid;
+			align-items: center;
+			z-index: 10;
 
-		#navbar {
-			display: block;
+			div {
+				height: 4px;
+				width: 40px;
+				background: ${({ color }) => color ?? 'white'};				
+				transition: transform 0.1s ease;
+			}
 		}
 
-		.bars {
-			#one {
-				transform: rotate(45deg) translate(6px, 9px);
+		span[role='button'] {
+			${linkStyles}
+			font-weight: normal;
+		}
+
+		#navbar {
+			display: none;
+			text-align: center;
+			padding-top: 20vh;
+			background: black;
+			color: white;
+			z-index: 10;
+		}
+
+		&.open {
+			z-index: 102;
+			height: 100vh;
+			width: 100vw;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: var(--black);
+
+			#navbar {
+				display: block;
+
+				ul {
+					list-style: none;
+					font-weight: 600;
+					padding-left: none;
+					display: block;
+					margin: 0;
+
+					li a {
+						color: white;
+					}
+				}
 			}
-			#two {
-				transform: rotate(-45deg);
-			}
-			#three {
-				transform: rotate(45deg) translate(-10px, -6px);
+
+			.bars {
+				div {
+					background: white;
+				}
+				#one {
+					transform: rotate(45deg) translate(6px, 9px);
+				}
+				#two {
+					transform: rotate(-45deg);
+				}
+				#three {
+					transform: rotate(45deg) translate(-10px, -6px);
+				}
 			}
 		}
 	}

@@ -6,6 +6,13 @@ module.exports = {
 		author: `Mark Sauer-Utley`,
 		navLinks: [
 			{
+				id: 1,
+				display: `home`,
+				href: `/`,
+				partial: false,
+				isHash: false,
+			},
+			{
 				id: 2,
 				display: `about`,
 				href: `/about`,
@@ -13,14 +20,14 @@ module.exports = {
 				isHash: false,
 			},
 			{
-				id: 6,
+				id: 3,
 				display: `media`,
 				href: `/media`,
 				partial: false,
 				isHash: false,
 			},
 			{
-				id: 3,
+				id: 4,
 				display: `calendar`,
 				href: `/calendar`,
 				partial: false,
@@ -34,19 +41,19 @@ module.exports = {
 				isHash: false,
 			},
 			{
-				id: 4,
+				id: 6,
+				display: `education`,
+				href: `/education`,
+				partial: true,
+				isHash: false,
+			},
+			{
+				id: 7,
 				display: `contact`,
 				href: `/contact`,
 				partial: false,
 				isHash: false,
 			},
-			// {
-			// 	id: 7,
-			// 	display: `Mantra Youth Percussion`,
-			// 	href: `/mantrayouth/`,
-			// 	partial: true,
-			// 	isHash: false,
-			// },
 		],
 	},
 	plugins: [

@@ -1,15 +1,15 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Press from "../components/Press"
+import React from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import Press from '../components/Press'
 
-const Index = () => (
+const PressPage = () => (
 	<Layout>
-		<SEO />
+		<SEO title="press" />
 		<main>
 			<Press />
 		</main>
 	</Layout>
 )
 
-export default Index
+export default PressPage

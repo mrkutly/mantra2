@@ -6,6 +6,7 @@
 	"author": "Mark Sauer-Utley <mark.sauer.utley@gmail.com>",
 	"dependencies": {
 		"@babel/core": "^7.0.0",
+		"@types/react-helmet": "^6.1.0",
 		"@typescript-eslint/parser": "^4.8.2",
 		"babel-plugin-styled-components": "^1.10.6",
 		"gatsby": "^2.13.50",

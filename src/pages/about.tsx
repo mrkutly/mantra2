@@ -1,16 +1,15 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import About from "../components/About"
+import React from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import About from '../components/About'
 
-
-const Index = () => (
+const AboutPage = () => (
 	<Layout>
-		<SEO />
+		<SEO title="about" />
 		<main>
 			<About />
 		</main>
 	</Layout>
 )
 
-export default Index
+export default AboutPage

@@ -2,10 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import HeaderMenu from './HeaderMenu'
 
-const SectionHeading = ({ children }) => (
+interface SectionHeadingProps {
+	children?: React.ReactNode
+	color?: string
+}
+
+const SectionHeading = ({ children, color }: SectionHeadingProps) => (
 	<Heading>
 		{children}
-		<HeaderMenu />
+		<HeaderMenu color={color} />
 	</Heading>
 )
 

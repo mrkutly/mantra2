@@ -3,13 +3,13 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Contact from '../components/Contact'
 
-const Index = () => (
+const ContactPage = () => (
 	<Layout>
-		<SEO />
+		<SEO title="contact" />
 		<main>
 			<Contact />
 		</main>
 	</Layout>
 )
 
-export default Index
+export default ContactPage
