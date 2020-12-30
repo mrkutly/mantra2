@@ -24,7 +24,11 @@ const SEO = ({ description, lang, meta, title }: SEOProps) => {
 			htmlAttributes={{
 				lang,
 			}}
-			title={title ?? site.siteMetadata.title}
+			title={
+				title
+					? `${site.siteMetadata.title} | ${title}`
+					: site.siteMetadata.title
+			}
 			meta={[
 				{
 					name: `description`,
