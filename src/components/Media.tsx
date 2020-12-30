@@ -35,17 +35,14 @@ interface MediaResult {
 	}
 }
 
-const { ALBUMS } = MediaTypes
-const { VIDEOS } = MediaTypes
-
 const Media = () => {
 	const [active, setActive] = useState<MediaTypes>(MediaTypes.VIDEOS)
 	const { albums, videos } = useStaticQuery<MediaResult>(MEDIA_QUERY)
 
 	return (
 		<section id="media">
-			<FullScreenCard background="#f3ff9de6">
-				<SectionHeading color="black">
+			<FullScreenCard background="#000000b0" color="white">
+				<SectionHeading>
 					<div>
 						{[MediaTypes.VIDEOS, MediaTypes.ALBUMS].map(opt => (
 							<MediaOption
@@ -72,7 +69,7 @@ const MediaOption = styled.span`
 	--scale: 1;
 	display: inline-block;
 	transform: rotate(var(--rotate)) scale(var(--scale));
-	color: black;
+	color: #ffffff;
 	cursor: pointer;
 	margin-right: 20px;
 	font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
@@ -82,8 +79,8 @@ const MediaOption = styled.span`
 	line-height: 1.1;
 
 	&.active {
-		color: #f3ff9de6;
-		background-color: black;
+		color: #000000;
+		background-color: #ffffff;
 	}
 `
 

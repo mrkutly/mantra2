@@ -6,7 +6,7 @@ import { colorChange } from './styles/animations'
 
 const Contact = () => (
 	<section id="contact">
-		<FullScreenCard background="#238e3eb0" color="white">
+		<FullScreenCard background="#000000b0" color="white">
 			<SectionHeading>
 				<h1>Contact</h1>
 			</SectionHeading>

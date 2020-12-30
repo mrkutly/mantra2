@@ -79,15 +79,15 @@ const Calendar = () => {
 
 	return (
 		<SectionStyles id="calendar">
-			<FullScreenCard background="#4fffffb0">
-				<SectionHeading>
+			<FullScreenCard background="#ffffffe6" color="#000000">
+				<SectionHeading color="#000000">
 					<h1>
 						Calendar{' '}
 						<Expand
 							active={active}
 							setActive={setActive}
 							options={Object.keys(years).sort(descending)}
-							colors={{ primary: 'var(--lightblue)', background: 'black' }}
+							colors={{ primary: '#ffffff', background: 'black' }}
 						/>
 					</h1>
 				</SectionHeading>

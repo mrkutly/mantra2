@@ -42,7 +42,7 @@ const Index = styled.div<{ type: MediaTypes }>`
 
 	.card p {
 		text-align: center;
-		color: rgb(97, 0, 253);
+		color: #ffffff;
 		font-weight: 600;
 		font-size: 2rem;
 		font-family: 'Bebas Neue';

@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import { colorChange } from "./styles/animations"
+import React from 'react'
+import styled from 'styled-components'
+import { colorChange } from './styles/animations'
 
 const ArticleListItem = styled.li`
 	list-style-type: circle;
@@ -27,18 +27,16 @@ const ArticleLink = styled.a`
 
 const Article = ({
 	article: { publication, title, pullQuote, url, author },
-}) => {
-	return (
-		<ArticleLink href={url} target="_blank" rel="noopener noreferrer">
-			<ArticleListItem>
-				<h1>{publication}</h1>
-				<h2>{title}</h2>
-				<p>"{pullQuote}"</p>
-				<p>{author}</p>
-			</ArticleListItem>
-			<hr />
-		</ArticleLink>
-	)
-}
+}) => (
+	<ArticleLink href={url} target="_blank" rel="noopener noreferrer">
+		<ArticleListItem>
+			<h1>{publication}</h1>
+			<h2>{title}</h2>
+			<p>"{pullQuote}"</p>
+			<p>{author}</p>
+		</ArticleListItem>
+		<hr />
+	</ArticleLink>
+)
 
 export default Article

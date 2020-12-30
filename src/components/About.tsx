@@ -103,13 +103,13 @@ const About = () => {
 
 	return (
 		<section id="about" style={{ fontWeight: 600 }}>
-			<FullScreenCard background="#003977e6" color="white">
-				<SectionHeading>
+			<FullScreenCard background="#ffffffe6" color="#000000">
+				<SectionHeading color="#000000">
 					<h1>
 						About{' '}
 						<Expand
 							active={active}
-							colors={{ primary: '#007aff', background: 'black' }}
+							colors={{ primary: '#ffffff', background: 'black' }}
 							options={data.bios.edges.map(bio => bio.node.musician)}
 							setActive={setActive}
 						/>

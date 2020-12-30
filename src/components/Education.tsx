@@ -45,8 +45,8 @@ const Contact = () => {
 
 	return (
 		<section id="education">
-			<FullScreenCard background="#ffdaccdd">
-				<SectionHeading color="black">
+			<FullScreenCard background="#ffffffe6" color="#000000">
+				<SectionHeading color="#000000">
 					<h1>Education</h1>
 				</SectionHeading>
 				<Container>
