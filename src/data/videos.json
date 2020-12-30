@@ -1,5 +1,9 @@
 [
 	{
+		"title": "A Day Isolated",
+		"url": "https://www.youtube.com/embed/gyF3Fene77Y"
+	},
+	{
 		"title": "Squarepusher: Timber Remixed",
 		"url": "https://www.youtube.com/embed/Q6E5Q82vR30"
 	},
@@ -12,12 +16,12 @@
 		"url": "https://www.youtube.com/embed/FzpfIiYdGNk"
 	},
 	{
-		"title": "Mantra at Lowe's Hardware - NPR Field Recordings",
-		"url": "https://www.youtube.com/embed/lytgDpIs4Sk"
+		"title": "Michael Gordon's Timber - Live at the 2014 Bang on a Can Marathon",
+		"url": "https://www.youtube.com/embed/_fSTKJtVNS0"
 	},
 	{
-		"title": "Aaron Siegel: Brother Brother",
-		"url": "https://player.vimeo.com/video/105153127"
+		"title": "Ian Williams and Mantra Percussion - Live at the 2015 Ecstatic Music Festival",
+		"url": "https://www.youtube.com/embed/0ks1NxXzGc8"
 	},
 	{
 		"title": "Highlights from the 2018 GAIDA Festival",
@@ -44,10 +48,6 @@
 		"url": "https://www.youtube.com/embed/0O13lIWutaA"
 	},
 	{
-		"title": "Paula Matthusen's of an implacable substraction - Live at the 2015 Avant Media Festival",
-		"url": "https://www.youtube.com/embed/WEzPLkMaX_8"
-	},
-	{
 		"title": "Paula Matthusen's so much of any given year is flammable (excerpt)",
 		"url": "https://player.vimeo.com/video/86970776"
 	},
@@ -56,23 +56,23 @@
 		"url": "https://www.youtube.com/embed/A1QHc12DBdM"
 	},
 	{
-		"title": "Michael Gordon's Timber - Live at the 2014 Bang on a Can Marathon",
-		"url": "https://www.youtube.com/embed/_fSTKJtVNS0"
-	},
-	{
-		"title": "Ian Williams and Mantra Percussion - Live at the 2015 Ecstatic Music Festival",
-		"url": "https://www.youtube.com/embed/0ks1NxXzGc8"
+		"title": "Mantra Percussion Live with Z's",
+		"url": "https://player.vimeo.com/video/78254362"
 	},
 	{
 		"title": "David Grubbs and Mantra Percussion - Live at the 2016 Dither Extravaganza",
 		"url": "https://www.youtube.com/embed/j18nLOQQyPk"
 	},
 	{
-		"title": "Daniel Wohl's Holographic (Excerpt) -  Live at the Baryshnikov Arts Center",
-		"url": "https://www.youtube.com/embed/kmPKQaKlWG0"
+		"title": "Mantra at Lowe's Hardware - NPR Field Recordings",
+		"url": "https://www.youtube.com/embed/lytgDpIs4Sk"
 	},
 	{
-		"title": "Mantra Percussion Live with Z's",
-		"url": "https://player.vimeo.com/video/78254362"
+		"title": "Aaron Siegel: Brother Brother",
+		"url": "https://player.vimeo.com/video/105153127"
+	},
+	{
+		"title": "Paula Matthusen's of an implacable substraction - Live at the 2015 Avant Media Festival",
+		"url": "https://www.youtube.com/embed/WEzPLkMaX_8"
 	}
 ]
