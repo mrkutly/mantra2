@@ -93,9 +93,11 @@ const Calendar = () => {
 				</SectionHeading>
 
 				<div className="shows">
-					{years[active].concerts.map(show => (
-						<Concert concert={show} key={show.id} />
-					))}
+					{years[active]
+						? years[active].concerts.map(show => (
+								<Concert concert={show} key={show.id} />
+						  ))
+						: 'Nothing on the books for this year yet. Come back later.'}
 				</div>
 			</FullScreenCard>
 		</SectionStyles>
