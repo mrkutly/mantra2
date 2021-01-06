@@ -67,18 +67,25 @@ const Contact = () => {
 						<WhiteImageContainer width="300px">
 							<Image fluid={recap.childImageSharp.fluid} />
 						</WhiteImageContainer>
-						<p>
-							<strong>recap</strong> — a new professional touring percussion
-							quartet composed of 4 recent alumni of Mantra Youth Percussion.
-							Arlene Acevedo, Alexis Carter, Tiahna Sterling, and Aline Vasquez
-							joined Mantra Youth Percussion while students at Rahway High
-							School in Rahway NJ having performed at big events including
-							Carnegie Hall Family Day, Make Music NY Concerto for Buildings,
-							and the New Music Gathering in Boston. With their debut now as a
-							professional ensemble, the quartet will release their first album
-							Count to Five on Innova Recordings September 2021 with a national
-							tour to follow.
-						</p>
+						<div>
+							<p>
+								<strong>recap</strong> — a new professional touring percussion
+								quartet composed of 4 recent alumni of Mantra Youth Percussion.
+								Arlene Acevedo, Alexis Carter, Tiahna Sterling, and Aline
+								Vasquez joined Mantra Youth Percussion while students at Rahway
+								High School in Rahway NJ having performed at big events
+								including Carnegie Hall Family Day, Make Music NY Concerto for
+								Buildings, and the New Music Gathering in Boston. With their
+								debut now as a professional ensemble, the quartet will release
+								their first album Count to Five on Innova Recordings September
+								2021 with a national tour to follow.
+							</p>
+							<p className="banner">
+								Go <a href="https://igg.me/at/recapAlbum">here</a> to support
+								recap's debut album, <i>Count to Five</i> and get access to
+								limited edition merch.
+							</p>
+						</div>
 
 						<WhiteImageContainer width="300px">
 							<Image fluid={mantraYouth.childImageSharp.fluid} />
@@ -135,8 +142,22 @@ const Container = styled.div`
 	.project-grid {
 		display: grid;
 		grid-template-columns: 300px auto;
-		grid-gap: 40px 100px;
+		grid-gap: 120px 100px;
 		align-items: center;
+		padding-top: 60px;
+	}
+
+	.banner {
+		background: white;
+		color: black;
+		font-size: 1.4rem;
+		padding: 12px;
+		box-shadow: 8px 8px lightblue, 16px 16px var(--lightblue);
+
+		a {
+			color: black;
+			font-weight: 600;
+		}
 	}
 
 	@media screen and (max-width: 740px) {
