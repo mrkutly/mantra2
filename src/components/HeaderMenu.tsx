@@ -90,7 +90,6 @@ const HeaderMenu = ({ color }: HeaderMenuProps) => {
 									href={link.href}
 									role="menuitem"
 									ref={refs[idx]}
-									tabIndex={active === idx ? 0 : -1}
 								>
 									{link.display}
 								</Link>
@@ -101,7 +100,6 @@ const HeaderMenu = ({ color }: HeaderMenuProps) => {
 									ref={refs[idx]}
 									role="menuitem"
 									to={link.href}
-									tabIndex={active === idx ? 0 : -1}
 									style={{ background: 'transparent' }}
 								>
 									{link.display}
