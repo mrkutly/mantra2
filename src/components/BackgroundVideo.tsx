@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from './styles'
 import TimberVideo from '../videos/timber-logo.mp4'
@@ -8,14 +8,18 @@ const autoplayKey = 'autoplay'
 const accessibiltyPromptedKey = 'accessibilityPrompted'
 
 const BackgroundVideo = () => {
+	const videoRef = useRef<HTMLVideoElement>()
 	const [autoplay, setAutoplay] = useState('false')
-	const [prompted, setPrompted] = useState('false')
+	const [prompted, setPrompted] = useState('true')
 
 	useEffect(() => {
 		const autoplayCache = localStorage.getItem(autoplayKey)
 		if (autoplayCache) setAutoplay(autoplayCache)
+		if (autoplayCache === 'true' && videoRef.current) videoRef.current.play()
+
 		const promptedCache = localStorage.getItem(accessibiltyPromptedKey)
 		if (promptedCache) setPrompted(promptedCache)
+		else setPrompted('false')
 	}, [])
 
 	const handleAutoplayDecision = useCallback(
@@ -61,7 +65,7 @@ const BackgroundVideo = () => {
 				muted
 				loop
 				poster={TimberPoster}
-				id="bgvid"
+				ref={videoRef}
 			>
 				<source src={TimberVideo} type="video/mp4" />
 			</video>
