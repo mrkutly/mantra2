@@ -1,15 +1,15 @@
 import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Education from '../components/Education'
+import Programs from '../components/Programs'
 
-const EducationPage = () => (
+const ProgramsPage = () => (
 	<Layout>
-		<SEO title="education" />
+		<SEO title="programs" />
 		<main>
-			<Education />
+			<Programs />
 		</main>
 	</Layout>
 )
 
-export default EducationPage
+export default ProgramsPage

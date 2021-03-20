@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FullScreenCard } from './styles'
-import { colorChange } from './styles/animations'
 import SectionHeading from './SectionHeading'
 import Concert from './Concert'
 import CalendarYears from './CalendarYears'
@@ -89,12 +88,11 @@ const Calendar = () => {
 						active={active}
 						setActive={setActive}
 						options={Object.keys(years).sort(descending)}
-						colors={{ primary: '#ffffff', background: 'black' }}
 					/>
 					<div className="shows">
 						{years[active]
 							? years[active].concerts.map(show => (
-									<Concert concert={show} key={show.id} />
+									<Concert concert={show} key={`${show.id}`} />
 							  ))
 							: 'Nothing on the books for this year yet. Come back later.'}
 					</div>

@@ -53,7 +53,7 @@ export const AlbumPlayerStyles = styled.div`
 
 export const FullScreenCard = styled.div`
 	padding: 32px;
-	background: #000000e0;
+	background: #000000f0;
 	min-height: 100vh;
 `
 

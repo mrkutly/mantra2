@@ -1,7 +1,8 @@
-import React from "react"
+import React from 'react'
+import { Concert as ConcertType } from '../types'
 
 function mapProgram(program) {
-	let i = 0
+	const i = 0
 
 	return program.map(piece => {
 		if (piece.composer && piece.title) {
@@ -12,22 +13,21 @@ function mapProgram(program) {
 					</h4>
 				</li>
 			)
-		} else {
-			return (
-				<li key={`${piece}-${i}`}>
-					<h4>{piece.description}</h4>
-				</li>
-			)
 		}
+		return (
+			<li key={`${piece}-${i}`}>
+				<h4>{piece.description}</h4>
+			</li>
+		)
 	})
 }
 
 interface ConcertProps {
-	concert: Concert
+	concert: ConcertType
 }
 
-const Concert = (props: ConcertProps) => {
-	const { date, location, program } = props.concert
+const Concert = ({ concert }: ConcertProps) => {
+	const { date, location, program } = concert
 
 	return (
 		<div>
