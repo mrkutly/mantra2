@@ -103,8 +103,8 @@ export const linkStyles = css`
 	font-weight: 600;
 
 	&:hover {
-		animation: ${borderColorChange} 2.5s linear infinite,
-			${colorChange} 2.5s linear infinite;
+		animation: ${borderColorChange} 7s linear infinite,
+			${colorChange} 7s linear infinite;
 	}
 
 	&:focus {
@@ -119,8 +119,8 @@ export const linkStyles = css`
 
 	&.active {
 		background: var(--black);
-		animation: ${borderColorChange} 2.5s linear infinite,
-			${colorChange} 2.5s linear infinite;
+		animation: ${borderColorChange} 7s linear infinite,
+			${colorChange} 7s linear infinite;
 	}
 `
 export const Link = styled.a`
@@ -140,8 +140,8 @@ export const Button = styled.button`
 	transition: all 0.3s ease;
 
 	&:hover {
-		animation: ${borderColorChange} 2.5s linear infinite,
-			${backgroundChange} 2.5s linear infinite;
+		animation: ${borderColorChange} 7s linear infinite,
+			${backgroundChange} 7s linear infinite;
 		color: black;
 		cursor: pointer;
 	}

@@ -43,7 +43,7 @@ const Container = styled.div`
 
 		:hover,
 		:focus {
-			animation: ${colorChange} 2.5s linear infinite;
+			animation: ${colorChange} 7s linear infinite;
 			text-shadow: 1px 1px black;
 			letter-spacing: 2px;
 		}

@@ -1,8 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		title: `Mantra Percussion`,
-		description: `NYC-based percussion sextet committed to honoring the past and expanding the future of percussion
-				music`,
+		title: `mantra percussion`,
+		description: `NYC-based percussion organization committed to honoring the past and expanding the future of percussion music`,
 		author: `Mark Sauer-Utley`,
 		navLinks: [
 			{
@@ -42,9 +41,9 @@ module.exports = {
 			},
 			{
 				id: 6,
-				display: `education`,
-				href: `/education`,
-				partial: true,
+				display: `programs`,
+				href: `/programs`,
+				partial: false,
 				isHash: false,
 			},
 			{
