@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from './styles'
 import TimberVideo from '../videos/timber-logo.mp4'
@@ -8,12 +8,15 @@ const autoplayKey = 'autoplay'
 const accessibiltyPromptedKey = 'accessibilityPrompted'
 
 const BackgroundVideo = () => {
-	const [autoplay, setAutoplay] = useState(
-		localStorage.getItem(autoplayKey) || 'false'
-	)
-	const [prompted, setPrompted] = useState(
-		localStorage.getItem(accessibiltyPromptedKey) || 'false'
-	)
+	const [autoplay, setAutoplay] = useState('false')
+	const [prompted, setPrompted] = useState('false')
+
+	useEffect(() => {
+		const autoplayCache = localStorage.getItem(autoplayKey)
+		if (autoplayCache) setAutoplay(autoplayCache)
+		const promptedCache = localStorage.getItem(accessibiltyPromptedKey)
+		if (promptedCache) setPrompted(promptedCache)
+	}, [])
 
 	const handleAutoplayDecision = useCallback(
 		shouldAutoplay => {
@@ -83,7 +86,7 @@ const BackgroundStyles = styled.div`
 
 const PromptStyles = styled.div`
 	background: black;
-	z-index: 3;
+	z-index: 100;
 	width: 100vw;
 	height: 100vh;
 	display: grid;
