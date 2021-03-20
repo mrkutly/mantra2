@@ -103,8 +103,8 @@ const About = () => {
 
 	return (
 		<section id="about" style={{ fontWeight: 600 }}>
-			<FullScreenCard background="#ffffffe6" color="#000000">
-				<SectionHeading color="#000000">
+			<FullScreenCard>
+				<SectionHeading>
 					<h1>
 						About{' '}
 						<Expand

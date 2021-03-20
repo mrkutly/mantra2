@@ -5,7 +5,7 @@ import { FullScreenCard } from './styles'
 import { colorChange } from './styles/animations'
 import SectionHeading from './SectionHeading'
 import Concert from './Concert'
-import Expand from './Expand'
+import CalendarYears from './CalendarYears'
 import { CalendarNode } from '../types'
 
 export const CALENDAR_QUERY = graphql`
@@ -79,25 +79,25 @@ const Calendar = () => {
 
 	return (
 		<SectionStyles id="calendar">
-			<FullScreenCard background="#ffffffe6" color="#000000">
-				<SectionHeading color="#000000">
-					<h1>
-						Calendar{' '}
-						<Expand
-							active={active}
-							setActive={setActive}
-							options={Object.keys(years).sort(descending)}
-							colors={{ primary: '#ffffff', background: 'black' }}
-						/>
-					</h1>
+			<FullScreenCard>
+				<SectionHeading>
+					<h1>Calendar</h1>
 				</SectionHeading>
 
-				<div className="shows">
-					{years[active]
-						? years[active].concerts.map(show => (
-								<Concert concert={show} key={show.id} />
-						  ))
-						: 'Nothing on the books for this year yet. Come back later.'}
+				<div className="grid">
+					<CalendarYears
+						active={active}
+						setActive={setActive}
+						options={Object.keys(years).sort(descending)}
+						colors={{ primary: '#ffffff', background: 'black' }}
+					/>
+					<div className="shows">
+						{years[active]
+							? years[active].concerts.map(show => (
+									<Concert concert={show} key={show.id} />
+							  ))
+							: 'Nothing on the books for this year yet. Come back later.'}
+					</div>
 				</div>
 			</FullScreenCard>
 		</SectionStyles>
@@ -107,6 +107,11 @@ const Calendar = () => {
 const SectionStyles = styled.section`
 	.shows {
 		padding: 20px;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: 100px auto;
 	}
 `
 
