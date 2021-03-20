@@ -11,9 +11,9 @@ const BackgroundVideo = () => {
 	const [autoplay, setAutoplay] = useState(
 		localStorage.getItem(autoplayKey) || 'false'
 	)
-	const [prompted, setPrompted] = useState('false')
-	// 	localStorage.getItem(accessibiltyPromptedKey) || 'false'
-	// )
+	const [prompted, setPrompted] = useState(
+		localStorage.getItem(accessibiltyPromptedKey) || 'false'
+	)
 
 	const handleAutoplayDecision = useCallback(
 		shouldAutoplay => {
