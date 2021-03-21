@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { FullScreenCard } from './styles'
@@ -6,46 +6,58 @@ import SectionHeading from './SectionHeading'
 import Concert from './Concert'
 import CalendarYears from './CalendarYears'
 import { CalendarNode } from '../types'
+import { colorChange } from './styles/animations'
+
+export const ScheduleFragment = graphql`
+	fragment Schedule on GroupSchedule {
+		year
+		concerts {
+			date
+			location {
+				city
+				support
+				venue
+			}
+			program {
+				composer
+				description
+				title
+			}
+		}
+	}
+`
 
 export const CALENDAR_QUERY = graphql`
 	query {
-		shows: allCalendarJson {
-			edges {
-				node {
-					concerts {
-						date
-						location {
-							city
-							support
-							venue
-						}
-						program {
-							composer
-							description
-							title
-						}
-					}
-					year
-				}
+		dataJson {
+			mantra {
+				...Schedule
+			}
+			mantraYouth {
+				...Schedule
+			}
+			recap {
+				...Schedule
 			}
 		}
 	}
 `
 
 interface CalendarResult {
-	shows: {
-		edges: CalendarNode[]
+	dataJson: {
+		mantra: CalendarNode[]
+		mantraYouth: CalendarNode[]
+		recap: CalendarNode[]
 	}
 }
 
 const descending = (a, b) => (a > b ? -1 : 1)
 
-function getCalendarObject(shows: { edges: CalendarNode[] }) {
+function getCalendarObject(schedule) {
 	const obj = {}
 
-	shows.edges.forEach(edge => {
-		const { year } = edge.node
-		edge.node.concerts.forEach(concert => {
+	schedule.forEach(({ year, concerts }) => {
+		concerts.forEach(concert => {
 			const { location, program, date } = concert
 
 			if (!obj[year]) obj[year] = { year, concerts: [] }
@@ -71,28 +83,48 @@ function getCalendarObject(shows: { edges: CalendarNode[] }) {
 }
 
 const Calendar = () => {
-	const { shows } = useStaticQuery<CalendarResult>(CALENDAR_QUERY)
-	const years = getCalendarObject(shows)
+	const { dataJson } = useStaticQuery<CalendarResult>(CALENDAR_QUERY)
+	const [group, setGroup] = useState('mantra')
+	const years = useMemo(() => getCalendarObject(dataJson[group]), [
+		dataJson,
+		group,
+	])
 	const thisYear = String(new Date(Date.now()).getFullYear())
-	const [active, setActive] = useState(thisYear)
+	const [year, setYear] = useState(thisYear)
 
 	return (
-		<SectionStyles id="calendar">
+		<SectionStyles id="schedule">
 			<FullScreenCard>
 				<SectionHeading>
-					<h1>Calendar</h1>
+					<h1>Schedule</h1>
 				</SectionHeading>
+
+				<div className="group-buttons">
+					{['mantra', 'mantraYouth', 'recap'].map(groupName => (
+						<button
+							key={`${groupName}-button`}
+							type="button"
+							className={group === groupName ? 'active' : ''}
+							onClick={() => {
+								setGroup(groupName)
+								setYear(thisYear)
+							}}
+						>
+							{groupName}
+						</button>
+					))}
+				</div>
 
 				<div className="grid">
 					<CalendarYears
-						active={active}
-						setActive={setActive}
+						active={year}
+						setYear={setYear}
 						options={Object.keys(years).sort(descending)}
 					/>
 					<div className="shows">
-						{years[active]
-							? years[active].concerts.map(show => (
-									<Concert concert={show} key={`${show.id}`} />
+						{years[year]
+							? years[year].concerts.map(show => (
+									<Concert concert={show} key={`${years[year]}-${show.date}`} />
 							  ))
 							: 'Nothing on the books for this year yet. Come back later.'}
 					</div>
@@ -110,6 +142,44 @@ const SectionStyles = styled.section`
 	.grid {
 		display: grid;
 		grid-template-columns: 100px auto;
+	}
+
+	.group-buttons {
+		margin: 2rem 0;
+	}
+
+	button {
+		margin-right: 2rem;
+		cursor: pointer;
+		background: transparent;
+		color: white;
+		border: none;
+		font-weight: 600;
+		font-size: 2.5rem;
+		font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+
+		&.active {
+			color: var(--lightblue);
+		}
+
+		&:hover {
+			animation: ${colorChange} 7s infinite;
+		}
+	}
+
+	@media screen and (max-width: 740px) {
+		.grid {
+			grid-template-columns: 50px auto;
+		}
+
+		.group-buttons {
+			margin: 3rem 0;
+		}
+
+		button {
+			font-size: 1.8rem;
+			margin-right: 0;
+		}
 	}
 `
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { colorChange } from './styles/animations'
 
-const CalendarYears = ({ active, options, setActive }) => (
+const CalendarYears = ({ active, options, setYear }) => (
 	<CalendarYearsStyles>
 		<ul>
 			{options.map((opt, idx) => (
@@ -11,8 +11,8 @@ const CalendarYears = ({ active, options, setActive }) => (
 					key={`${opt}-${idx}`}
 				>
 					<span
-						onClick={() => setActive(opt)}
-						onKeyPress={e => ['Enter', ' '].includes(e.key) && setActive(opt)}
+						onClick={() => setYear(opt)}
+						onKeyPress={e => ['Enter', ' '].includes(e.key) && setYear(opt)}
 						role="button"
 						tabIndex={0}
 					>
@@ -53,6 +53,14 @@ const CalendarYearsStyles = styled.div`
 	.option:focus {
 		color: black;
 		background-color: white;
+	}
+
+	@media screen and (max-width: 740px) {
+		ul {
+			width: 50px;
+			padding: 12px 0 0 0;
+			font-size: 1.8rem;
+		}
 	}
 `
 

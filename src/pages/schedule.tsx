@@ -5,7 +5,7 @@ import Calendar from '../components/Calendar'
 
 const CalendarPage = () => (
 	<Layout>
-		<SEO title="calendar" />
+		<SEO title="schedule" />
 		<main>
 			<Calendar />
 		</main>
