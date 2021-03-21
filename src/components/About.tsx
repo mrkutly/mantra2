@@ -1,23 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Image, { FluidObject } from 'gatsby-image'
+import styled from 'styled-components'
 import SectionHeading from './SectionHeading'
 import { ImageContainer, FullScreenCard } from './styles'
-import Expand from './Expand'
 
 const ABOUT_QUERY = graphql`
 	query {
-		bios: allBiosJson {
-			edges {
-				node {
-					id
-					musician
-					paragraphs
-				}
-			}
-		}
-
-		al: file(relativePath: { eq: "portraits/al.jpeg" }) {
+		bandImage: file(relativePath: { eq: "timber-cool.jpg" }) {
 			childImageSharp {
 				fluid {
 					...GatsbyImageSharpFluid
@@ -25,55 +15,17 @@ const ABOUT_QUERY = graphql`
 			}
 		}
 
-		band: file(relativePath: { eq: "drumming-krakow.jpg" }) {
-			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
-				}
-			}
-		}
-
-		chris: file(relativePath: { eq: "portraits/chris.jpeg" }) {
-			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
-				}
-			}
-		}
-
-		joe: file(relativePath: { eq: "portraits/joe.jpeg" }) {
-			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
-				}
-			}
-		}
-
-		mark: file(relativePath: { eq: "portraits/mark.jpeg" }) {
-			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
-				}
-			}
-		}
-
-		mike: file(relativePath: { eq: "portraits/mike.jpeg" }) {
-			childImageSharp {
-				fluid {
-					...GatsbyImageSharpFluid
+		people: allPeopleJson {
+			nodes {
+				program
+				staff {
+					name
+					roles
 				}
 			}
 		}
 	}
 `
-
-interface BioNode {
-	node: {
-		id: number
-		musician: string
-		paragraphs: string[]
-	}
-}
 
 export interface ImageResult {
 	childImageSharp: {
@@ -82,52 +34,141 @@ export interface ImageResult {
 }
 
 type Bios = {
-	bios: {
-		edges: BioNode[]
+	bandImage: ImageResult
+	people: {
+		nodes: Array<{
+			program: string
+			staff: Array<{ name: string; roles: string[] }>
+		}>
 	}
-	al: ImageResult
-	band: ImageResult
-	chris: ImageResult
-	joe: ImageResult
-	mark: ImageResult
-	mike: ImageResult
 }
+
+const randomOrder = () => [-1, 0, 1][Math.floor(Math.random() * 3)]
 
 const About = () => {
 	const data = useStaticQuery<Bios>(ABOUT_QUERY)
-	const [active, setActive] = useState<string>('the band')
-	const activeBio = data.bios.edges.find(bio => bio.node.musician === active)
-	const imageName = active === 'the band' ? 'band' : active
-	const activeImage = data[imageName].childImageSharp.fluid
-	const { musician, paragraphs } = activeBio.node
+
+	const [admin, otherPrograms] = data.people.nodes.reduce(
+		(acc, node) => {
+			if (node.program === 'Administration') acc[0].push(node)
+			else acc[1].push(node)
+			return acc
+		},
+		[[], []]
+	)
 
 	return (
 		<section id="about" style={{ fontWeight: 600 }}>
-			<FullScreenCard background="#ffffffe6" color="#000000">
-				<SectionHeading color="#000000">
-					<h1>
-						About{' '}
-						<Expand
-							active={active}
-							colors={{ primary: '#ffffff', background: 'black' }}
-							options={data.bios.edges.map(bio => bio.node.musician)}
-							setActive={setActive}
-						/>
-					</h1>
+			<FullScreenCard>
+				<SectionHeading>
+					<h1>About</h1>
 				</SectionHeading>
-				<div>
+				<ContentStyles>
+					<h1>Mantra Percussion Inc.</h1>
 					<ImageContainer width="400px">
-						<Image fluid={activeImage} />
+						<Image fluid={data.bandImage.childImageSharp.fluid} />
 					</ImageContainer>
-					<div>
-						{paragraphs.map((text, idx) => (
-							<p key={`${musician}-${idx}`}>{text}</p>
+					<p>
+						Mantra Percussion, Inc. is a NYC-based percussion collective
+						committed to honoring the past and expanding the future of
+						percussion music.
+					</p>
+
+					<p>
+						As an organization we strive to engage international audiences by
+						challenging what it means to communicate music through percussion
+						instruments, and to foster high-level musicianship for underserved
+						and underrepresented youth in new music, developing unique and
+						equitable music communities.
+					</p>
+					<p>
+						Our aim is to bring to life new works for percussion by living
+						composers and creators from across the social spectrum —
+						establishing long-lasting relationships with our collaborators. From
+						our inception we have almost exclusively performed works written for
+						the group. We travel around our block and the world as ambassadors
+						of our repertoire, giving dozens of performances of the works we
+						commission.
+					</p>
+				</ContentStyles>
+
+				<ContentStyles>
+					<h1>Who are we?</h1>
+					<div className="grid">
+						{otherPrograms.sort(randomOrder).map(({ program, staff }) => (
+							<div key={`${program}-staff`}>
+								<h2>{program}</h2>
+								<ul>
+									{staff.sort(randomOrder).map(({ name, roles }) => (
+										<li key={`${program}-${name}`}>
+											<p>{name}</p>
+											{roles && (
+												<ul className="small">
+													{roles.map((role, idx) => (
+														<li key={`${name}-${role}-${idx}`}>{role}</li>
+													))}
+												</ul>
+											)}
+										</li>
+									))}
+								</ul>
+							</div>
+						))}
+						{admin.map(({ program, staff }) => (
+							<div key={`${program}-staff`}>
+								<h2>{program}</h2>
+								<ul>
+									{staff.sort(randomOrder).map(({ name, roles }) => (
+										<li key={`${program}-${name}`}>
+											<p>{name}</p>
+											{roles && (
+												<ul className="small">
+													{roles.map((role, idx) => (
+														<li key={`${name}-${role}-${idx}`}>{role}</li>
+													))}
+												</ul>
+											)}
+										</li>
+									))}
+								</ul>
+							</div>
 						))}
 					</div>
-				</div>
+				</ContentStyles>
 			</FullScreenCard>
 		</section>
 	)
 }
+
+const ContentStyles = styled.div`
+	min-height: 400px;
+	margin: 2rem auto 5rem;
+	h1 {
+		font-size: 3.5rem;
+		color: lightblue;
+	}
+
+	.grid {
+		display: grid;
+		grid-gap: 4rem;
+		grid-template-columns: 1fr 1fr 1fr;
+
+		.small {
+			font-size: 0.7em;
+		}
+	}
+
+	@media screen and (max-width: 740px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media screen and (min-width: 741px) and (max-width: 900px) {
+		.grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+`
 
 export default About

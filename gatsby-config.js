@@ -1,8 +1,7 @@
 module.exports = {
 	siteMetadata: {
-		title: `Mantra Percussion`,
-		description: `NYC-based percussion sextet committed to honoring the past and expanding the future of percussion
-				music`,
+		title: `mantra percussion`,
+		description: `NYC-based percussion organization committed to honoring the past and expanding the future of percussion music`,
 		author: `Mark Sauer-Utley`,
 		navLinks: [
 			{
@@ -28,8 +27,8 @@ module.exports = {
 			},
 			{
 				id: 4,
-				display: `calendar`,
-				href: `/calendar`,
+				display: `schedule`,
+				href: `/schedule`,
 				partial: false,
 				isHash: false,
 			},
@@ -42,9 +41,9 @@ module.exports = {
 			},
 			{
 				id: 6,
-				display: `education`,
-				href: `/education`,
-				partial: true,
+				display: `programs`,
+				href: `/programs`,
+				partial: false,
 				isHash: false,
 			},
 			{
@@ -58,7 +57,6 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-transition-link`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -95,8 +93,5 @@ module.exports = {
 				icon: `src/images/mantra-icon.png`, // This path is relative to the root of the site.
 			},
 		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
 	],
 }

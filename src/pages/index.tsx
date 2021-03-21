@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import SectionHeading from '../components/SectionHeading'
-import Logo from '../components/Logo'
 
 const HomePage = () => (
 	<Layout>
@@ -13,9 +12,7 @@ const HomePage = () => (
 				<div />
 			</SectionHeading>
 		</IndexHeader>
-		<main>
-			<Logo />
-		</main>
+		<main></main>
 	</Layout>
 )
 

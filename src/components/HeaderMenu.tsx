@@ -90,7 +90,6 @@ const HeaderMenu = ({ color }: HeaderMenuProps) => {
 									href={link.href}
 									role="menuitem"
 									ref={refs[idx]}
-									tabIndex={active === idx ? 0 : -1}
 								>
 									{link.display}
 								</Link>
@@ -101,7 +100,6 @@ const HeaderMenu = ({ color }: HeaderMenuProps) => {
 									ref={refs[idx]}
 									role="menuitem"
 									to={link.href}
-									tabIndex={active === idx ? 0 : -1}
 									style={{ background: 'transparent' }}
 								>
 									{link.display}
@@ -125,14 +123,14 @@ const HeaderMenuStyles = styled.div`
 			display: flex;
 			color: white;
 			list-style: none;
-			
+
 			justify-content: flex-end;
 
 			li {
 				margin-left: 20px;
 
 				a {
-					color ${({ color }) => color ?? 'white'};
+					color: ${({ color }) => color ?? 'white'};
 				}
 			}
 		}
@@ -140,7 +138,7 @@ const HeaderMenuStyles = styled.div`
 
 	@media screen and (max-width: 900px) {
 		.bars {
-			position: absolute;
+			position: fixed;
 			right: 40px;
 			top: 32px;
 			height: 32px;
@@ -152,7 +150,7 @@ const HeaderMenuStyles = styled.div`
 			div {
 				height: 4px;
 				width: 40px;
-				background: ${({ color }) => color ?? 'white'};				
+				background: ${({ color }) => color ?? 'white'};
 				transition: transform 0.1s ease;
 			}
 		}

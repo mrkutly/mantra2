@@ -1,22 +1,19 @@
-import React, { useEffect } from "react"
-import PropTypes from "prop-types"
-import BackgroundImage from "./BackgroundImage"
-import message from "./message"
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import message from './message'
 
 const Layout = ({ children }) => {
 	useEffect(() => console.log(message), [])
 
 	return (
-		<BackgroundImage>
-			<div
-				style={{
-					margin: `0 auto`,
-					paddingTop: 0,
-				}}
-			>
-				{children}
-			</div>
-		</BackgroundImage>
+		<div
+			style={{
+				margin: `0 auto`,
+				paddingTop: 0,
+			}}
+		>
+			{children}
+		</div>
 	)
 }
 

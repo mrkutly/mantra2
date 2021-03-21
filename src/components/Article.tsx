@@ -19,7 +19,7 @@ const ArticleLink = styled.a`
 
 	:focus,
 	:hover {
-		animation: ${colorChange} 2.5s linear infinite;
+		animation: ${colorChange} 7s linear infinite;
 		letter-spacing: 4px;
 		text-shadow: 1px 1px black;
 	}

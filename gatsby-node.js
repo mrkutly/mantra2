@@ -1,20 +1,43 @@
-const { createFilePath } = require(`gatsby-source-filesystem`)
+exports.sourceNodes = ({ actions }) => {
+	const { createTypes } = actions
+	const typeDefs = `
+		type Concert {
+			date: Date
+			location: Location
+			program: [Piece]
+		}
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-	const { createNodeField } = actions
+		type Piece {
+			composer: String
+			description: String
+			title: String
+		}
 
-	if (node.internal.type === `ConcertsJson`) {
-		const slug = createFilePath({
-			node,
-			getNode,
-			basePath: `src/data`,
-			trailingSlash: false,
-		})
-		const year = slug.split("/")[2]
-		createNodeField({
-			node,
-			name: `year`,
-			value: year,
-		})
-	}
+		type Location {
+			city: String
+			support: String
+			venue: String
+		}
+
+		interface GroupSchedule {
+			year: Date @dateformat
+			concerts: [Concert]
+		}
+
+		type DataJsonMantra implements Node & GroupSchedule {
+			year: Date @dateformat
+			concerts: [Concert]
+		}
+		
+		type DataJsonMantraYouth implements Node & GroupSchedule {
+			year: Date @dateformat
+			concerts: [Concert]
+		}
+		
+		type DataJsonRecap implements Node & GroupSchedule {
+			year: Date @dateformat
+			concerts: [Concert]
+		}
+	`
+	createTypes(typeDefs)
 }

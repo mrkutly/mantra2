@@ -51,47 +51,10 @@ export const AlbumPlayerStyles = styled.div`
 	}
 `
 
-export const FullScreenCard = styled.div<{
-	background: string
-	color?: string
-}>`
+export const FullScreenCard = styled.div`
 	padding: 32px;
-	background: ${({ background }) => background};
-	color: ${({ color }) => color ?? 'black'};
+	background: #000000f0;
 	min-height: 100vh;
-
-	&.split {
-		display: grid;
-		position: relative;
-
-		p {
-			margin: auto;
-
-			&:after {
-				content: '';
-				display: block;
-				width: calc(50vw - 4px);
-				background: #0065ff4f;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				right: 0;
-				z-index: -1;
-			}
-
-			&:before {
-				content: '';
-				display: block;
-				width: calc(50vw - 4px);
-				background: #f200004f;
-				height: 100%;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: -1;
-			}
-		}
-	}
 `
 
 export const linkStyles = css`
@@ -103,8 +66,8 @@ export const linkStyles = css`
 	font-weight: 600;
 
 	&:hover {
-		animation: ${borderColorChange} 2.5s linear infinite,
-			${colorChange} 2.5s linear infinite;
+		animation: ${borderColorChange} 7s linear infinite,
+			${colorChange} 7s linear infinite;
 	}
 
 	&:focus {
@@ -119,8 +82,8 @@ export const linkStyles = css`
 
 	&.active {
 		background: var(--black);
-		animation: ${borderColorChange} 2.5s linear infinite,
-			${colorChange} 2.5s linear infinite;
+		animation: ${borderColorChange} 7s linear infinite,
+			${colorChange} 7s linear infinite;
 	}
 `
 export const Link = styled.a`
@@ -140,8 +103,8 @@ export const Button = styled.button`
 	transition: all 0.3s ease;
 
 	&:hover {
-		animation: ${borderColorChange} 2.5s linear infinite,
-			${backgroundChange} 2.5s linear infinite;
+		animation: ${borderColorChange} 7s linear infinite,
+			${backgroundChange} 7s linear infinite;
 		color: black;
 		cursor: pointer;
 	}
