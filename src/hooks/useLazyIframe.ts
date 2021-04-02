@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import LazyLoad from 'vanilla-lazyload';
 
 const config = {
-	elements_selector: ".lazy-loaded",
+	elements_selector: '.lazy-loaded',
 };
 
 declare const window: { _lazyLoad: typeof LazyLoad; };

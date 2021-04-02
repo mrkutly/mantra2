@@ -57,26 +57,18 @@ function getCalendarObject(schedule) {
 	const obj = {}
 
 	schedule.forEach(({ year, concerts }) => {
-		concerts.forEach(concert => {
-			const { location, program, date } = concert
-
-			if (!obj[year]) obj[year] = { year, concerts: [] }
-			// create a new array with the current concert
-			const updatedConcerts = [
-				...obj[year].concerts,
-				{ location, program, date },
-			]
-
-			// sort it by date in descending order
-			const sortedConcerts = updatedConcerts.sort((a, b) => {
+		const sortedConcerts = concerts
+			.map(concert => {
+				const { location, program, date } = concert
+				return { location, program, date }
+			})
+			.sort((a, b) => {
 				const dateA = new Date(`${a.date}, ${year}`)
 				const dateB = new Date(`${b.date}, ${year}`)
 				return descending(dateA, dateB)
 			})
 
-			// reassign the concerts array to the sorted concerts
-			obj[year].concerts = sortedConcerts
-		})
+		obj[year] = { year, concerts: sortedConcerts }
 	})
 
 	return obj
@@ -91,6 +83,7 @@ const Calendar = () => {
 	])
 	const thisYear = String(new Date(Date.now()).getFullYear())
 	const [year, setYear] = useState(thisYear)
+	console.log(years[year])
 
 	return (
 		<SectionStyles id="schedule">
@@ -124,7 +117,7 @@ const Calendar = () => {
 					<div className="shows">
 						{years[year]
 							? years[year].concerts.map(show => (
-									<Concert concert={show} key={`${years[year]}-${show.date}`} />
+									<Concert concert={show} key={JSON.stringify(show)} />
 							  ))
 							: 'Nothing on the books for this year yet. Come back later.'}
 					</div>
