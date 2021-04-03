@@ -3,17 +3,34 @@
 	"extends": [
 		"wesbos"
 	],
-	"plugins": ["@typescript-eslint"],
+	"plugins": [
+		"@typescript-eslint"
+	],
 	"rules": {
-		"react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [
+					".tsx",
+					".jsx"
+				]
+			}
+		],
 		"no-use-before-define": "off",
-		"@typescript-eslint/no-use-before-define": ["off"],
+		"@typescript-eslint/no-use-before-define": [
+			"off"
+		],
 		"react/prop-types": "off",
 	},
 	"settings": {
 		"import/resolver": {
-		"node": {
-			"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				]
 			}
 		}
 	}

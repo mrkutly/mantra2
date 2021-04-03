@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react'
-import BackgroundVideo from './src/components/BackgroundVideo'
+import BackgroundImage from './src/components/BackgroundImage'
 
 export const wrapPageElement = ({ element }) => (
 	<>
-		<BackgroundVideo />
+		<BackgroundImage />
 		{element}
 	</>
 )
