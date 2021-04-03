@@ -95,25 +95,6 @@ const About = () => {
 				<ContentStyles>
 					<h1>Who are we?</h1>
 					<div className="grid">
-						{otherPrograms.sort(randomOrder).map(({ program, staff }) => (
-							<div key={`${program}-staff`}>
-								<h2>{program}</h2>
-								<ul>
-									{staff.sort(randomOrder).map(({ name, roles }) => (
-										<li key={`${program}-${name}`}>
-											<p>{name}</p>
-											{roles && (
-												<ul className="small">
-													{roles.map((role, idx) => (
-														<li key={`${name}-${role}-${idx}`}>{role}</li>
-													))}
-												</ul>
-											)}
-										</li>
-									))}
-								</ul>
-							</div>
-						))}
 						{admin.map(({ program, staff }) => (
 							<div key={`${program}-staff`}>
 								<h2>{program}</h2>
@@ -133,6 +114,27 @@ const About = () => {
 								</ul>
 							</div>
 						))}
+						<div className="sub-grid">
+							{otherPrograms.sort(randomOrder).map(({ program, staff }) => (
+								<div key={`${program}-staff`}>
+									<h2>{program}</h2>
+									<ul>
+										{staff.sort(randomOrder).map(({ name, roles }) => (
+											<li key={`${program}-${name}`}>
+												<p>{name}</p>
+												{roles && (
+													<ul className="small">
+														{roles.map((role, idx) => (
+															<li key={`${name}-${role}-${idx}`}>{role}</li>
+														))}
+													</ul>
+												)}
+											</li>
+										))}
+									</ul>
+								</div>
+							))}
+						</div>
 					</div>
 				</ContentStyles>
 			</FullScreenCard>
@@ -151,7 +153,7 @@ const ContentStyles = styled.div`
 	.grid {
 		display: grid;
 		grid-gap: 4rem;
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr;
 
 		.small {
 			font-size: 0.7em;
@@ -164,10 +166,9 @@ const ContentStyles = styled.div`
 		}
 	}
 
-	@media screen and (min-width: 741px) and (max-width: 900px) {
-		.grid {
-			grid-template-columns: 1fr 1fr;
-		}
+	.sub-grid {
+		display: grid;
+		grid-gap: 4rem;
 	}
 `
 

@@ -8,7 +8,10 @@
 			},
 			{
 				"name": "Joseph Bergen",
-				"roles": ["Co-Artistic Director", "Mantra Youth Percussion Instructional Staff"]
+				"roles": [
+					"Co-Artistic Director",
+					"Mantra Youth Percussion Instructional Staff"
+				]
 			},
 			{
 				"name": "Michael McCurdy",
@@ -37,23 +40,18 @@
 			{
 				"name": "Taylor Furman",
 				"roles": ["Mantra Youth Percussion Instructional Staff"]
-			}
-		]
-	},
-	{
-		"program": "2021 Mantra Percussion Interns",
-		"staff": [
+			},
 			{
 				"name": "Aaliyah Geiger",
-				"roles": []
+				"roles": ["Intern"]
 			},
 			{
 				"name": "Serena Huang",
-				"roles": []
+				"roles": ["Intern"]
 			},
 			{
 				"name": "Deivy Mejia",
-				"roles": []
+				"roles": ["Intern"]
 			}
 		]
 	},
@@ -108,6 +106,10 @@
 			},
 			{
 				"name": "Jude Traxler",
+				"roles": []
+			},
+			{
+				"name": "Owen Weaver",
 				"roles": []
 			},
 			{
