@@ -1,31 +1,36 @@
 /* eslint-disable react/no-this-in-sfc */
 /* eslint-disable lines-between-class-members */
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import imgSrc from './backgroundText'
 
-const canvasWidth = () => {
-	const windowWidth = window.innerWidth
-	if (windowWidth < 723) return windowWidth
-	return 723
-}
-const canvasHeight = () => (144 / 723) * canvasWidth()
 const calculateBrightness = (red: number, green: number, blue: number) =>
 	Math.sqrt(red * red * 0.299 + green * green * 0.587 + blue * blue + 0.1114) /
 	100
 
 const BackgroundVideo = () => {
+	const [canvasWidth, setCanvasWidth] = useState(0)
+	const [drawn, setDrawn] = useState(false)
 	const canvasRef = useRef<HTMLCanvasElement>()
+	const canvasHeight = (144 / 723) * canvasWidth
+
+	useEffect(() => {
+		const windowWidth = window.innerWidth
+		if (windowWidth < 723) setCanvasWidth(windowWidth)
+		else setCanvasWidth(723)
+	}, [])
+
 	useEffect(() => {
 		const canvas = canvasRef.current
+		let animationFrameID
 
-		if (canvas) {
+		if (canvas && canvasWidth > 0 && !drawn) {
 			const image = new Image()
 			image.src = imgSrc
 			image.addEventListener('load', () => {
 				const ctx = canvas.getContext('2d')
-				canvas.width = canvasWidth()
-				canvas.height = canvasHeight()
+				canvas.width = canvasWidth
+				canvas.height = canvasHeight
 
 				ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
 				const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height)
@@ -83,7 +88,7 @@ const BackgroundVideo = () => {
 					}
 				}
 
-				const particleCount = 7000
+				const particleCount = 5000
 				const particles = []
 				for (let i = 0; i < particleCount; i += 1) {
 					particles.push(new Particle())
@@ -100,15 +105,19 @@ const BackgroundVideo = () => {
 						ctx.globalAlpha = p.speed / 2
 						p.draw()
 					}
-					requestAnimationFrame(animate)
+					return requestAnimationFrame(animate)
 				}
-				animate()
+				animationFrameID = animate()
 			})
+
+			setDrawn(true)
+
+			return () => cancelAnimationFrame(animationFrameID)
 		}
-	}, [])
+	}, [canvasHeight, canvasWidth, drawn])
 
 	return (
-		<BackgroundStyles>
+		<BackgroundStyles canvasWidth={canvasWidth} canvasHeight={canvasHeight}>
 			<canvas ref={canvasRef}></canvas>
 			<div className="timber-round">
 				<div id="bar-1"></div>
@@ -144,7 +153,10 @@ const dim = keyframes`
 	}
 `
 
-const BackgroundStyles = styled.div`
+const BackgroundStyles = styled.div<{
+	canvasWidth: number
+	canvasHeight: number
+}>`
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
@@ -153,8 +165,8 @@ const BackgroundStyles = styled.div`
 	z-index: -1;
 
 	canvas {
-		width: ${() => canvasWidth()}px;
-		height: ${() => canvasHeight()}px;
+		width: ${p => p.canvasWidth}px;
+		height: ${p => p.canvasHeight}px;
 		position: absolute;
 		top: 40%;
 		left: 50%;
