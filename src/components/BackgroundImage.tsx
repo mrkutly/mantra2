@@ -2,11 +2,14 @@
 /* eslint-disable lines-between-class-members */
 import React, { useEffect, useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
-// @ts-ignore
 import imgSrc from './backgroundText'
 
-const canvasWidth = () => 723
-const canvasHeight = () => 144
+const canvasWidth = () => {
+	const windowWidth = window.innerWidth
+	if (windowWidth < 723) return windowWidth
+	return 723
+}
+const canvasHeight = () => (144 / 723) * canvasWidth()
 const calculateBrightness = (red: number, green: number, blue: number) =>
 	Math.sqrt(red * red * 0.299 + green * green * 0.587 + blue * blue + 0.1114) /
 	100
@@ -203,6 +206,12 @@ const BackgroundStyles = styled.div`
 			transform: rotate(30deg) translate(350px, -17px);
 			animation: ${dim} 6s infinite;
 			animation-delay: 5s;
+		}
+	}
+
+	@media screen and (max-width: 600px) {
+		.timber-round {
+			top: 43%;
 		}
 	}
 `

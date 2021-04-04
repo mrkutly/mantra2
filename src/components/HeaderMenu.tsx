@@ -176,7 +176,7 @@ const HeaderMenuStyles = styled.div`
 			position: fixed;
 			top: 0;
 			left: 0;
-			background: var(--black);
+			background: black;
 
 			#navbar {
 				display: block;
