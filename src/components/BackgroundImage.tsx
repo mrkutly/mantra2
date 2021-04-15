@@ -23,6 +23,7 @@ const BackgroundVideo = () => {
 				window.innerWidth
 			if (windowWidth < 723) setCanvasWidth(windowWidth)
 			else setCanvasWidth(723)
+			alert(windowWidth)
 		}, 100)
 		return () => clearTimeout(timeout)
 	}, [])
