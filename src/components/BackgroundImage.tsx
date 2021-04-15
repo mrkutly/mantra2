@@ -20,10 +20,9 @@ const BackgroundVideo = () => {
 			document.body.offsetWidth ||
 			document.documentElement?.clientWidth ||
 			window.innerWidth
-		const mq = window.matchMedia('(max-width: 723px)')
 
-		if (mq.matches) setCanvasWidth(360)
-		else setCanvasWidth(windowWidth)
+		if (windowWidth < 723) setCanvasWidth(windowWidth)
+		else setCanvasWidth(723)
 	}, [])
 
 	useEffect(() => {
