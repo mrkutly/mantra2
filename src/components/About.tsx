@@ -69,9 +69,9 @@ const About = () => {
 						<Image fluid={data.bandImage.childImageSharp.fluid} />
 					</ImageContainer>
 					<p>
-						Mantra Percussion, Inc. is a NYC-based percussion collective
-						committed to honoring the past and expanding the future of
-						percussion music.
+						Mantra Percussion, Inc. is a NYC-based, 501(c)(3) non-profit
+						percussion collective committed to honoring the past and expanding
+						the future of percussion music.
 					</p>
 
 					<p>
