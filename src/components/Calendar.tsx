@@ -83,7 +83,6 @@ const Calendar = () => {
 	])
 	const thisYear = String(new Date(Date.now()).getFullYear())
 	const [year, setYear] = useState(thisYear)
-	console.log(years[year])
 
 	return (
 		<SectionStyles id="schedule">

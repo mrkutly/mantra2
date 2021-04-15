@@ -64,14 +64,14 @@ const About = () => {
 					<h1>About</h1>
 				</SectionHeading>
 				<ContentStyles>
-					<h1>Mantra Percussion Inc.</h1>
+					<h2>Mantra Percussion Inc.</h2>
 					<ImageContainer width="400px">
 						<Image fluid={data.bandImage.childImageSharp.fluid} />
 					</ImageContainer>
 					<p>
-						Mantra Percussion, Inc. is a NYC-based percussion collective
-						committed to honoring the past and expanding the future of
-						percussion music.
+						Mantra Percussion, Inc. is a NYC-based, 501(c)(3) non-profit
+						percussion collective committed to honoring the past and expanding
+						the future of percussion music.
 					</p>
 
 					<p>
@@ -93,11 +93,11 @@ const About = () => {
 				</ContentStyles>
 
 				<ContentStyles>
-					<h1>Who are we?</h1>
+					<h2>Who are we?</h2>
 					<div className="grid">
 						{admin.map(({ program, staff }) => (
 							<div key={`${program}-staff`}>
-								<h2>{program}</h2>
+								<h3>{program}</h3>
 								<ul>
 									{staff.sort(randomOrder).map(({ name, roles }) => (
 										<li key={`${program}-${name}`}>
@@ -117,7 +117,7 @@ const About = () => {
 						<div className="sub-grid">
 							{otherPrograms.sort(randomOrder).map(({ program, staff }) => (
 								<div key={`${program}-staff`}>
-									<h2>{program}</h2>
+									<h3>{program}</h3>
 									<ul>
 										{staff.sort(randomOrder).map(({ name, roles }) => (
 											<li key={`${program}-${name}`}>
@@ -145,7 +145,7 @@ const About = () => {
 const ContentStyles = styled.div`
 	min-height: 400px;
 	margin: 2rem auto 5rem;
-	h1 {
+	h2 {
 		font-size: 3.5rem;
 		color: lightblue;
 	}
