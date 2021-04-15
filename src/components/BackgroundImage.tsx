@@ -15,17 +15,15 @@ const BackgroundVideo = () => {
 	const canvasHeight = (144 / 723) * canvasWidth
 
 	useEffect(() => {
-		const timeout = setTimeout(() => {
-			const windowWidth =
-				window.screen?.width ||
-				document.body.offsetWidth ||
-				document.documentElement?.clientWidth ||
-				window.innerWidth
-			if (windowWidth < 723) setCanvasWidth(windowWidth)
-			else setCanvasWidth(723)
-			alert(windowWidth)
-		}, 100)
-		return () => clearTimeout(timeout)
+		const windowWidth =
+			window.screen?.width ||
+			document.body.offsetWidth ||
+			document.documentElement?.clientWidth ||
+			window.innerWidth
+		const mq = window.matchMedia('(max-width: 723px)')
+
+		if (mq.matches) setCanvasWidth(360)
+		else setCanvasWidth(windowWidth)
 	}, [])
 
 	useEffect(() => {
@@ -37,16 +35,18 @@ const BackgroundVideo = () => {
 			image.src = imgSrc
 			image.addEventListener('load', () => {
 				const ctx = canvas.getContext('2d')
+				canvas.width = canvasWidth
+				canvas.height = canvasHeight
 
-				ctx.drawImage(image, 0, 0, canvasWidth, canvasHeight)
-				const pixels = ctx.getImageData(0, 0, canvasWidth, canvasHeight)
-				ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+				ctx.drawImage(image, 0, 0, canvas.width, canvas.height)
+				const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height)
+				ctx.clearRect(0, 0, canvas.width, canvas.height)
 
 				const brightnessMap: number[][] = []
 
-				for (let y = 0; y < canvasHeight; y += 1) {
+				for (let y = 0; y < canvas.height; y += 1) {
 					const row = []
-					for (let x = 0; x < canvasWidth; x += 1) {
+					for (let x = 0; x < canvas.width; x += 1) {
 						const redIdx = y * 4 * pixels.width + x * 4
 						const red = pixels.data[redIdx]
 						const green = pixels.data[redIdx + 1]
@@ -67,7 +67,7 @@ const BackgroundVideo = () => {
 					size: number
 
 					constructor() {
-						this.x = Math.random() * canvasWidth
+						this.x = Math.random() * canvas.width
 						this.y = 0
 						this.speed = 0
 						this.velocity = Math.random() * 0.5
@@ -80,9 +80,9 @@ const BackgroundVideo = () => {
 						this.speed = brightnessMap[position1][position2]
 						const movement = 3.2 - this.speed + this.velocity
 						this.y += movement
-						if (this.y >= canvasHeight) {
+						if (this.y >= canvas.height) {
 							this.y = 0
-							this.x = Math.random() * canvasWidth
+							this.x = Math.random() * canvas.width
 						}
 					}
 
@@ -103,7 +103,7 @@ const BackgroundVideo = () => {
 				const animate = () => {
 					ctx.globalAlpha = 0.05
 					ctx.fillStyle = 'rgb(0, 0, 0)'
-					ctx.fillRect(0, 0, canvasWidth, canvasHeight)
+					ctx.fillRect(0, 0, canvas.width, canvas.height)
 					ctx.globalAlpha = 0.2
 					for (let i = 0; i < particles.length; i += 1) {
 						const p = particles[i]
@@ -123,12 +123,8 @@ const BackgroundVideo = () => {
 	}, [canvasHeight, canvasWidth, drawn])
 
 	return (
-		<BackgroundStyles>
-			<canvas
-				width={canvasWidth}
-				height={canvasHeight}
-				ref={canvasRef}
-			></canvas>
+		<BackgroundStyles canvasWidth={canvasWidth} canvasHeight={canvasHeight}>
+			<canvas ref={canvasRef}></canvas>
 			<div className="timber-round">
 				<div id="bar-1"></div>
 				<div id="bar-2"></div>
@@ -163,7 +159,10 @@ const dim = keyframes`
 	}
 `
 
-const BackgroundStyles = styled.div`
+const BackgroundStyles = styled.div<{
+	canvasWidth: number
+	canvasHeight: number
+}>`
 	position: fixed;
 	width: 100vw;
 	height: 100vh;
@@ -172,6 +171,8 @@ const BackgroundStyles = styled.div`
 	z-index: -1;
 
 	canvas {
+		width: ${p => p.canvasWidth}px;
+		height: ${p => p.canvasHeight}px;
 		position: absolute;
 		top: 40%;
 		left: 50%;
