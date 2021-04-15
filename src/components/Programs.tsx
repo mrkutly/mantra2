@@ -64,7 +64,10 @@ const Contact = () => {
 					<div className="program">
 						<h1>Mantra Percussion</h1>
 						<WhiteImageContainer width="300px" style={{ padding: '20px 0' }}>
-							<Image fluid={mantra.childImageSharp.fluid} />
+							<Image
+								fluid={mantra.childImageSharp.fluid}
+								style={{ filter: 'invert(1)' }}
+							/>
 						</WhiteImageContainer>
 						<p>
 							Formed in 2009, our flagship sextet performs internationally,
