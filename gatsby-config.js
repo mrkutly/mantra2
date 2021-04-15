@@ -53,6 +53,13 @@ module.exports = {
 				partial: false,
 				isHash: false,
 			},
+			{
+				id: 8,
+				display: `support`,
+				href: `/support`,
+				partial: false,
+				isHash: false,
+			},
 		],
 	},
 	plugins: [
