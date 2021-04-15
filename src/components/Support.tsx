@@ -155,6 +155,7 @@ const ContentStyles = styled.div`
 	}
 
 	ul {
+		margin-top: 5rem;
 		margin-left: 0;
 		list-style: none;
 		display: grid;
