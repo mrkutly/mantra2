@@ -65,7 +65,7 @@ const SEO = ({ description, lang, meta, title }: SEOProps) => {
 				{
 					name: 'viewport',
 					content:
-						'width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;',
+						'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
 				},
 			].concat(meta)}
 		/>
