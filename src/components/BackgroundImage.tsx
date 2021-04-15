@@ -15,13 +15,16 @@ const BackgroundVideo = () => {
 	const canvasHeight = (144 / 723) * canvasWidth
 
 	useEffect(() => {
-		const windowWidth =
-			window.screen?.width ||
-			document.body.offsetWidth ||
-			document.documentElement?.clientWidth ||
-			window.innerWidth
-		if (windowWidth < 723) setCanvasWidth(windowWidth)
-		else setCanvasWidth(723)
+		const timeout = setTimeout(() => {
+			const windowWidth =
+				window.screen?.width ||
+				document.body.offsetWidth ||
+				document.documentElement?.clientWidth ||
+				window.innerWidth
+			if (windowWidth < 723) setCanvasWidth(windowWidth)
+			else setCanvasWidth(723)
+		}, 100)
+		return () => clearTimeout(timeout)
 	}, [])
 
 	useEffect(() => {

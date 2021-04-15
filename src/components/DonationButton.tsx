@@ -9,7 +9,7 @@ const DonationButton = () => (
 	>
 		<input type="hidden" name="cmd" value="_s-xclick" />
 		<input type="hidden" name="hosted_button_id" value="NMEN8M5VNN2U4" />
-		<Button type="submit">Click here to donate</Button>
+		<Button type="submit">Click here to donate and support new music!</Button>
 	</form>
 )
 
