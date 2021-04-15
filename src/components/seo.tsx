@@ -62,6 +62,11 @@ const SEO = ({ description, lang, meta, title }: SEOProps) => {
 					name: `twitter:description`,
 					content: metaDescription,
 				},
+				{
+					name: 'viewport',
+					content:
+						'width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;',
+				},
 			].concat(meta)}
 		/>
 	)
