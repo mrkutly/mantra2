@@ -16,6 +16,7 @@ const BackgroundVideo = () => {
 
 	useEffect(() => {
 		const windowWidth =
+			window.screen?.width ||
 			document.body.offsetWidth ||
 			document.documentElement?.clientWidth ||
 			window.innerWidth
