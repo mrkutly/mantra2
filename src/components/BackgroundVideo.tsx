@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from './styles'
+// @ts-ignore
 import TimberVideo from '../videos/timber-logo.mp4'
+// @ts-ignore
 import TimberPoster from '../images/timber-poster.png'
 
 const autoplayKey = 'autoplay'
