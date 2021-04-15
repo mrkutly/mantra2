@@ -16,7 +16,9 @@ const BackgroundVideo = () => {
 
 	useEffect(() => {
 		const windowWidth =
-			document.documentElement?.clientWidth || window.innerWidth
+			document.body.offsetWidth ||
+			document.documentElement?.clientWidth ||
+			window.innerWidth
 		if (windowWidth < 723) setCanvasWidth(windowWidth)
 		else setCanvasWidth(723)
 	}, [])
